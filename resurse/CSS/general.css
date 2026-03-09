@@ -1,0 +1,572 @@
+body{
+    --background-color: rgb(199, 199, 44);
+    --margin-dimens: 100px;
+    --border-color: purple;
+    --image-border: rgb(11, 219, 185);
+    --image-border-radius: 15px;
+    --textbox-radius: 10px;
+    --shadow-box: 0px 0px 5px rgb(78, 67, 67);
+    --table-border: 2px solid rgb(93, 93, 109);
+    background-color: var(--background-color);
+}
+
+p{
+    border: 1px solid blueviolet
+}
+
+main{
+    margin-left: var(--margin-dimens);
+    margin-right: var(--margin-dimens);
+}
+
+#grid-pagina{
+    display: grid;
+    gap: 10px;
+    /* grid pe 3 coloane */
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-areas: "welcome welcome intro intro"
+                         "top-wallpapers top-wallpapers top-wallpapers top-wallpapers"
+                         "top-ringtones top-ringtones top-ringtones top-ringtones"
+                         "most-recent-wallpapers most-recent-wallpapers most-recent-wallpapers most-recent-wallpapers"
+                         "most-recent-ringtones most-recent-ringtones most-recent-ringtones most-recent-ringtones"
+                         "marketplace marketplace marketplace marketplace"
+                         "auth auth auth auth"
+                         "acc-admin acc-admin acc-admin acc-admin"
+                         "general-info general-info general-info general-info"
+                         "promotii promotii anunturi anunturi"
+                         "fig1 orar orar orar"
+                         "fig2 orar orar orar"
+                         "fig3 orar orar orar"
+                         "produse produse produse produse"
+                         "index-intrebari index-intrebari index-intrebari index-intrebari";
+}
+
+
+#grid-pagina>*{
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-box);
+    padding: 10px;
+}
+
+.explore-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.explore-grid>*{
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.explore-grid figure{
+    border-radius: var(--image-border-radius);
+}
+
+.explore-grid figure img{
+    width: 100%; 
+    height: 100%;             
+    display: block;     
+    object-fit: cover;  
+    object-position: center;
+    box-shadow: 0px 0px 5px rgb(93, 93, 109);
+    border-radius: var(--image-border-radius);
+    box-sizing: border-box;
+}
+
+.aviation-grid-selection{
+    grid-template-areas: "explore1 explore2 explore3 explore4"
+                         "explore8 explore9 explore10 explore11"
+}
+
+.cars-grid-selection{
+    grid-template-areas: "explore12 explore5 explore6 explore7"
+}
+
+.photo-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.top-wallpapers-grid{
+    grid-template-areas: "top2 top4 top4 top4"
+                         "top3 top3 top3 top1";
+}
+
+.most-recent-wallpapers-grid{
+    grid-template-areas: "recent2 recent2 recent2 recent4"
+                         "recent3 recent3 recent1 recent1";
+}
+
+.photo-grid>*{
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.photo-grid figure{
+    border-radius: var(--image-border-radius);
+}
+
+.photo-grid figure img {
+    width: 100%; 
+    height: 100%;             
+    display: block;     
+    object-fit: cover;  
+    object-position: center;
+    box-shadow: 0px 0px 5px rgb(93, 93, 109);
+    border-radius: var(--image-border-radius);
+    box-sizing: border-box;
+}
+
+#welcome{
+    grid-area: welcome;
+}
+#intro{
+    grid-area: intro;
+}
+#top-wallpapers{
+    grid-area: top-wallpapers;
+}
+#top-ringtones{
+    grid-area: top-ringtones;
+}
+#most-recent-wallpapers{
+    grid-area: most-recent-wallpapers;
+}
+#most-recent-ringtones{
+    grid-area: most-recent-ringtones;
+}
+
+/*authentification page*/
+
+#auth{
+    grid-area: auth;
+}
+
+/*marketplace area*/
+
+#marketplace{
+    grid-area: marketplace;
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 8px;
+}
+
+.textbox input{
+    border-radius: var(--textbox-radius);
+    border-color: white;
+    border: 2px;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+
+/*content management*/
+
+.post-file{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-wallpaper-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "my-post1 my-post2";
+}
+
+.edit-wallpaper-grid>*{
+    padding: 20px;
+}
+
+.wallpaper-card{
+    border: 2px solid rgb(68, 179, 99);
+    box-shadow: var(--shadow-box);
+    border-radius: var(--image-border-radius);
+}
+
+.wallpaper-card > figure > img{
+    box-shadow: var(--shadow-box);
+    border-radius: 10px;
+}
+
+.wallpaper-details{
+    padding: 15px;
+}
+
+/*purchase history section*/
+
+#purchase-history{
+    display: grid;
+    padding: 10px;
+    gap: 20px;
+}
+
+.purchase-list{
+    width: 100%;
+    border-collapse: collapse;
+    border: var(--table-border)
+}
+
+.purchase-list tbody tr:nth-child(even){
+    background-color:lightblue;
+}
+
+.purchase-list tr, td, th{
+    border: var(--table-border);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.delete-button{
+    margin-top: auto;
+}
+
+#my-post1{
+    grid-area: my-post1;
+}
+#my-post2{
+    grid-area:my-post2;
+}
+
+#promotii{
+    grid-area: promotii;
+}
+#anunturi{
+    grid-area: anunturi;
+}
+#orar{
+    grid-area: orar;
+}
+ 
+#fig1{
+    grid-area: fig1;
+}
+#fig2{
+    grid-area: fig2;
+}
+#fig3{
+    grid-area: fig3;
+}
+
+/*top wallpapers*/
+#top1{
+    grid-area: top1;
+}
+#top2{
+    grid-area: top2;
+}
+#top3{
+    grid-area: top3;
+}
+#top4{
+    grid-area: top4;
+}
+
+/*most recent wallpapers*/
+#recent1{
+    grid-area: recent1
+}
+#recent2{
+    grid-area: recent2
+}
+#recent3{
+    grid-area: recent3
+}
+#recent4{
+    grid-area: recent4
+}
+
+/*explore photos*/
+
+/*aviation*/
+#explore1{
+    grid-area: explore1;
+}
+#explore2{
+    grid-area: explore2;
+}
+#explore3{
+    grid-area: explore3;
+}
+#explore4{
+    grid-area: explore4;
+}
+#explore8{
+    grid-area: explore8;
+}
+#explore9{
+    grid-area: explore9;
+}
+#explore10{
+    grid-area: explore10;
+}
+#explore11{
+    grid-area: explore11;
+}
+
+/*cars*/
+#explore5{
+    grid-area: explore5;
+}
+#explore6{
+    grid-area: explore6;
+}
+#explore7{
+    grid-area: explore7;
+}
+#explore12{
+    grid-area: explore12;
+}
+
+/*account administration*/
+#acc-admin{
+    grid-area: acc-admin;
+}
+
+.dashboard-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "email email"
+                         "username username"
+                         "first-name last-name"
+                         "phone phone"
+                         "birth-date birth-date"
+}
+
+.field-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#email{
+    grid-area: email;
+}
+#username{
+    grid-area: username;
+}
+#first-name{
+    grid-area: first-name;
+}
+#last-name{
+    grid-area: last-name;
+}
+#phone{
+    grid-area: phone;
+}
+#birth-date{
+    grid-area: birth-date;
+}
+
+/*general information*/
+
+#general-info{
+    grid-area: general-info;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "h2 h2"
+                         "about-us about-us"
+                         "faq faq"
+                         "announcements announcements"
+                         "learn learn"
+                         "fees-and-terms-of-service fees-and-terms-of-service"
+}
+
+#general-info h2{
+    grid-area: h2;
+}
+#about-us{
+    grid-area: about-us;
+}
+#faq{
+    grid-area: faq;
+}
+#fees-and-terms-of-service{
+    display: grid;
+    grid-area: fees-and-terms-of-service;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "hgroup hgroup"
+                         "fees terms";
+}
+.fees{
+    grid-area: fees;
+}
+.terms{
+    grid-area: terms;
+}
+#fees-and-terms-of-service hgroup{
+    grid-area: hgroup;
+}
+#contact{
+    grid-area: contact;
+}
+#announcements{
+    grid-area: announcements;
+}
+#learn{
+    grid-area: learn;
+}
+
+#produse{
+    grid-area: produse;
+}
+#index-intrebari{
+    grid-area: index-intrebari;
+}
+
+figure{
+    margin: 0; /*resetare margine*/
+}
+
+figure > img {
+    width: 100%;
+}
+
+.iframe-tabs > a{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* margin-right: 10px; */
+    transition: all 0.3s linear;
+}
+
+.iframe-tabs > a:hover{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--border-color);
+    color: white;
+}
+
+.iframe-tabs{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.iframe-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 315px;
+    width: 600px;
+}
+
+@media screen and (max-width: 1200px) {
+    body{
+        --margin-dimens: 80px; 
+    }
+
+    #grid-pagina{
+    /* grid pe 2 coloane */
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "welcome welcome"
+                             "intro intro"
+                             "top-wallpapers top-wallpapers"
+                             "top-ringtones top-ringtones"
+                             "most-recent-wallpapers most-recent-wallpapers"
+                             "most-recent-ringtones most-recent-ringtones"
+                             "marketplace marketplace"
+                             "auth auth"
+                             "acc-admin acc-admin"
+                             "promotii promotii"
+                             "anunturi anunturi"
+                             "fig1 orar"
+                             "fig2 orar"
+                             "fig3 orar"
+                             "produse produse"
+                             "index-intrebari index-intrebari";
+    }
+
+    .photo-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .explore-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .top-wallpapers-grid{
+        grid-template-areas: "top3 top3"
+                             "top1 top2"
+                             "top4 top4";
+    }
+
+    .most-recent-wallpapers-grid{
+        grid-template-areas: "recent3 recent3"
+                             "recent1 recent2"
+                             "recent4 recent4"
+    }
+
+    .aviation-grid-selection{
+        grid-template-areas: "explore1 explore2" 
+                             "explore3 explore4"
+                             "explore8 explore9"
+                             "explore10 explore11"
+    }
+
+    .cars-grid-selection{
+        grid-template-areas: "explore12 explore5"
+                             "explore6 explore7"
+    }
+
+    .edit-wallpaper-grid{
+        display: block;
+    }
+
+    .wallpaper-card{
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body{
+        --margin-dimens: 50px; 
+    }
+
+    #grid-pagina{
+        display: block;
+    }
+
+    .photo-grid{
+        display: block;
+    }
+
+    .explore-grid{
+        display: block;
+    }
+
+    .top-wallpapers-grid{
+        display: block;
+    }
+
+    .most-recent-wallpapers-grid{
+        display: block;
+    }
+
+    .aviation-grid-selection{
+        display: block;
+    }
+
+    .cars-grid-selection{
+        display: block;
+    }
+
+    .edit-wallpaper-grid{
+        display: block;
+    }
+}
