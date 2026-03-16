@@ -1,5 +1,5 @@
 body{
-    --background-color: rgb(199, 199, 44);
+    --background-color: #345D6A;
     --margin-dimens: 100px;
     --border-color: purple;
     --image-border: rgb(11, 219, 185);
@@ -7,7 +7,7 @@ body{
     --textbox-radius: 10px;
     --shadow-box: 0px 0px 5px rgb(78, 67, 67);
     --table-border: 2px solid rgb(93, 93, 109);
-    background-color: var(--background-color);
+    background-color: var(--background-color)
 }
 
 p{
@@ -23,24 +23,15 @@ main{
     display: grid;
     gap: 10px;
     /* grid pe 3 coloane */
-    grid-template-columns: 2fr 1fr 1fr 2fr;
-    grid-template-areas: "welcome welcome intro intro"
-                         "top-wallpapers top-wallpapers top-wallpapers top-wallpapers"
-                         "top-ringtones top-ringtones top-ringtones top-ringtones"
-                         "most-recent-wallpapers most-recent-wallpapers most-recent-wallpapers most-recent-wallpapers"
-                         "most-recent-ringtones most-recent-ringtones most-recent-ringtones most-recent-ringtones"
-                         "marketplace marketplace marketplace marketplace"
-                         "auth auth auth auth"
-                         "acc-admin acc-admin acc-admin acc-admin"
-                         "general-info general-info general-info general-info"
-                         "promotii promotii anunturi anunturi"
-                         "fig1 orar orar orar"
-                         "fig2 orar orar orar"
-                         "fig3 orar orar orar"
-                         "produse produse produse produse"
-                         "index-intrebari index-intrebari index-intrebari index-intrebari";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "page-start page-start page-start"
+                         "welcome welcome welcome"
+                         "about-us announcements events"
+                         "fees-and-terms-of-service announcements events"
+                         "fees-and-terms-of-service learn faq"
+                         "hof hof hof"
+                         "contact contact contact";
 }
-
 
 #grid-pagina>*{
     border: 1px solid var(--border-color);
@@ -48,96 +39,121 @@ main{
     padding: 10px;
 }
 
-.explore-grid{
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(4, 1fr);
-}
+/*Home page sections*/
 
-.explore-grid>*{
-    padding: 10px;
-    align-items: center;
-    justify-items: center;
+#page-start{
+    grid-area: page-start;
 }
-
-.explore-grid figure{
-    border-radius: var(--image-border-radius);
-}
-
-.explore-grid figure img{
-    width: 100%; 
-    height: 100%;             
-    display: block;     
-    object-fit: cover;  
-    object-position: center;
-    box-shadow: 0px 0px 5px rgb(93, 93, 109);
-    border-radius: var(--image-border-radius);
-    box-sizing: border-box;
-}
-
-.aviation-grid-selection{
-    grid-template-areas: "explore1 explore2 explore3 explore4"
-                         "explore8 explore9 explore10 explore11"
-}
-
-.cars-grid-selection{
-    grid-template-areas: "explore12 explore5 explore6 explore7"
-}
-
-.photo-grid{
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.top-wallpapers-grid{
-    grid-template-areas: "top2 top4 top4 top4"
-                         "top3 top3 top3 top1";
-}
-
-.most-recent-wallpapers-grid{
-    grid-template-areas: "recent2 recent2 recent2 recent4"
-                         "recent3 recent3 recent1 recent1";
-}
-
-.photo-grid>*{
-    padding: 10px;
-    align-items: center;
-    justify-items: center;
-}
-
-.photo-grid figure{
-    border-radius: var(--image-border-radius);
-}
-
-.photo-grid figure img {
-    width: 100%; 
-    height: 100%;             
-    display: block;     
-    object-fit: cover;  
-    object-position: center;
-    box-shadow: 0px 0px 5px rgb(93, 93, 109);
-    border-radius: var(--image-border-radius);
-    box-sizing: border-box;
-}
-
 #welcome{
     grid-area: welcome;
 }
-#intro{
-    grid-area: intro;
+#about-us{
+    grid-area: about-us;
 }
+#announcements{
+    grid-area: announcements;
+}
+#events{
+    grid-area: events;
+}
+#fees-and-terms-of-service{
+    display: flex;
+    flex-direction: column;
+    grid-area: fees-and-terms-of-service;
+}
+#fees-and-terms-of-service>*{
+    padding: 10px;
+}
+.fees{
+    grid-area: fees;
+}
+.terms{
+    grid-area: terms;
+}
+#fees-and-terms-of-service hgroup{
+    grid-area: hgroup;
+}
+#faq{
+    grid-area: faq;
+}
+#learn{
+    grid-area: learn;
+}
+#hof{
+    grid-area: hof;
+}
+#contact{
+    grid-area: contact;
+}
+
+/* Hall of fame layout */
+
 #top-wallpapers{
     grid-area: top-wallpapers;
 }
-#top-ringtones{
-    grid-area: top-ringtones;
+
+.photo-grid{
+    gap: 10px;
+    display: grid;
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 2fr 1fr;
 }
-#most-recent-wallpapers{
-    grid-area: most-recent-wallpapers;
+.photo-card{
+    height: 100%;
+    display: flex;
 }
-#most-recent-ringtones{
-    grid-area: most-recent-ringtones;
+.photo-grid figure{
+    padding: 10px;
+}
+.photo-grid figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+.top-wallpapers-grid{
+    grid-template-areas: "top1 top2 top4"
+                         "top1 top3 top4";
+}
+.most-rec-wallpaper-grid{
+    grid-template-areas: "rec1 rec2 rec4"
+                         "rec1 rec3 rec4";
+}
+audio {
+    width: 20%;
+    height: 45px;
+    border-radius: 30px;
+}
+#top1{
+    grid-area: top1;
+}
+#top2{
+    grid-area: top2;
+}
+#top3{
+    grid-area: top3;
+}
+#top4{
+    grid-area: top4;
+}
+#rec1{
+    grid-area: rec1;
+}
+#rec2{
+    grid-area: rec2;
+}
+#rec3{
+    grid-area: rec3;
+}
+#rec4{
+    grid-area: rec4;
 }
 
 /*authentification page*/
@@ -235,16 +251,6 @@ main{
 #my-post2{
     grid-area:my-post2;
 }
-
-#promotii{
-    grid-area: promotii;
-}
-#anunturi{
-    grid-area: anunturi;
-}
-#orar{
-    grid-area: orar;
-}
  
 #fig1{
     grid-area: fig1;
@@ -254,20 +260,6 @@ main{
 }
 #fig3{
     grid-area: fig3;
-}
-
-/*top wallpapers*/
-#top1{
-    grid-area: top1;
-}
-#top2{
-    grid-area: top2;
-}
-#top3{
-    grid-area: top3;
-}
-#top4{
-    grid-area: top4;
 }
 
 /*most recent wallpapers*/
@@ -366,63 +358,6 @@ main{
 #birth-date{
     grid-area: birth-date;
 }
-
-/*general information*/
-
-#general-info{
-    grid-area: general-info;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "h2 h2"
-                         "about-us about-us"
-                         "faq faq"
-                         "announcements announcements"
-                         "learn learn"
-                         "fees-and-terms-of-service fees-and-terms-of-service"
-}
-
-#general-info h2{
-    grid-area: h2;
-}
-#about-us{
-    grid-area: about-us;
-}
-#faq{
-    grid-area: faq;
-}
-#fees-and-terms-of-service{
-    display: grid;
-    grid-area: fees-and-terms-of-service;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "hgroup hgroup"
-                         "fees terms";
-}
-.fees{
-    grid-area: fees;
-}
-.terms{
-    grid-area: terms;
-}
-#fees-and-terms-of-service hgroup{
-    grid-area: hgroup;
-}
-#contact{
-    grid-area: contact;
-}
-#announcements{
-    grid-area: announcements;
-}
-#learn{
-    grid-area: learn;
-}
-
-#produse{
-    grid-area: produse;
-}
-#index-intrebari{
-    grid-area: index-intrebari;
-}
-
 figure{
     margin: 0; /*resetare margine*/
 }
