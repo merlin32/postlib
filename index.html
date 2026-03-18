@@ -15,48 +15,52 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="PostLib" />
     <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oxanium:wght@200..800&family=Turret+Road:wght@200;300;400;500;700;800&family=Ultra&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./resurse/CSS/general.css" type="text/css" />
     <link rel="stylesheet" href="./resurse/CSS/nav.css" type="text/css" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 </head>
 
-<body>
+<body class="cousine-regular">
     <header id="page-start">
         <hgroup>
-            <h1><i>PostLib</i></h1>
+            <h1 class="ultra-regular"><i>PostLib</i></h1>
         </hgroup>
-        <q><i>Mai mult decât conținut. O punte între creatori.</i></q><br><br>
+        <q class="cousine-regular"><i>Mai mult decât conținut. O punte între creatori.</i></q><br><br>
         <img src="resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192" />
-        <nav>
+        <nav id="nav-bar">
             <ul class="menu">
-                <li>Acasa
+                <li><i class="fa-solid fa-house"></i>  Acasa
                     <ul>
                         <li><a href="#welcome">Bine ati venit!</a></li>
                         <li><a href="#announcements">Anunturi</a></li>
-                        <li><a href="#faq">Intrebari frecvente</a></li>
                         <li><a href="#events">Evenimente de comunitate</a></li>
-                        <li><a href="#fees-and-terms-of-service">Comisioane si termeni de utilizare</a></li>
-                        <li><a href="#learn">Invata</a></li>
                         <li><a href="#about-us">Despre noi</a></li>
+                        <li><a href="#learn">Invata</a></li>
+                        <li><a href="#faq">Intrebari frecvente</a></li>
+                        <li><a href="#fees-and-terms-of-service">Comisioane si termeni de utilizare</a></li>
                         <li><a href="#hof">Hall of fame</a></li>
                     </ul>
                 </li>
-                <li>Marketplace
+                <li><i class="fa-solid fa-basket-shopping"></i>  Marketplace
                     <ul>
                         <li><a href="#search">Cauta</a></li>
                         <li><a href="#explore-wallpapers">Exploreaza wallpapere</a></li>
                         <li><a href="#explore-ringtones">Exploreaza ringtone-uri</a></li>
                     </ul>
                 </li>
-                <li>Autentificare
+                <li><i class="fa-solid fa-right-to-bracket"></i>  Autentificare
                     <ul>
                         <li><a href="#login">Conectare</a></li>
                         <li><a href="#sign-up">Inscriere</a></li>
                         <li><a href="#reset-password">Resetare parola</a></li>
                     </ul>
                 </li>
-                <li>Administrare cont
+                <li><i class="fa-solid fa-user"></i>  Administrare cont
                     <ul>
                         <li><a href="#dashboard">Panou de control</a></li>
                         <li><a href="#manage-content">Administrare continut</a></li>
@@ -64,7 +68,7 @@
                         <li><a href="#balance">Balanta</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-phone"></i>  Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -73,14 +77,14 @@
             <section id="welcome">
                 <hgroup>
                     <h2>Bine ai venit!</h2>
-                    <p class="welcome">Explorează mii de <b>wallpapere</b> și <b>ringtone-uri</b> și susține-ți creatorii preferați.</p>
+                    <p>Explorează mii de <b>wallpapere</b> și <b>ringtone-uri</b> și susține-ți creatorii preferați.</p>
                 </hgroup>
-                <p class="intro"><i>PostLib</i> este un <i>marketplace</i> dedicat schimbului de conținut creativ. <b>Monetizează-ți propria muncă</b> sau susține alți creatori achiziționându-le creatiile digitale.</p>
+                <p><i>PostLib</i> este un <i>marketplace</i> dedicat schimbului de conținut creativ. <b>Monetizează-ți propria muncă</b> sau susține alți creatori achiziționându-le creatiile digitale.</p>
             </section>
 
             <section id="announcements">
                     <hgroup>
-                        <h3>Anunturi</h3>
+                        <h2>Anunturi</h2>
                         <p><strong>Atentie! Exista posibilitatea anularii anumitor evenimente. Acest lucru va fi anuntat
                                 din timp.</strong></p>
                     </hgroup>
@@ -103,9 +107,75 @@
                     </ul>
             </section>
 
+            <section id="events">
+                <hgroup>
+                    <h2>Evenimente</h2>
+                    <p>Descopera evenimentele din urmatoarea luna</p>
+                </hgroup>
+                <ul>
+                    <li><p><time datetime="2026-04-06T12:00">6 aprilie ora 12:00</time>, <b>Learn from masters (foto)</b> - ia parte la live-ul organizat de catre admini pentru a invata elemente de editare foto!</p></li>
+                    <li><p><time datetime="2026-04-07T12:00">7 aprilie ora 12:00</time>, <b>Learn from masters (muzica)</b> - invata de la expertii trucuri utile in FL Studio!</p></li>
+                    <li><p><time datetime="2026-04-15T15:00">15 aprilie ora 15:00</time>, <b>Meet your creators</b> - vino la Sala Palatului sa ii intalnesti pe creatorii tai preferati de continut!</p></li>
+                    <li><p><time datetime="2026-04-27T09:00">27 aprilie ora 09:00</time>, <b><i>PostLib</i> admin contest</b> - participa la un proces de selectie pentru postul de admin pe platforma!</p></li>
+                </ul>
+            </section>
+
+            <section id="about-us">
+                    <hgroup>
+                        <h2>Despre noi</h2>
+                        <p><i>PostLib</i> s-a născut dintr-o idee simplă, dar puternică: aceea de a oferi fiecărui
+                            creator de conținut un spațiu digital
+                            unde talentul să fie recunoscut și valorificat fără bariere. Am observat că, de multe ori,
+                            micile detalii care ne personalizează experiența digitală sunt greu de găsit sau împrăștiate
+                            pe platforme generice.</p>
+                        <p>Astfel, am creat un <b><i>marketplace</i> vibrant</b>, o punte între artiștii care doresc să
+                            își partajeze viziunea și utilizatorii
+                            care caută originalitate. La <i>PostLib</i>, credem în <b>democratizarea conținutului
+                                media</b>; fie că alegi să îți <b>vinzi</b>
+                            creațiile la un preț stabilit de tine sau să oferi <em>daruri</em> comunității prin conținut
+                            gratuit, ești parte
+                            dintr-un ecosistem unde libertatea de a alege și de a crea este singura regulă.</p>
+                    </hgroup>
+            </section>
+
+            <section id="learn">
+                    <hgroup>
+                        <h2>Invata  <i class="fa-solid fa-user-graduate"></i></h2>
+                        <p>Devino membru si afla cum poti incepe sa creezi continut pe platforma</p>
+                    </hgroup>
+                    <p>Link-uri catre platforme: </p>
+                    <ul>
+                        <li><a href="https://lightroom.adobe.com/" target="_blank">Adobe Lightroom</a></li>
+                        <li><a href="https://www.image-line.com/" target="_blank">FL Studio</a></li>
+                        <li><a href="https://www.ableton.com/en/trial#trial"
+                                target="_blank">https://www.ableton.com<wbr>/en/<wbr>trial/<wbr></a></li>
+                    </ul>
+                    <p>Tutoriale pentru crearea de continut: </p>
+                    <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed/VUCPznpejI8"
+                            name="ifr-video" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="iframe-tabs">
+                            <a href="https://www.youtube.com/embed/VUCPznpejI8" target="ifr-video">Tutorial<br>Adobe<br>Lightroom</a>
+                            <a href="https://www.youtube.com/embed/fw4Ms26mdmc" target="ifr-video">Tutorial<br>beat trap<br>FL Studio</a>
+                            <a href="https://www.youtube.com/embed/xsFMwnSBukU" target="ifr-video">Tutorial<br>masti de<br>lumina</a>
+                        </div>
+                    </div>
+                    <p>Elemente de baza despre fotografie</p>
+                    <div class="iframe-container">
+                        <iframe id="playlist"
+                            src="https://www.youtube.com/embed?list=PLoT4r1M_5v7TYbnKDN5luW65WCaubQY4M"
+                            title="YouTube playlist player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+            </section>
+
             <section id="faq">
                     <hgroup>
-                        <h3>Intrebari frecvente</h3>
+                        <h2>Intrebari frecvente</h2>
                         <p>Aceasta sectiune contine o serie de intrebari comune</p>
                     </hgroup>
                     <details>
@@ -131,158 +201,91 @@
                     </details>
             </section>
 
-            <section id="events">
-                <hgroup>
-                    <h2>Evenimente</h2>
-                    <p>Descopera evenimentele din urmatoarea luna</p>
-                </hgroup>
-                <ul>
-                    <li><p><time datetime="2026-04-06T12:00">6 aprilie ora 12:00</time>, <b>Learn from masters (foto)</b> - ia parte la live-ul organizat de catre admini pentru a invata elemente de editare foto!</p></li>
-                    <li><p><time datetime="2026-04-07T12:00">7 aprilie ora 12:00</time>, <b>Learn from masters (muzica)</b> - invata de la expertii trucuri utile in FL Studio!</p></li>
-                    <li><p><time datetime="2026-04-15T15:00">15 aprilie ora 15:00</time>, <b>Meet your creators</b> - vino la Sala Palatului sa ii intalnesti pe creatorii tai preferati de continut!</p></li>
-                    <li><p><time datetime="2026-04-27T09:00">27 aprilie ora 09:00</time>, <b><i>PostLib</i> admin contest</b> - participa la un proces de selectie pentru postul de admin pe platforma!</p></li>
-                </ul>
-            </section>
-
             <section id="fees-and-terms-of-service">
                     <hgroup>
-                        <h3>Comisioane si termeni de utilizare</h3>
+                        <h2>Comisioane si termeni de utilizare</h2>
                         <p>Descopera care sunt regulile de pe Platforma <i>PostLib</i> si cum iti poti monetiza
                             continutul</p>
                     </hgroup>
                     <div class="fees">
-                        <table class="fees-table">
-                            <caption>Grila de comisioane aplicată vânzătorilor</caption>
-                            <thead>
-                                <tr>
-                                    <th>Categorie Preț</th>
-                                    <th>Interval Valoare</th>
-                                    <th>Comision Platformă</th>
-                                    <th>Suport Tehnic</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Low Tier</td>
-                                    <td>0 - 10 EUR</td>
-                                    <td>5%</td>
-                                    <td>Standard</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2">Mid-High Tier</td>
-                                    <td>11 - 50 EUR</td>
-                                    <td>8%</td>
-                                    <td>Prioritar</td>
-                                </tr>
-                                <tr>
-                                    <td>51 - 200 EUR</td>
-                                    <td>10%</td>
-                                    <td>Dedicat</td>
-                                </tr>
-                                <tr>
-                                    <td>Premium</td>
-                                    <td>> 200 EUR</td>
-                                    <td>15%</td>
-                                    <td>Dedicat 24/7</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="4">
-                                        <strong>Formula de calcul a profitului net:</strong><br><br>
-                                        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
-                                            <msub>
-                                                <mi>V</mi>
-                                                <mi>net</mi>
-                                            </msub>
-                                            <mo>=</mo>
-                                            <msub>
-                                                <mi>P</mi>
-                                                <mi>vânzare</mi>
-                                            </msub>
-                                            <mo>-</mo>
-                                            <mo>(</mo>
-                                            <mrow>
+                        <div class="table-container">
+                            <table class="fees-table">
+                                <caption>Grila de comisioane aplicată vânzătorilor</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Categorie Preț</th>
+                                        <th>Interval Valoare</th>
+                                        <th>Comision Platformă</th>
+                                        <th>Suport Tehnic</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Low Tier</td>
+                                        <td>0 - 10 EUR</td>
+                                        <td>5%</td>
+                                        <td>Standard</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">Mid-High Tier</td>
+                                        <td>11 - 50 EUR</td>
+                                        <td>8%</td>
+                                        <td>Prioritar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>51 - 200 EUR</td>
+                                        <td>10%</td>
+                                        <td>Dedicat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Premium</td>
+                                        <td>> 200 EUR</td>
+                                        <td>15%</td>
+                                        <td>Dedicat 24/7</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <strong>Formula de calcul a profitului net:</strong><br><br>
+                                            <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                                                <msub>
+                                                    <mi>V</mi>
+                                                    <mi>net</mi>
+                                                </msub>
+                                                <mo>=</mo>
                                                 <msub>
                                                     <mi>P</mi>
                                                     <mi>vânzare</mi>
                                                 </msub>
-                                                <mo>&#xD7;</mo>
-                                                <msub>
-                                                    <mi>C</mi>
-                                                    <mi>procentual</mi>
-                                                </msub>
-                                            </mrow>
-                                            <mo>)</mo>
-                                        </math>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                                                <mo>-</mo>
+                                                <mo>(</mo>
+                                                <mrow>
+                                                    <msub>
+                                                        <mi>P</mi>
+                                                        <mi>vânzare</mi>
+                                                    </msub>
+                                                    <mo>&#xD7;</mo>
+                                                    <msub>
+                                                        <mi>C</mi>
+                                                        <mi>procentual</mi>
+                                                    </msub>
+                                                </mrow>
+                                                <mo>)</mo>
+                                            </math>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                     <div class="terms">
-                        <embed src="resurse/pdf/TermeniSiConditiiPostLib.pdf#view=FitH&navpanes=0"
-                            type="application/pdf" width="100%" height="300px">
+                        <embed src="resurse/pdf/TermeniSiConditiiPostLib.pdf#view=FitH&navpanes=0&toolbar=0"
+                            type="application/pdf">
                         <p>Dacă fișierul nu se încarcă, îl poți
                             <a href="resurse/pdf/TermeniSiConditiiPostLib.pdf" download>descărca de aici</a>.
                         </p>
                     </div>
-            </section>
-
-            <section id="learn">
-                    <hgroup>
-                        <h3>Invata</h3>
-                        <p>Devino membru si afla cum poti incepe sa creezi continut pe platforma</p>
-                    </hgroup>
-                    <p>Link-uri catre platforme: </p>
-                    <ul>
-                        <li><a href="https://lightroom.adobe.com/" target="_blank">Adobe Lightroom</a></li>
-                        <li><a href="https://www.image-line.com/" target="_blank">FL Studio</a></li>
-                        <li><a href="https://www.ableton.com/en/trial#trial"
-                                target="_blank">https://www.ableton.com<wbr>/en/<wbr>trial/<wbr></a></li>
-                    </ul>
-                    <p>Tutoriale pentru crearea de continut: </p>
-                    <div class="iframe-container">
-                        <div class="iframe-tabs">
-                            <a href="https://www.youtube.com/embed/VUCPznpejI8" target="ifr-video">Tutorial Adobe
-                                Lightroom</a>
-                            <a href="https://www.youtube.com/embed/fw4Ms26mdmc" target="ifr-video">Tutorial beat trap FL
-                                Studio</a>
-                            <a href="https://www.youtube.com/embed/xsFMwnSBukU" target="ifr-video">Tutorial utilizare
-                                masti de lumina Adobe Lightroom</a><br>
-                        </div>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VUCPznpejI8"
-                            name="ifr-video" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <p>Elemente de baza despre fotografie</p>
-                    <div class="iframe-container">
-                        <iframe width="100%" height="450"
-                            src="https://www.youtube.com/embed?list=PLoT4r1M_5v7TYbnKDN5luW65WCaubQY4M"
-                            title="YouTube playlist player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-            </section>
-
-            <section id="about-us">
-                    <hgroup>
-                        <h3>Despre noi</h3>
-                        <p><i>PostLib</i> s-a născut dintr-o idee simplă, dar puternică: aceea de a oferi fiecărui
-                            creator de conținut un spațiu digital
-                            unde talentul să fie recunoscut și valorificat fără bariere. Am observat că, de multe ori,
-                            micile detalii care ne personalizează experiența digitală sunt greu de găsit sau împrăștiate
-                            pe platforme generice.</p>
-                        <p>Astfel, am creat un <b><i>marketplace</i> vibrant</b>, o punte între artiștii care doresc să
-                            își partajeze viziunea și utilizatorii
-                            care caută originalitate. La <i>PostLib</i>, credem în <b>democratizarea conținutului
-                                media</b>; fie că alegi să îți <b>vinzi</b>
-                            creațiile la un preț stabilit de tine sau să oferi <em>daruri</em> comunității prin conținut
-                            gratuit, ești parte
-                            dintr-un ecosistem unde libertatea de a alege și de a crea este singura regulă.</p>
-                    </hgroup>
             </section>
 
             <section id="hof">
@@ -369,6 +372,15 @@
                         <h3>Top ringtone-uri</h3>
                         <p>Cele mai populare ringtone-uri din aceasta luna</p>
                     </hgroup>
+                                        <audio controls>
+                        <source src="resurse/audio/ringtones/drift phonk beat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                    </audio>
+                    <audio controls>
+                        <source src="resurse/audio/ringtones/Faith.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                    </audio>
+                    <audio controls>
+                        <source src="resurse/audio/ringtones/140bpm root note f6 Space trap beat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                    </audio>
                 </section>
 
                 <section id="most-rec-ring">
@@ -384,18 +396,6 @@
                     </audio>
                     <audio controls>
                         <source src="resurse/audio/ringtones/azteca type beat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                    </audio>
-                    <audio controls>
-                        <source src="resurse/audio/ringtones/drift phonk beat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                    </audio>
-                    <audio controls>
-                        <source src="resurse/audio/ringtones/Faith.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                    </audio>
-                    <audio controls>
-                        <source src="resurse/audio/ringtones/140bpm root note f6 Space trap beat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                    </audio>
-                    <audio controls>
-                        <source src="resurse/audio/ringtones/rageBeat.mp3" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
                     </audio>
                 </section>
             </section>
@@ -846,8 +846,11 @@
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </section>
-        <a href="#page-start">Inapoi sus</a>
-        <p><small>Copyright &copy; <time datetime="2026-02-25">25 Februarie 2026</time>, State Tudor-Alexandru</small>
+        <a href="#page-start" id="link-top" title="Inceputul paginii">
+            <span id="triunghi">&#5123;</span>
+            <div id="triunghi"></div>
+        </a>
+        <p id="copyright"><small>Copyright &copy; <time datetime="2026-02-25">25 Februarie 2026</time>, State Tudor-Alexandru</small>
         </p>
     </footer>
 </body>
