@@ -14,7 +14,6 @@ body{
     --grid-padding: 15px;
     --image-border-radius: 15px;
     --textbox-radius: 10px;
-    --table-border: 2px solid rgb(93, 93, 109);
     --photo-grid-height: 80%;
     --photo-grid-width: 80%;
     background-color: var(--main-color);
@@ -47,7 +46,7 @@ header hgroup{
     color: var(--anchor-color);
 }
 
-p{
+p, address{
     border: 1px solid var(--paragraph-color);
     background-color: var(--paragraph-color);
     box-shadow: var(--paragraph-shadow); 
@@ -221,7 +220,7 @@ main{
     grid-template-rows: auto;
 }
 
-#grid-pagina>*{
+#grid-pagina>*, footer>*{
     border: var(--grid-border);
     box-shadow: var(--grid-box-shadow);
     border-radius: var(--grid-border-radius);
@@ -289,11 +288,15 @@ main{
     display: grid;
     width: var(--photo-grid-width);
     height: var(--photo-grid-height);
-    border: 2px solid black;
+    border: 2px solid var(--paragraph-shadow-color);
+    box-shadow: var(--paragraph-shadow);
+    background-color: var(--paragraph-color);
+    border-radius: 20px;
     padding: 20px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+    height: auto;
     grid-template-columns: 1fr 2fr 1fr;
 }
 .photo-card{
@@ -308,7 +311,13 @@ main{
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px 2px var(--main-color);
+    border: 2px solid var(--paragraph-color);
+    transition: transform 0.3s ease-in-out;
+}
+.photo-grid figure img:hover{
+    transform: scale(1.02);
+
 }
 .top-wallpapers-grid{
     grid-template-areas: "top1 top2 top4"
@@ -609,6 +618,7 @@ figure > img {
 }
 
 .fees-table {
+    box-shadow: var(--paragraph-shadow);
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -655,7 +665,7 @@ figure > img {
 }
 
 .fees-table tfoot td {
-    border: 1px solid #ccc;
+    border: 1px solid var(--paragraph-color);
     color: var(--box-shadow);
     text-align: left;
 }
@@ -669,6 +679,8 @@ figure > img {
 }
 
 .terms > embed{
+    border: 2px solid var(--paragraph-color);
+    box-shadow: var(--paragraph-shadow);
     border-radius: 25px;
 }
 
@@ -710,6 +722,10 @@ figure > img {
 
 #link-top:hover #triunghi{
     color: rgb(41, 133, 49)
+}
+
+#contact > iframe{
+    gap: 10px;
 }
 
 @media screen and (max-width: 1600px) {
