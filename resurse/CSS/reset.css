@@ -1,0 +1,101 @@
+@layer reset {
+    :root {
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --font-base: sans-serif;
+        --font-size-base: 1rem;
+        --line-height-base: 1.5;
+        --font-weight-normal: 400;
+        --font-weight-bold: 700;
+        --color-text: #000000;
+        --color-bg: #ffffff;
+        --color-link: inherit;
+        --table-border-spacing: 0;
+    }
+
+    :where(html, body, div, span, applet, object,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center, dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video) {
+        border: 0;
+        vertical-align: baseline;
+    }
+
+    body {
+        font-family: var(--font-base);
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-base);
+        min-height: 100vh;
+    }
+
+    strong,
+    b {
+        font-weight: var(--font-weight-bold);
+    }
+
+    em,
+    i {
+        font-style: italic;
+    }
+
+    :where(ol[class], ul[class]) {
+        list-style: none;
+        list-style-type: none;
+        counter-reset: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    q {
+        quotes: none;
+    }
+
+    q::before,
+    q::after {
+        content: '';
+        content: none;
+    }
+
+    :where(a[class]) {
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: var(--table-border-spacing);
+    }
+
+    th,
+    td {
+        padding: 0;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+        color: inherit;
+        margin: 0;
+    }
+}
