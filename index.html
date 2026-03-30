@@ -18,26 +18,31 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oxanium:wght@200..800&family=Turret+Road:wght@200;300;400;500;700;800&family=Ultra&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Oxanium:wght@200..800&family=Turret+Road:wght@200;300;400;500;700;800&family=Ultra&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="./resurse/CSS/printare.css" />
     <link rel="stylesheet" href="./resurse/CSS/reset.css" type="text/css" />
     <link rel="stylesheet" href="./resurse/CSS/general.css" type="text/css" />
     <link rel="stylesheet" href="./resurse/CSS/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./resurse/css/nav1000.css" type="text/css" media="screen and (max-width: 1600px)" />
+    <link rel="stylesheet" href="./resurse/CSS/nav700.css" type="text/css" media="screen and (max-width: 700px)" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 </head>
 
 <body class="cousine-regular">
+    <div id="watermark">STATE<br>TUDOR-ALEXANDRU</div>
     <header id="page-start">
-        <hgroup>
-            <h1 class="ultra-regular"><i>PostLib</i></h1>
-        </hgroup>
-        <q class="cousine-regular"><i>Mai mult decât conținut. O punte între creatori.</i></q><br><br>
-        <img src="resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192" />
         <nav id="nav-bar">
+            <label id="hamburger" for="ch-menu">
+                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">    
+            </label>
+            <input type="checkbox" id="ch-menu"/>
             <ul class="menu">
-                <li><i class="fa-solid fa-house"></i> Acasa
+                <li class="left-outer-button">
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-house text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Acasa</div>
                     <ul>
                         <li><a href="#welcome">Bine ati venit!</a></li>
                         <li><a href="#announcements">Anunturi</a></li>
@@ -49,21 +54,33 @@
                         <li><a href="#hof">Hall of fame</a></li>
                     </ul>
                 </li>
-                <li><i class="fa-solid fa-basket-shopping"></i> Marketplace
+                <li>
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-basket-shopping text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Marketplace</div>
                     <ul>
                         <li><a href="#search">Cauta</a></li>
                         <li><a href="#explore-wallpapers">Exploreaza wallpapere</a></li>
                         <li><a href="#explore-ringtones">Exploreaza ringtone-uri</a></li>
                     </ul>
                 </li>
-                <li><i class="fa-solid fa-right-to-bracket"></i> Autentificare
+                <li>
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-right-to-bracket text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Autentificare</div>
                     <ul>
                         <li><a href="#login">Conectare</a></li>
                         <li><a href="#sign-up">Inscriere</a></li>
                         <li><a href="#reset-password">Resetare parola</a></li>
                     </ul>
                 </li>
-                <li><i class="fa-solid fa-user"></i> Administrare cont
+                <li>
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-user text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Administrare cont</div>
                     <ul>
                         <li><a href="#dashboard">Panou de control</a></li>
                         <li><a href="#manage-content">Administrare continut</a></li>
@@ -71,9 +88,21 @@
                         <li><a href="#balance">Balanta</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact"><i class="fa-solid fa-phone"></i> Contact</a></li>
+                <li class="right-outer-button">
+                    <a href="#contact">
+                        <div class="menu-icon">
+                            <span><i class="fa-solid fa-phone text-icon"></i></span>
+                        </div> 
+                        <div class="icon-label">Contact</div>
+                    </a>
+                </li>
             </ul>
         </nav>
+        <hgroup>
+            <h1 class="ultra-regular"><i>PostLib</i></h1>
+        </hgroup>
+        <q class="cousine-regular"><i>Mai mult decât conținut. O punte între creatori.</i></q><br><br>
+        <img class="logo" src="resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192" />
     </header>
     <main>
         <div id="grid-pagina">
@@ -887,6 +916,7 @@
         <p id="copyright"><small>Copyright &copy; <time datetime="2026-02-25">25 Februarie 2026</time>, State
                 Tudor-Alexandru</small>
         </p>
+        <p>Acesta este un proiect scolar!</p>
     </footer>
 </body>
 
