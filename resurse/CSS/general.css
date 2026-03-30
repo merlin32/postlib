@@ -17,6 +17,7 @@ body {
     --photo-grid-height: 80%;
     --photo-grid-width: 80%;
     background-color: var(--main-color);
+    margin: 0px;
 }
 
 header {
@@ -24,6 +25,10 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.logo {
+    margin-bottom: 50px;
 }
 
 footer {

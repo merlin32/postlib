@@ -1,0 +1,147 @@
+//defining mixins and variable nul
+
+$nul: 0;
+
+@mixin displayType($dispType, $pos){
+    display: $dispType;
+    position: $pos;
+}
+
+@mixin styleAndTransition($wdth, $hght, $brd, $textDeco, $trans, $lineHght, $fntWght, $txtAlign){
+    width: $wdth;
+    height: $hght;
+    border: $brd;
+    text-decoration: $textDeco;
+    transition: $trans;
+    line-height: $lineHght; 
+    font-weight: $fntWght;
+    text-align: $txtAlign;
+}
+
+@mixin backgroundColor($bckgCol){
+    background-color: $bckgCol;
+}
+
+%listType{
+    list-style-type: none;
+}
+
+//=====================================================
+
+nav{
+    --button-width: 250px;
+    --button-height: 45px;
+    margin-bottom: 10px;
+}
+
+#hamburger, #ch-menu{
+    @include displayType(none, static);
+}
+
+.icon-label, .menu-icon{
+    @include displayType(inline-block, static);
+}
+
+ul.menu{
+    &, ul {
+        @extend %listType;
+        padding: $nul;
+        margin: $nul;
+    }
+    @include displayType(flex, relative);
+
+    ul{
+        @include displayType(none, absolute);
+        z-index: 2;
+    }
+
+    .right-outer-button{border-bottom-right-radius: 15px;}
+    .left-outer-button{border-bottom-left-radius: 15px;}
+
+    li{
+        cursor: pointer;
+        @include styleAndTransition(var(--button-width),
+                                    auto, 
+                                    var(--grid-border), 
+                                    none, 
+                                    all 0.3s linear, 
+                                    2,
+                                    bold,
+                                    center);
+        @include backgroundColor(var(--grid-background));
+
+        a{
+            color: black;
+            border-bottom-right-radius: 15px;
+            @include styleAndTransition(100%, 
+                                        100%, 
+                                        $nul, 
+                                        none, 
+                                        all 0.3s linear,
+                                        2,
+                                        bold,
+                                        center);
+            @include displayType(block, static);
+
+            &:hover{
+                @include backgroundColor(var(--main-color));
+                color: white !important;
+            }
+        }
+
+        &:hover{
+            @include backgroundColor(var(--main-color));
+            color: white;
+            ul{
+                @include displayType(block, absolute);
+                animation: submenu_animation 0.3s linear;
+            }
+            
+            .text-icon a{
+                @include backgroundColor(var(--main-color));
+                color: white !important;   
+            }
+        }
+        &.left-outer-button{
+            &:hover{
+                border-bottom-left-radius: 0;
+            }
+        }
+        &.right-outer-button{
+             &::after{
+                content: '';
+                background: linear-gradient(var(--main-color), var(--grid-background), var(--main-color));
+                height: 10px;
+                width: 20%;
+                left: 80%;
+                right: 0;
+                top: 0;
+                position: absolute;
+                opacity: 0;
+                transition: top 0.3s linear, opacity 0.5s ease;
+                z-index: 1;
+            }
+
+            &:hover::after{
+                top: 80%;
+                opacity: 1;
+            }
+
+            &:hover{
+                border-bottom-right-radius: 0px;
+            }
+        }
+    }
+}
+
+@keyframes submenu_animation{
+    0% {
+        opacity: $nul;
+        transform: scale($nul, $nul);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}

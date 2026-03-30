@@ -1,0 +1,95 @@
+#watermark, footer p:last-of-type {
+    display: none;
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+    }
+
+    @page :left {
+        margin-left: 2cm;
+        margin-right: 1cm;
+    }
+
+    @page :right {
+        margin-right: 2cm;
+        margin-left: 1cm;
+    }
+
+    footer p:last-of-type {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        border: 5px double black;
+        padding: 5px;
+        text-align: right;
+        box-sizing: border-box;
+    }
+
+    img, video, iframe, figcaption, canvas, svg,
+    #link-top, a[href^="#page-start"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    #grid-pagina, .container-grid, section, main, footer {
+        display: block !important;
+        width: 100%;
+        background: transparent !important;
+    }
+
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    h1 {
+        display: block;
+        margin-top: 40%; 
+        text-align: center;
+    }
+
+    nav ul, ul.menu {
+        display: block !important;
+        list-style-type: disc !important;
+        padding-left: 40px !important;
+        page-break-after: always;
+    }
+
+    nav ul li, ul.menu li {
+        display: list-item !important;
+        text-align: left !important;
+        background: none !important;
+        border: none !important;
+        width: auto !important;
+    }
+
+    #contact {
+        page-break-before: always;
+    }
+
+    #watermark {
+        display: block !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 60% !important;
+        height: 10% !important;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.3) !important; 
+        font-size: 3em !important;
+        z-index: 99999 !important;
+        white-space: pre-line !important;
+        pointer-events: none;
+    }
+
+    html, body {
+        width: 100%;
+        overflow: visible !important;
+        background-color: white !important;
+    }
+}

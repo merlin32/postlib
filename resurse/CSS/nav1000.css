@@ -1,0 +1,7 @@
+.icon-label{
+    display: none;
+}
+
+nav{
+    --button-width: 130px;
+}
