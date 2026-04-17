@@ -34,7 +34,11 @@
     <header id="page-start">
         <nav id="nav-bar">
             <label id="hamburger" for="ch-menu">
-                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">    
+                <div class="hamburger-icon">
+                    <div class="ham-line"></div>
+                    <div class="ham-line"></div>
+                    <div class="ham-line"></div>
+                </div> 
             </label>
             <input type="checkbox" id="ch-menu"/>
             <ul class="menu">
@@ -105,7 +109,7 @@
         <img class="logo" src="resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192" />
     </header>
     <main>
-        <div id="grid-pagina">
+        <div id="page-grid">
             <section id="welcome">
                 <hgroup>
                     <h2>Bine ai venit!</h2>
@@ -197,7 +201,7 @@
                     <li><a href="https://www.ableton.com/en/trial#trial"
                             target="_blank">https://www.ableton.com<wbr>/en/<wbr>trial/<wbr></a></li>
                 </ul>
-                <p>Tutoriale pentru crearea de continut: </p>
+                <p class="print-hidden">Tutoriale pentru crearea de continut: </p>
                 <div class="iframe-container">
                     <iframe src="https://www.youtube.com/embed/VUCPznpejI8" name="ifr-video"
                         title="YouTube video player" frameborder="0"
@@ -212,7 +216,7 @@
                             de<br>lumina</a>
                     </div>
                 </div>
-                <p>Elemente de baza despre fotografie</p>
+                <p class="print-hidden">Elemente de baza despre fotografie</p>
                 <div class="iframe-container">
                     <iframe id="playlist" src="https://www.youtube.com/embed?list=PLoT4r1M_5v7TYbnKDN5luW65WCaubQY4M"
                         title="YouTube playlist player" frameborder="0"
@@ -916,7 +920,7 @@
         <p id="copyright"><small>Copyright &copy; <time datetime="2026-02-25">25 Februarie 2026</time>, State
                 Tudor-Alexandru</small>
         </p>
-        <p>Acesta este un proiect scolar!</p>
+        <p id="banner"></p>
     </footer>
 </body>
 

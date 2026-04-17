@@ -1,0 +1,53 @@
+{
+  "name": "postlib",
+  "version": "1.0.0",
+  "description": "Site pentru vanzare de wallpapere si ringtone-uri",
+  "keywords": [
+    "wallpaper",
+    "ringtones",
+    "background",
+    "planes",
+    "plane",
+    "wallpapers",
+    "cars",
+    "poze",
+    "fundal",
+    "postlib",
+    "underground",
+    "wallpapers",
+    "trap",
+    "beat",
+    "4k",
+    "2k",
+    "aviation",
+    "wallpapers",
+    "aviation",
+    "poze",
+    "fundal",
+    "tonuri",
+    "de",
+    "apel",
+    "aviatie",
+    "poze",
+    "avioane"
+  ],
+  "homepage": "https://github.com/merlin32/postlib#readme",
+  "bugs": {
+    "url": "https://github.com/merlin32/postlib/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merlin32/postlib.git"
+  },
+  "license": "ISC",
+  "author": "State Tudor-Alexandru",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

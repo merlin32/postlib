@@ -73,7 +73,6 @@ address {
 
 #learn>hgroup>h2>i {
     display: inline-block;
-    color: var(--complementary4);
     animation: shake-continual 1s ease-in-out infinite alternate;
 }
 
@@ -220,7 +219,7 @@ main {
     margin-right: var(--margin-dimens);
 }
 
-#grid-pagina {
+#page-grid {
     display: grid;
     gap: var(--grid-gap);
     /* grid pe 3 coloane */
@@ -234,7 +233,7 @@ main {
     grid-template-rows: auto;
 }
 
-#grid-pagina>*,
+#page-grid>*,
 footer>* {
     border: var(--grid-border);
     box-shadow: var(--grid-box-shadow);
@@ -652,7 +651,7 @@ figure>img {
         --grid-border-radius: 15px;
     }
 
-    #grid-pagina {
+    #page-grid {
         /* grid pe 2 coloane */
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "page-start page-start"
@@ -693,7 +692,7 @@ figure>img {
         --grid-gap: 4px;
     }
 
-    #grid-pagina {
+    #page-grid {
         display: flex;
         flex-direction: column;
     }

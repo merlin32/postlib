@@ -1,158 +1,132 @@
-#watermark {
+#watermark, #banner {
     display: none;
 }
 
 @media print {
-    @page {
-        size: A4 portrait;
-        margin: 1cm;
+
+    #banner{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 0;
+        border: 2px double black;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
     }
 
-    @page :left {
+    #banner::after{
+        content: "Acesta este un proiect scolar!";
+        font-size: 15px;
+    }
+
+    .logo, .iframe-container, .print-hidden, #hof, 
+    .terms, #maps, #link-top, q,
+    .fa-solid{
+        display: none !important;
+    }
+
+    #page-grid{
+        display: block !important;
+    }
+
+    section{
+        break-inside: avoid;
+    }
+
+    a, p{
+        color: black;
+        text-decoration: none;
+    }
+
+    h1{
+        margin-top: 50%;
+        font-size: 70px;
+        margin-bottom: 0;
+        text-align: center;
+        order: 1;
+    }
+
+    nav{
+        order: 2;
+        page-break-after: always;
+        font-size: 10px;
+    }
+
+    ul.menu{
+        display: block !important;
+        list-style-type: disc !important;
+    }
+
+    ul.menu > li{
+        margin-bottom: 10px;
+    }
+
+    ul.menu ul{
+        display: flex !important;
+        flex-direction: column;
+        position: static !important;
+        list-style-type: circle !important;
+        padding-left: 20% !important; 
+    }
+
+    ul.menu li{
+        box-sizing: border-box;
+        text-align: left !important;
+        width: 120% !important;
+        border: none !important;
+    }
+
+    ul.menu li > a{
+        text-align: left !important;
+    }
+
+    ul.menu .right-outer-button{border-bottom-right-radius: 0 !important;}
+    ul.menu .right-outer-button a{text-align: left !important;}
+    ul.menu .left-outer-button{border-bottom-left-radius: 0 !important;}
+
+    footer{
+        page-break-before: always;
+    }
+
+    #contact{
+        grid-template-areas: "contact-area contact-area"
+                             "address address"
+                             "address address" !important;
+    }
+
+    #watermark{
+        display: block;
+        position: fixed;
+        width: 60%;
+        height: 10%;
+        top: 45%;
+        left: 20%;
+        text-align: center;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.3);
+        font-size: 40px;
+        z-index: 1;
+    }
+
+    @page {
+		size: A4 portrait;
+		margin-bottom: 2cm;
+		margin-top: 2cm;
+		counter-increment: page;
+
+	}
+
+    @page: left{
         margin-left: 2cm;
         margin-right: 1cm;
     }
 
-    @page :right {
-        margin-right: 2cm;
+    @page: right{
         margin-left: 1cm;
+        margin-right: 2cm;
     }
-
-    * {
-        background-color: transparent !important;
-        color: black !important;
-        text-shadow: none !important;
-        box-shadow: none !important;
-        transition: none !important;
-        animation: none !important;
-        position: static !important;
-        box-sizing: border-box !important;
-        max-width: 100% !important;
-        overflow-wrap: break-word !important;
-    }
-
-    html, body {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: white !important;
-        overflow: visible !important;
-    }
-
-    header#page-start {
-        display: table !important;
-        width: 100% !important;
-        table-layout: fixed !important;
-        position: relative !important;
-    }
-
-    header#page-start::before {
-        content: "Acesta este un proiect școlar!";
-        display: block !important;
-        position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
-        width: 50% !important;
-        border: 5px double black !important;
-        padding: 5px !important;
-        text-align: right !important;
-        font-weight: bold !important;
-        font-size: 12pt !important;
-    }
-
-    hgroup {
-        display: table-header-group !important;
-        text-align: center !important;
-        width: 100% !important;
-    }
-
-    h1 {
-        display: block !important;
-        margin-top: 20vh !important;
-        margin-bottom: 5px !important;
-        font-size: 32pt !important;
-        width: 100% !important;
-    }
-
-    q {
-        display: table-row-group !important;
-        text-align: center !important;
-        font-style: italic !important;
-        font-size: 14pt !important;
-        width: 100% !important;
-    }
-
-    nav#nav-bar {
-        display: table-footer-group !important;
-        width: 100% !important;
-    }
-
-    nav ul.menu {
-        display: block !important;
-        list-style-type: disc !important;
-        padding-left: 40px !important;
-        padding-right: 20px !important;
-        margin: 40px 0 !important;
-        width: 100% !important;
-        page-break-after: always !important;
-    }
-
-    nav ul.menu ul {
-        display: block !important;
-        list-style-type: circle !important;
-        padding-left: 30px !important;
-    }
-
-    nav ul.menu li {
-        display: list-item !important;
-        float: none !important;
-        width: 100% !important;
-        text-align: left !important;
-        margin-bottom: 10px !important;
-        white-space: normal !important;
-    }
-
-    .icon-label {
-        display: inline !important;
-        font-weight: bold !important;
-    }
-
-    #ch-menu, .hamburger, label[for="ch-menu"], .menu-icon, .logo, 
-    img, video, .iframe-container, #link-top, #triunghi, footer p:last-of-type,
-    #hof, .terms, #maps {
-        display: none !important;
-    }
-
-    #grid-pagina, .container-grid, section, main, article, #contact {
-        display: block !important;
-        width: 100% !important;
-        float: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    #contact, footer {
-        page-break-before: always !important;
-    }
-
-    a {
-        text-decoration: none !important;
-        color: black !important;
-    }
-
-    #watermark {
-        display: block !important;
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        width: 80% !important;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.2) !important; 
-        font-size: 45pt !important;
-        font-weight: bold;
-        z-index: 999999 !important;
-        white-space: pre-line !important;
-        pointer-events: none;
-    }
+    
 }
