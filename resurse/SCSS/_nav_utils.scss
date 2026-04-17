@@ -1,0 +1,9 @@
+$button-width: 250px !default;
+
+%subOpAlign{
+    @for $i from 1 through 4{
+            &:nth-child(#{$i}) ul{
+                left: ($i - 1) * $button-width + ($i - 1) * 2;
+            }
+        }
+}

@@ -1,6 +1,7 @@
 //defining mixins and variable nul
 
 $nul: 0;
+@import 'nav_utils';
 
 @mixin displayType($dispType, $pos){
     display: $dispType;
@@ -22,14 +23,14 @@ $nul: 0;
     background-color: $bckgCol;
 }
 
-%listType{
-    list-style-type: none;
-}
+%listType{list-style-type: none;}
+%textColor{color: var(--main-color);}
+%textColorHover{color: var(--paragraph-color);}
+
 
 //=====================================================
 
 nav{
-    --button-width: 250px;
     margin-bottom: 10px;
 }
 
@@ -42,6 +43,7 @@ nav{
 }
 
 ul.menu{
+    @extend %textColor;
     &, ul {
         @extend %listType;
         padding: $nul;
@@ -54,12 +56,9 @@ ul.menu{
         z-index: 2;
     }
 
-    .right-outer-button{border-bottom-right-radius: 15px;}
-    .left-outer-button{border-bottom-left-radius: 15px;}
-
     li{
         cursor: pointer;
-        @include styleAndTransition(var(--button-width),
+        @include styleAndTransition($button-width,
                                     auto, 
                                     var(--grid-border), 
                                     none, 
@@ -68,11 +67,11 @@ ul.menu{
                                     bold,
                                     center);
         @include backgroundColor(var(--grid-background));
+        border-right: none;
 
         a{
-            color: black;
-            border-bottom-right-radius: 15px;
-            @include styleAndTransition(100%, 
+            @extend %textColor;
+            @include styleAndTransition($button-width, 
                                         100%, 
                                         $nul, 
                                         none, 
@@ -81,24 +80,31 @@ ul.menu{
                                         bold,
                                         center);
             @include displayType(block, static);
+        }
 
-            &:hover{
-                @include backgroundColor(var(--main-color));
-                color: white !important;
+        @extend %subOpAlign;
+
+        ul{
+            border: var(--grid-border);
+            li{
+                border-left: none;
+                border-top: none;
+            }
+
+            .bottom-element{
+                border-bottom: none;
             }
         }
 
         &:hover{
             @include backgroundColor(var(--main-color));
-            color: white;
+            @extend %textColorHover;
             ul{
                 @include displayType(block, absolute);
                 animation: submenu_animation 0.3s linear;
-            }
-            
-            .text-icon a{
-                @include backgroundColor(var(--main-color));
-                color: white !important;   
+                li:hover a{
+                    @extend %textColorHover;
+                }
             }
         }
         &.left-outer-button{
@@ -111,26 +117,38 @@ ul.menu{
                 content: '';
                 background: linear-gradient(var(--main-color), var(--grid-background), var(--main-color));
                 height: 10px;
-                width: 20%;
-                left: 80%;
+                width: $button-width + 4;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
                 right: 0;
                 top: 0;
                 position: absolute;
                 opacity: 0;
                 transition: top 0.3s linear, opacity 0.5s ease;
                 z-index: 1;
+                pointer-events: none;
             }
 
-            &:hover::after{
-                top: 80%;
-                opacity: 1;
-            }
-
-            &:hover{
+            &:hover {
                 border-bottom-right-radius: 0px;
+
+                a {
+                    @extend %textColorHover;
+                    background-color: var(--main-color);
+                }
+
+                &::after {
+                    top: 80%;
+                    opacity: 1;
+                }
             }
         }
     }
+
+    .right-outer-button{
+        border-bottom-right-radius: 15px;
+        border-right: var(--grid-border);}
+    .left-outer-button{border-bottom-left-radius: 15px;}
 }
 
 @keyframes submenu_animation{

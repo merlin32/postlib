@@ -1,0 +1,32 @@
+@use 'nav_utils' as * with (
+    $button-width: 130px
+);
+
+.icon-label{
+    display: none;
+}
+
+ul.menu {
+    li{
+        width: $button-width;
+        @extend %subOpAlign;
+        .right-outer-button::after{
+            width: var(--button-width) + 4;
+        }
+
+        a{width: $button-width;}
+
+        ul{
+            font-size: 15px;
+            li a{
+                width: 100%;
+            }
+        }
+
+        &.right-outer-button{
+            &::after{
+                width: $button-width + 4;
+            }
+        }
+    }
+}

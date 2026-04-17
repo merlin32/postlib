@@ -1,11 +1,30 @@
+ul.menu li:nth-child(1) ul {
+  left: 0px;
+}
+ul.menu li:nth-child(2) ul {
+  left: 252px;
+}
+ul.menu li:nth-child(3) ul {
+  left: 504px;
+}
+ul.menu li:nth-child(4) ul {
+  left: 756px;
+}
+
 ul.menu, ul.menu ul {
   list-style-type: none;
 }
 
+ul.menu li a, ul.menu {
+  color: var(--main-color);
+}
+
+ul.menu li.right-outer-button:hover a, ul.menu li:hover ul li:hover a, ul.menu li:hover {
+  color: var(--paragraph-color);
+}
+
 nav {
-  --button-width: 250px;
   margin-bottom: 10px;
-  box-sizing: border-box;
 }
 
 #hamburger, #ch-menu {
@@ -31,15 +50,9 @@ ul.menu ul {
   position: absolute;
   z-index: 2;
 }
-ul.menu .right-outer-button {
-  border-bottom-right-radius: 15px;
-}
-ul.menu .left-outer-button {
-  border-bottom-left-radius: 15px;
-}
 ul.menu li {
   cursor: pointer;
-  width: var(--button-width);
+  width: 250px;
   height: auto;
   border: var(--grid-border);
   text-decoration: none;
@@ -48,11 +61,10 @@ ul.menu li {
   font-weight: bold;
   text-align: center;
   background-color: var(--grid-background);
+  border-right: none;
 }
 ul.menu li a {
-  color: black;
-  border-bottom-right-radius: 15px;
-  width: 100%;
+  width: 250px;
   height: 100%;
   border: 0;
   text-decoration: none;
@@ -63,22 +75,23 @@ ul.menu li a {
   display: block;
   position: static;
 }
-ul.menu li a:hover {
-  background-color: var(--main-color);
-  color: white !important;
+ul.menu li ul {
+  border: var(--grid-border);
+}
+ul.menu li ul li {
+  border-left: none;
+  border-top: none;
+}
+ul.menu li ul .bottom-element {
+  border-bottom: none;
 }
 ul.menu li:hover {
   background-color: var(--main-color);
-  color: white;
 }
 ul.menu li:hover ul {
   display: block;
   position: absolute;
   animation: submenu_animation 0.3s linear;
-}
-ul.menu li:hover .text-icon a {
-  background-color: var(--main-color);
-  color: white !important;
 }
 ul.menu li.left-outer-button:hover {
   border-bottom-left-radius: 0;
@@ -87,21 +100,33 @@ ul.menu li.right-outer-button::after {
   content: "";
   background: linear-gradient(var(--main-color), var(--grid-background), var(--main-color));
   height: 10px;
-  width: 20%;
-  left: 80%;
+  width: 254px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   right: 0;
   top: 0;
   position: absolute;
   opacity: 0;
   transition: top 0.3s linear, opacity 0.5s ease;
   z-index: 1;
+  pointer-events: none;
+}
+ul.menu li.right-outer-button:hover {
+  border-bottom-right-radius: 0px;
+}
+ul.menu li.right-outer-button:hover a {
+  background-color: var(--main-color);
 }
 ul.menu li.right-outer-button:hover::after {
   top: 80%;
   opacity: 1;
 }
-ul.menu li.right-outer-button:hover {
-  border-bottom-right-radius: 0px;
+ul.menu .right-outer-button {
+  border-bottom-right-radius: 15px;
+  border-right: var(--grid-border);
+}
+ul.menu .left-outer-button {
+  border-bottom-left-radius: 15px;
 }
 
 @keyframes submenu_animation {

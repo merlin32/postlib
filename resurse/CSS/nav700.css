@@ -1,10 +1,17 @@
 nav {
   width: 100%;
   height: 60px;
+  box-sizing: border-box;
   background-color: var(--grid-background);
   border-top: var(--grid-border);
   border-bottom: var(--grid-border);
+  border-left: var(--grid-border);
+  border-right: var(--grid-border);
   box-shadow: var(--grid-box-shadow);
+}
+
+ul.menu li ul li a {
+  color: var(--anchor-color);
 }
 
 #hamburger {
@@ -49,21 +56,33 @@ nav {
 
 ul.menu {
   display: none;
-}
-ul.menu .left-outer-button {
-  border-bottom-left-radius: 0px;
-}
-ul.menu .right-outer-button {
-  border-bottom-right-radius: 0;
-}
-ul.menu li.right-outer-button::after {
-  content: none;
+  left: 0;
 }
 ul.menu li {
   width: 100%;
 }
+ul.menu li a {
+  width: 100%;
+}
+ul.menu li {
+  border-right: var(--grid-border);
+}
+ul.menu li ul {
+  border: none;
+  border-top: var(--grid-border);
+}
+ul.menu li ul li {
+  border-right: none;
+}
+ul.menu li {
+  border-top: none;
+}
 ul.menu ul {
   width: 100%;
+  box-sizing: border-box;
+}
+ul.menu .left-outer-button {
+  border-top: var(--grid-border);
 }
 
 #ch-menu:checked + ul.menu {
