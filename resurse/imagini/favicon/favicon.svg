@@ -1,131 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><style>
-    #light-icon {
-      display: inline;
-    }
-    #dark-icon {
-      display: none;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      #light-icon {
-        display: none;
-      }
-      #dark-icon {
-        display: inline;
-      }
-    }
-  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath2351)"><rect width="1000" height="1000" fill="#302517"></rect><g transform="matrix(3.90625,0,0,3.90625,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <defs>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" viewBox="0 0 256 256" width="256" height="256"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
     <style>
-      .cls-1, .cls-2 {
-        fill: #c49a6c;
+      .st0, .st1 {
+        fill: #ebba83;
       }
 
-      .cls-2 {
+      .st2 {
+        fill: #263a42;
+      }
+
+      .st3 {
+        fill: #f8ead9;
+      }
+
+      .st1 {
         font-family: FrenchScriptMT, 'French Script MT';
         font-size: 230.14px;
       }
 
-      .cls-3 {
-        fill: #d9bd9d;
+      .st4 {
+        fill: #f2d3af;
       }
 
-      .cls-4 {
+      .st5 {
+        fill: #f4d9bb;
+      }
+
+      .st6 {
+        fill: #f6e3cd;
+      }
+
+      .st7 {
         fill: none;
-        stroke: #c49a6c;
+        stroke: #ebba83;
         stroke-linecap: round;
         stroke-miterlimit: 10;
         stroke-width: 10px;
       }
-
-      .cls-5 {
-        fill: #dec7ab;
-      }
-
-      .cls-6 {
-        fill: #ece0d1;
-      }
-
-      .cls-7 {
-        fill: #005548;
-      }
-
-      .cls-8 {
-        fill: #e7d6c1;
-      }
     </style>
-  <clipPath id="SvgjsClipPath2351"><rect width="1000" height="1000" x="0" y="0" rx="400" ry="400"></rect></clipPath></defs>
-  <g>
-    <path class="cls-7" d="M224.39,153.44c-14.55,62.7-73.67,100.86-132.05,85.22C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61s93.9,79.13,79.34,141.83Z"></path>
+  </defs><g>
+    <path class="st2" d="M224.39,153.44c-14.55,62.7-73.67,100.86-132.05,85.22C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61s93.9,79.13,79.34,141.83Z"></path>
     <g>
-      <path class="cls-4" d="M206.89,193.87c-25.33,37.47-70.15,56.69-114.54,44.8C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61c58.38,15.63,93.9,79.13,79.34,141.83"></path>
+      <path class="st7" d="M206.89,193.87c-25.33,37.47-70.15,56.69-114.54,44.8C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61c58.38,15.63,93.9,79.13,79.34,141.83"></path>
       <g>
-        <path class="cls-8" d="M197.9,184.23c17.42-4.64,35.8-5.35,53.52-2.91l-46.39,53.92c-18.46-3.28-37.77-.27-55.57,5.29l48.43-56.3Z"></path>
-        <path class="cls-8" d="M149.46,240.53c3.05-18.44,2.39-37.83-3.07-55.74l46.28-53.8c5.09,17.59,7.32,35.41,5.23,53.24l-48.43,56.3Z"></path>
-        <path class="cls-1" d="M202.33,238.37c-18.47-3.27-37.77-.27-55.57,5.29,3.05-18.44,2.38-37.82-3.07-55.74l6.23-7.24c5.08,17.6,7.32,35.42,5.22,53.25,17.42-4.65,35.81-5.36,53.52-2.91l-6.32,7.35Z"></path>
-        <path class="cls-3" d="M217.34,220.93c-18.46-3.29-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
-        <path class="cls-5" d="M232.36,203.47c-18.46-3.28-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
-        <path class="cls-6" d="M247.37,186.02c-18.46-3.29-37.77-.28-55.56,5.28,3.06-18.45,2.38-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.22,53.24,17.42-4.65,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
+        <path class="st6" d="M197.9,184.23c17.42-4.64,35.8-5.35,53.52-2.91l-46.39,53.92c-18.46-3.28-37.77-.27-55.57,5.29l48.43-56.3Z"></path>
+        <path class="st6" d="M149.46,240.53c3.05-18.44,2.39-37.83-3.07-55.74l46.28-53.8c5.09,17.59,7.32,35.41,5.23,53.24l-48.43,56.3Z"></path>
+        <path class="st0" d="M202.33,238.37c-18.47-3.27-37.77-.27-55.57,5.29,3.05-18.44,2.38-37.82-3.07-55.74l6.23-7.24c5.08,17.6,7.32,35.42,5.22,53.25,17.42-4.65,35.81-5.36,53.52-2.91l-6.32,7.35Z"></path>
+        <path class="st4" d="M217.34,220.93c-18.46-3.29-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
+        <path class="st5" d="M232.36,203.47c-18.46-3.28-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
+        <path class="st3" d="M247.37,186.02c-18.46-3.29-37.77-.28-55.56,5.28,3.06-18.45,2.38-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.22,53.24,17.42-4.65,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
       </g>
     </g>
-  </g>
-  <text class="cls-2" transform="translate(38.79 198.79) scale(1.02 1)"><tspan x="0" y="0">P</tspan></text>
-  <text></text>
-</svg></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(3.90625,0,0,3.90625,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <defs>
-    <style>
-      .cls-1, .cls-2 {
-        fill: #c49a6c;
-      }
-
-      .cls-2 {
-        font-family: FrenchScriptMT, 'French Script MT';
-        font-size: 230.14px;
-      }
-
-      .cls-3 {
-        fill: #d9bd9d;
-      }
-
-      .cls-4 {
-        fill: none;
-        stroke: #c49a6c;
-        stroke-linecap: round;
-        stroke-miterlimit: 10;
-        stroke-width: 10px;
-      }
-
-      .cls-5 {
-        fill: #dec7ab;
-      }
-
-      .cls-6 {
-        fill: #ece0d1;
-      }
-
-      .cls-7 {
-        fill: #005548;
-      }
-
-      .cls-8 {
-        fill: #e7d6c1;
-      }
-    </style>
-  </defs>
-  <g>
-    <path class="cls-7" d="M224.39,153.44c-14.55,62.7-73.67,100.86-132.05,85.22C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61s93.9,79.13,79.34,141.83Z"></path>
-    <g>
-      <path class="cls-4" d="M206.89,193.87c-25.33,37.47-70.15,56.69-114.54,44.8C33.97,223.03-1.55,159.54,13,96.83,27.55,34.13,86.67-4.02,145.05,11.61c58.38,15.63,93.9,79.13,79.34,141.83"></path>
-      <g>
-        <path class="cls-8" d="M197.9,184.23c17.42-4.64,35.8-5.35,53.52-2.91l-46.39,53.92c-18.46-3.28-37.77-.27-55.57,5.29l48.43-56.3Z"></path>
-        <path class="cls-8" d="M149.46,240.53c3.05-18.44,2.39-37.83-3.07-55.74l46.28-53.8c5.09,17.59,7.32,35.41,5.23,53.24l-48.43,56.3Z"></path>
-        <path class="cls-1" d="M202.33,238.37c-18.47-3.27-37.77-.27-55.57,5.29,3.05-18.44,2.38-37.82-3.07-55.74l6.23-7.24c5.08,17.6,7.32,35.42,5.22,53.25,17.42-4.65,35.81-5.36,53.52-2.91l-6.32,7.35Z"></path>
-        <path class="cls-3" d="M217.34,220.93c-18.46-3.29-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
-        <path class="cls-5" d="M232.36,203.47c-18.46-3.28-37.77-.27-55.56,5.28,3.05-18.44,2.37-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.23,53.24,17.42-4.64,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
-        <path class="cls-6" d="M247.37,186.02c-18.46-3.29-37.77-.28-55.56,5.28,3.06-18.45,2.38-37.81-3.08-55.73l6.23-7.24c5.09,17.59,7.32,35.41,5.22,53.24,17.42-4.65,35.8-5.35,53.52-2.91l-6.33,7.36Z"></path>
-      </g>
-    </g>
-  </g>
-  <text class="cls-2" transform="translate(38.79 198.79) scale(1.02 1)"><tspan x="0" y="0">P</tspan></text>
-  <text></text>
-</svg></svg></g></g></svg></g></svg>
+  </g><text class="st1" transform="translate(38.79 198.79) scale(1.02 1)"><tspan x="0" y="0">P</tspan></text><text></text><style>@media (prefers-color-scheme: light) { :root { filter: contrast(1) brightness(0.9); } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
