@@ -1,0 +1,159 @@
+
+$grad-main-bckg: linear-gradient(to right, var(--main-color), 
+                                           var(--grid-background), 
+                                           var(--main-color));
+$grad-border: linear-gradient(to right, var(--main-color), 
+                                        var(--anchor-color), 
+                                        var(--paragraph-shadow-color), 
+                                        var(--anchor-color), 
+                                        var(--main-color));
+
+.page-title {
+    text-align: center;
+    font-size: 2.1em;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image-source: $grad-border;
+    border-image-slice: 1;
+    background: $grad-main-bckg;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--paragraph-shadow-color);
+}
+
+#about-grid{
+    display: grid;
+    margin-bottom: 20px;
+    gap: var(--grid-gap);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "presentation history"
+                         "motivation motivation";
+    &>*{
+        border: var(--grid-border);
+        box-shadow: var(--grid-box-shadow);
+        border-radius: var(--grid-border-radius);
+        padding: var(--grid-padding);
+        background-color: var(--grid-background);
+    }
+
+    h2{
+        color: var(--paragraph-shadow-color);
+        border-bottom: 2px solid;
+        border-width: 50%;
+        font-size: 1.6em;
+        border-image-source: linear-gradient(to right, var(--paragraph-shadow-color), 
+                                                       var(--paragraph-shadow-color), 
+                                                       var(--grid-background), 
+                                                       var(--grid-background));
+        border-image-slice: 1;
+    }
+
+    p{
+        font-size: 1.2em;
+    }
+
+    hgroup{
+        p{
+            margin-left: 0;
+            margin-top: 0;
+            color: var(--paragraph-shadow-color);
+            box-shadow: none;
+            border: none;
+            text-indent: 0;
+            background: linear-gradient(to right, var(--anchor-color), 
+                                                  var(--anchor-color), 
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--grid-background));
+            font-size: 1.4em;
+            transform: translateY(-20%);
+        }
+    }
+}
+
+.video-container{
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image-source: linear-gradient(to right, var(--grid-background), 
+                                                   var(--paragraph-shadow-color), 
+                                                   var(--paragraph-shadow-color),
+                                                   var(--grid-background));
+    border-image-slice: 1;
+    background: linear-gradient(to right, var(--grid-background),
+                                          var(--paragraph-color),
+                                          var(--grid-background));
+    video{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        // padding-left: 10px;
+        // padding-right: 10px;
+        width: 50%;
+        height: auto;
+        max-width: 800px;
+        min-width: 350px;
+        border-radius: 40px;
+        box-shadow: 0 0 5px 5px var(--paragraph-shadow-color);
+
+        &::cue(.cousine-regular) {
+            font-family: 'Cousine', monospace;
+            background: linear-gradient(to right, var(--grid-background), 
+                                                  var(--paragraph-color));
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+    }
+}
+
+#presentation{
+    grid-area: presentation;
+}
+
+#history{
+    grid-area: history;
+}
+
+#motivation{
+    grid-area: motivation;
+}
+
+@media screen and (max-width: 1600px){
+    #about-grid{
+        display: block;
+        &>*{
+            margin-bottom: 20px;
+        }
+
+        p{
+            font-size: 1em;
+        }
+
+        hgroup p{
+            text-align: left;
+            white-space: pre-wrap;
+            font-size: 1.1em;
+            text-wrap: word-wrap;
+            background: linear-gradient(to right, var(--anchor-color), 
+                                                  var(--anchor-color), 
+                                                  var(--anchor-color), 
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--anchor-color),
+                                                  var(--grid-background));
+        }
+    }
+
+    .page-title{
+        background: linear-gradient(to right, var(--main-color),
+                                             var(--grid-background),
+                                              var(--grid-background), 
+                                              var(--main-color));
+    }
+}

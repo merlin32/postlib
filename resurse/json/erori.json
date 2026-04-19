@@ -1,0 +1,52 @@
+{
+  "cale_baza": "/resurse/imagini/erori",
+  "eroare_default": {
+    "titlu": "Eroare!",
+    "text": "A survenit o eroare.",
+    "imagine": "error404_image.png"
+  },
+  "info_erori": [
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "Eroarea 404!",
+      "text": "Continutul cautat nu a fost gasit!",
+      "imagine": "error404_image.png"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "Eroarea 403!",
+      "text": "Accesul pe aceasta cale este strict interzis!",
+      "imagine": "error404_image.png"
+    },
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "Eroarea 400 - bad request",
+      "text": "Cererea efectuata nu poate fi procesata!",
+      "imagine": "error404_image.png"
+    },
+    {
+      "identificator": 1,
+      "status": false,
+      "titlu": "Site în lucru",
+      "text": "Muncim, muncim!",
+      "imagine": "error404_image.png"
+    },
+    {
+      "identificator": 2,
+      "status": false,
+      "titlu": "Eroare baza date",
+      "text": "Reveniti mai tarziu!",
+      "imagine": "error404_image.png"
+    },
+    {
+      "identificator": 3,
+      "status": false,
+      "titlu": "Date gresite",
+      "text": "Verificati datele",
+      "imagine": "error404_image.png"
+    }
+  ]
+}

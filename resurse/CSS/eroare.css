@@ -1,0 +1,37 @@
+#err-display {
+  border: var(--grid-border);
+  box-shadow: var(--grid-box-shadow);
+  border-radius: var(--grid-border-radius);
+  padding: var(--grid-padding);
+  background-color: var(--grid-background);
+  width: 55%;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#err-display section h2 {
+  color: var(--anchor-color);
+  font-size: 2.4em;
+}
+#err-display section p {
+  display: inline-block;
+  text-indent: 0;
+  font-size: 1.4em;
+}
+#err-display section #err-imag {
+  display: block;
+  height: 14em;
+  width: 14em;
+  max-width: 100%;
+  margin-bottom: 60px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#err-display section #err-imag img {
+  width: auto;
+  height: auto;
+  display: block;
+}

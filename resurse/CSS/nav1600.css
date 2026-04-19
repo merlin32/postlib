@@ -1,0 +1,35 @@
+ul.menu li:nth-child(1) ul {
+  left: 0px;
+}
+ul.menu li:nth-child(2) ul {
+  left: 132px;
+}
+ul.menu li:nth-child(3) ul {
+  left: 264px;
+}
+ul.menu li:nth-child(4) ul {
+  left: 396px;
+}
+
+.icon-label {
+  display: none;
+}
+
+ul.menu li {
+  width: 130px;
+}
+ul.menu li .right-outer-button::after {
+  width: var(--button-width)4;
+}
+ul.menu li a {
+  width: 130px;
+}
+ul.menu li ul {
+  font-size: 15px;
+}
+ul.menu li ul li a {
+  width: 100%;
+}
+ul.menu li.right-outer-button::after {
+  width: 134px;
+}

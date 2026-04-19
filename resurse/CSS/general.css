@@ -52,13 +52,55 @@ header hgroup {
     color: var(--anchor-color);
 }
 
+a[href^="http"]:visited{
+    color: var(--main-color);
+}
+
+a[href^="http"]::before {
+    content:'\2BB3';
+    font-size: 1.5em;
+    transition: color 0.4s linear;
+}
+
+a[href^="http"]:hover::before {
+    color: var(--grid-background);
+}
+
+main a[href^="http"]{
+    text-align: center;
+    background: radial-gradient(ellipse, var(--paragraph-color) 0%,
+                                         var(--paragraph-color) 40%, 
+                                         transparent 80%,
+                                         transparent 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    transition: background-size 0.3s linear;
+    display: block;
+}
+
+main a[href^="http"]:hover{
+    background-size: 100% 100%;
+}
+
+main a:active {
+    outline: 2px solid var(--main-color);
+    outline-offset: -2px; 
+}
+
 p,
 address {
-    border: 1px solid var(--paragraph-color);
-    background-color: var(--paragraph-color);
-    box-shadow: var(--paragraph-shadow);
+    display: block;
+    text-align: justify;
+    text-indent: 70px;
+    color: rgb(248, 248, 248);
+    background-color: var(--box-shadow);
+    border: 2px solid var(--paragraph-shadow-color);
+    box-shadow: var(--grid-box-shadow);
     border-radius: 10px;
     padding: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 @keyframes shake-continual {
@@ -79,7 +121,6 @@ address {
 main ul a {
     display: flex;
     flex-direction: column;
-    background-color: var(--anchor-color);
     box-shadow: var(--paragraph-shadow);
     padding: 2px;
     border-radius: 5px;
@@ -429,10 +470,10 @@ figure>img {
     width: 100%;
 }
 
-.iframe-tabs>a {
+.iframe-tabs>a.tabs {
     display: block;
     padding: 10px 20px;
-    width: 120px;
+    width: 140px;
     box-sizing: border-box;
     background-color: var(--background-color);
     border: 5px double var(--paragraph-color);
@@ -444,8 +485,8 @@ figure>img {
     transition: width 0.3s linear, background-color 0.3s, padding-left 0.3s;
 }
 
-.iframe-tabs>a:hover {
-    width: 140px;
+.iframe-tabs>a.tabs:hover {
+    width: 160px;
     padding-left: 40px;
     background-color: var(--grid-background);
     color: white;

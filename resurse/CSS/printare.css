@@ -28,6 +28,18 @@
         display: none !important;
     }
 
+    address{
+        color: black !important;
+    }
+
+    .fees-table thead th, .fees-table tbody tr:nth-child(even) td,
+    .fees-table tbody tr:nth-child(odd) td, .fees-table tfoot td,
+    .fees-table caption, .fees-table math,
+    .fees-table math mi, .fees-table math msub>mi:last-child,
+    .fees-table math mo {
+        color: black !important;
+    }
+
     #page-grid{
         display: block !important;
     }
@@ -37,7 +49,7 @@
     }
 
     a, p{
-        color: black;
+        color: black !important;
         text-decoration: none;
     }
 
@@ -56,6 +68,7 @@
     }
 
     ul.menu{
+        border-right: none;
         display: block !important;
         list-style-type: disc !important;
     }
@@ -83,9 +96,16 @@
         text-align: left !important;
     }
 
+    ul.menu li ul{
+        border: none !important;
+    }
+
     ul.menu .right-outer-button{border-bottom-right-radius: 0 !important;}
     ul.menu .right-outer-button a{text-align: left !important;}
-    ul.menu .left-outer-button{border-bottom-left-radius: 0 !important;}
+    ul.menu .left-outer-button{
+        border-bottom-left-radius: 0 !important;
+        border: none;
+    }
 
     footer{
         page-break-before: always;
