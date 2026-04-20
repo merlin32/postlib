@@ -3,6 +3,8 @@ const path= require("path");
 const fs=require("fs");
 const sass=require("sass");
 const sharp=require("sharp");
+// const ejs=require('ejs');
+const pg = require("pg");
 
 app= express();
 app.set("view engine", "ejs")
@@ -20,6 +22,18 @@ obGlobal={
 console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
+
+client=new pg.Client({
+    database:"postlib",
+    user:"tudor",
+    password:"tudor",
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+
+
 
 function jsonValidate(){
     // Cerinta A
@@ -133,6 +147,47 @@ app.get(["/", "/index", "/home"], function(req, res){
     });
 });
 
+app.get("/produse", function(req, res){
+    clauzaWhere="";
+    if(req.query.tip){
+        clauzaWhere=` where tip='${req.query.tip}'`
+    }
+    console.log(req.query)
+    client.query(`select * from prajituri${clauzaWhere}`, function(err, rez){
+        if (err){
+            console.log("Eroare", err)
+            afisareEroare(res, 2);
+        }
+        else{
+            console.log(rez)
+            res.render("pagini/produse", {
+                produse: rez.row,
+                optiuni: []
+            })
+        }
+    })
+})
+
+app.get("/produs/:id", function(req, res){
+    client.query(`select * from prajituri where id = ${req.params.id}`, function(err, rez){
+        if (err){
+            console.log("Eroare", err)
+            afisareEroare(res, 2);
+        }
+        else{
+            if(rez.rowCount == 0){
+                afisareEroare(res, 404, "Produsul nu a fost gasit!!!");
+                return;
+            }
+            else{
+                console.log(rez)
+                res.render("pagini/produs", {
+                produs: rez.rows[0]
+            })
+            }
+        }
+    })
+})
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
@@ -189,6 +244,9 @@ function compileazaScss(caleScss, caleCss){
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
+    if (rez.sourceMap) {
+        fs.writeFileSync(caleCss + ".map", JSON.stringify(rez.sourceMap));
+    }
     
 }
 

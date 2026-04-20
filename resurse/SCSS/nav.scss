@@ -2,6 +2,7 @@
 
 $nul: 0;
 @import 'nav_utils';
+$button-width: 250px;
 
 @mixin displayType($dispType, $pos){
     display: $dispType;
