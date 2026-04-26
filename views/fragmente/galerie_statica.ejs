@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/resurse/CSS/galerie_statica.css" type="text/css">
+<link rel="stylesheet" href="/resurse/CSS/galerie_statica1000.css" type="text/css" media="screen and (max-width: 1000px)">
+<link rel="stylesheet" href="/resurse/CSS/galerie_statica700.css" type="text/css" media="screen and (max-width: 700px)">
+
+<section id="static-gallery">
+    <hgroup>
+        <h2>Galerie statica</h2>
+        <p>Imagini</p>
+    </hgroup>
+    <div id="gallery-grid">
+        <%  const currentHour = (new Date()).getHours();
+            let dayMoment = (currentHour >= 5 && currentHour < 12) ? "dimineata" : 
+                            (currentHour >= 12 && currentHour < 20) ? "zi" : "noapte";
+            let filteredImages = locals.imagini.filter((img) => img.timp === dayMoment);
+            let photosNumber = filteredImages.length - (filteredImages.length % 3);
+            for (let i = 0; i < photosNumber; i++) { 
+                let imag = filteredImages[i] %>
+
+                <figure>
+                    <picture>
+                        <source srcset="<%- imag.fisier_mic %>" media="screen and (max-width: 700px)">
+                        <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1000px)">
+                        <img src="<%- imag.cale_relativa %>" alt="<%- imag.nume %>" title="<%- imag.descriere %>">
+                    </picture>
+                    <figcaption>
+                        <strong class="photo-title"><%- imag.nume %></strong>
+                        <p class="photo-desc"><%- imag.descriere %></p>
+                        <small class="atribuire">
+                            <%- imag.atribuire %>
+                        </small>
+                    </figcaption>
+                </figure>
+            <% } %>
+    </div>  
+</section>

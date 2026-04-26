@@ -23,15 +23,15 @@ console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
 
-client=new pg.Client({
-    database:"postlib",
-    user:"tudor",
-    password:"tudor",
-    host:"localhost",
-    port:5432
-})
+// client=new pg.Client({
+//     database:"postlib",
+//     user:"tudor",
+//     password:"tudor",
+//     host:"localhost",
+//     port:5432
+// })
 
-client.connect()
+// client.connect()
 
 
 
@@ -135,6 +135,7 @@ for(let folder of vect_foldere){
 }
 
 app.use("/resurse",express.static(path.join(__dirname, "resurse")));
+app.use("/dist",express.static(path.join(__dirname, "/node_modules/bootstrap/dist")));
 
 app.get("/favicon.ico", function(req, res){
     res.sendFile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"))
@@ -143,51 +144,52 @@ app.get("/favicon.ico", function(req, res){
 
 app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {
-        ip: req.ip
+        ip: req.ip,
+        imagini: obGlobal.obImagini.imagini
     });
 });
 
-app.get("/produse", function(req, res){
-    clauzaWhere="";
-    if(req.query.tip){
-        clauzaWhere=` where tip='${req.query.tip}'`
-    }
-    console.log(req.query)
-    client.query(`select * from prajituri${clauzaWhere}`, function(err, rez){
-        if (err){
-            console.log("Eroare", err)
-            afisareEroare(res, 2);
-        }
-        else{
-            console.log(rez)
-            res.render("pagini/produse", {
-                produse: rez.row,
-                optiuni: []
-            })
-        }
-    })
-})
+// app.get("/produse", function(req, res){
+//     clauzaWhere="";
+//     if(req.query.tip){
+//         clauzaWhere=` where tip='${req.query.tip}'`
+//     }
+//     console.log(req.query)
+//     client.query(`select * from prajituri${clauzaWhere}`, function(err, rez){
+//         if (err){
+//             console.log("Eroare", err)
+//             afisareEroare(res, 2);
+//         }
+//         else{
+//             console.log(rez)
+//             res.render("pagini/produse", {
+//                 produse: rez.row,
+//                 optiuni: []
+//             })
+//         }
+//     })
+// })
 
-app.get("/produs/:id", function(req, res){
-    client.query(`select * from prajituri where id = ${req.params.id}`, function(err, rez){
-        if (err){
-            console.log("Eroare", err)
-            afisareEroare(res, 2);
-        }
-        else{
-            if(rez.rowCount == 0){
-                afisareEroare(res, 404, "Produsul nu a fost gasit!!!");
-                return;
-            }
-            else{
-                console.log(rez)
-                res.render("pagini/produs", {
-                produs: rez.rows[0]
-            })
-            }
-        }
-    })
-})
+// app.get("/produs/:id", function(req, res){
+//     client.query(`select * from prajituri where id = ${req.params.id}`, function(err, rez){
+//         if (err){
+//             console.log("Eroare", err)
+//             afisareEroare(res, 2);
+//         }
+//         else{
+//             if(rez.rowCount == 0){
+//                 afisareEroare(res, 404, "Produsul nu a fost gasit!!!");
+//                 return;
+//             }
+//             else{
+//                 console.log(rez)
+//                 res.render("pagini/produs", {
+//                 produs: rez.rows[0]
+//             })
+//             }
+//         }
+//     })
+// })
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
@@ -217,6 +219,43 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 app.get("/eroare", function(req, res){
     afisareEroare(res, 404);
 });
+
+function initImagini(){
+    var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
+
+    obGlobal.obImagini=JSON.parse(continut);
+    let vImagini=obGlobal.obImagini.imagini;
+    let caleGalerie=obGlobal.obImagini.cale_galerie
+
+    //fisier -> cale_relativa
+
+    let caleAbs=path.join(__dirname,caleGalerie);
+    let caleAbsMediu=path.join(caleAbs, "mediu");
+    let caleAbsMic=path.join(caleAbs, "mic");
+
+    if (!fs.existsSync(caleAbsMediu))
+        fs.mkdirSync(caleAbsMediu);
+    if (!fs.existsSync(caleAbsMic))
+        fs.mkdirSync(caleAbsMic);
+    
+    for (let imag of vImagini){
+        [numeFis, ext]=imag.cale_relativa.split("."); //"ceva.png" -> ["ceva", "png"]
+
+        let caleFisAbs=path.join(caleAbs,imag.cale_relativa);
+        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
+        let caleFisMicAbs=path.join(caleAbsMic, numeFis+".webp");
+
+        sharp(caleFisAbs).rotate().resize(400).toFile(caleFisMediuAbs);
+        sharp(caleFisAbs).rotate().resize(340).toFile(caleFisMicAbs);
+
+        imag.fisier_mediu=path.join("/", caleGalerie, "mediu", numeFis+".webp" )
+        imag.fisier_mic=path.join("/", caleGalerie, "mic", numeFis+".webp" )
+        imag.cale_relativa=path.join("/", caleGalerie, imag.cale_relativa )
+        
+    }
+    // console.log(obGlobal.obImagini)
+}
+initImagini();
 
 function compileazaScss(caleScss, caleCss){
     if(!caleCss){

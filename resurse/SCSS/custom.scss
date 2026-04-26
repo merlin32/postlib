@@ -1,0 +1,35 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
+(
+    $primary: #ECBA83,
+    $secondary: #8CB2C2,
+);
+
+h2{
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+h3{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 1em;
+}
+
+ul.menu li {
+    box-sizing: content-box;
+}
+
+.fees-table caption{
+    text-align: center;
+}
+
+summary{
+    font-weight: bold;
+}

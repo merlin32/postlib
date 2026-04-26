@@ -1,0 +1,199 @@
+{
+	"cale_galerie":"resurse/imagini/galerie_statica",
+	"imagini": [
+		{
+            "cale_relativa":"PropPlaneLanding.jpg",
+            "nume":"Small and stunning",
+			"descriere":"Un avion Cirrus SR22T privit de jos.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"TaromTakeoff.jpg",
+            "nume":"Decolare Tarom",
+			"descriere":"Decolarea unui avion Tarom sub lumina puternica a zilei.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"QatarAirwaysLanding.jpg",
+            "nume":"Aterizare Qatar Airways",
+			"descriere":"Boeing 787 al Qatar Airways vazut de jos.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"TurkishAirlinesUnderbelly.jpg",
+            "nume":"Turkish Airlines Underbelly View",
+			"descriere":"Momentul in care Turkish Airlines aterizeaza cu Airbus A330 la Bucuresti.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"TheMighty747.jpg",
+            "nume":"Impunatorul Boeing 747",
+			"descriere":"ROMCargo si impunatorul Boeing 747 aterizand la Bucuresti.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"CloudyWizzAir.jpg",
+            "nume":"Cloudy WizzAir",
+			"descriere":"Airbusul A321 al WizzAir inconjurat de nori la aterizare.",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"SunsetSpotting.jpg",
+            "nume":"Sunset Spotting",
+			"descriere":"Magia aterizarilor la apus",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"FoggyApproach.jpg",
+            "nume":"Foggy Approach",
+			"descriere":"Silueta magnifica a unui Boeing 767 invaluita de ceata densa",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"UrbanSpotting.jpg",
+            "nume":"Urban Plane Spotting",
+			"descriere":"Aterizare surpinsa intr-un mediu urban",
+			"timp":"zi",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		
+
+		{
+            "cale_relativa":"IarbaDeLivezi.jpg",
+            "nume":"Iarba De Livezi",
+			"descriere":"Poza spectaculoasa suprinsa in natura.",
+			"timp":"dimineata",
+			"atribuire": "\"nature\" by Ratchanee @ Gatoon is licensed under CC BY-NC-SA 2.0."
+		},
+		{
+            "cale_relativa":"StunningView.jpg",
+            "nume":"Munte cuprins de nori",
+			"descriere":"Vedere incredibila a muntelui care evadeaza printre nori.",
+			"timp":"dimineata",
+			"atribuire": "Carl Attard, CC0 <https://pixnio.com/nature-landscapes/fog-mist/fog-sky-mountain-forest-treetop-nature-landscape>, via Pixnio"
+		},
+		{
+            "cale_relativa":"MountainLake.jpg",
+            "nume":"Lake intre munti",
+			"descriere":"Lacul de un albastru imaculat pazit de varfurile muntoase.",
+			"timp":"dimineata",
+			"atribuire": "Louis Paulin, Unsplash License <https://unsplash.com/photos/green-and-brown-mountains-under-blue-sky-and-white-clouds-during-daytime-VX5B5KtFtGs>, via Unsplash"
+		},
+		{
+            "cale_relativa":"Gargarita.jpg",
+            "nume":"Gargarita din flori",
+			"descriere": "O gargarita care exploreaza petalele fine.",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"GracefulSwan.jpg",
+            "nume":"Lebada gratioasa",
+			"descriere": "O lebădă albă navigând liniștită pe oglinda.",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"CorcodusInflorit.jpg",
+            "nume":"Corcodus Inflorit",
+			"descriere": "O multitudine de flori albe de corcodus",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"MagiaPrimaverii.jpg",
+            "nume":"Magia primaverii",
+			"descriere": "Flori de corcodus splendide.",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"SezonulPomilorInfloriti.jpg",
+            "nume":"Sezonul Pomilor Infloriti",
+			"descriere": "Un corcodus inflorit in luna aprilie.",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"MysticTree.jpg",
+            "nume":"Copacul intelept",
+			"descriere": "Nucul batran care vegheaza asupra curtii.",
+			"timp":"dimineata",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+
+
+		{
+            "cale_relativa":"BarNight.jpg",
+            "nume":"Seara de cocktail",
+			"descriere": "O atmosfera vibranta impreuna cu prietenii la un cocktail.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"CasertaPalace.jpg",
+            "nume":"Palatul din Caserta",
+			"descriere": "Imagine de ansamblu a Palatului din Caserta.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"CatedraleDiPisa.jpg",
+            "nume":"Catedrala din Pisa",
+			"descriere": "Imagine din interiorul Catedralei din Pisa",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"PisaTower.jpg",
+            "nume":"Turnul din Pisa",
+			"descriere": "Turnul din Pisa in lumina serii.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"PompeiStreet.jpg",
+            "nume":"Strada din Pompei",
+			"descriere": "O strada antica din Pompei, unde istoria regiunii Napoli prinde viata sub lumina serii.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"LoneMan.jpg",
+            "nume":"Omul Singuratic",
+			"descriere": "O silueta misterioasa in lumina noptii.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"OpiumCat.jpg",
+            "nume": "Noir Cat Pose",
+    		"descriere": "O pisică surprinsă într-o ipostază dramatică și misterioasă sub luminile nopții.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"RomanianGeisha.jpg",
+            "nume": "Romanian Geisha",
+    		"descriere": "O prezenta mistica si plina de gratie, surprinsa intr-o ipostaza dramatica.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		},
+		{
+            "cale_relativa":"UmbrellaCat.jpg",
+            "nume": "Pisica sub umbrela",
+    		"descriere": "Curiozitatea pisicilor nu dezamageste niciodata.",
+			"timp":"noapte",
+			"atribuire": "State Tudor-Alexandru, Arhivă personală, Toate drepturile rezervate"
+		}
+
+	]
+}

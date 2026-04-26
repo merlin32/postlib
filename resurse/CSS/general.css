@@ -20,7 +20,7 @@ body {
     margin: 0px;
 }
 
-header {
+html header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +31,7 @@ header {
     margin-bottom: 50px;
 }
 
-footer {
+html footer {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: "contact contact contact"
@@ -103,6 +103,10 @@ address {
     margin-right: 2%;
 }
 
+address{
+    height: 100%;
+}
+
 @keyframes shake-continual {
     0% {
         transform: rotate(-15deg);
@@ -134,9 +138,8 @@ main ul a {
 }
 
 .cousine-regular {
-    font-family: "Cousine", monospace;
+    font-family: "Cousine", monospace !important;
     font-weight: 400;
-
     font-style: normal;
 }
 
@@ -270,6 +273,7 @@ main {
         "about-us learn events"
         "about-us fees-and-terms-of-service faq"
         "hof hof hof"
+        "static-gallery static-gallery static-gallery"
         "contact contact contact";
     grid-template-rows: auto;
 }
@@ -712,6 +716,7 @@ figure>img {
             "fees-and-terms-of-service fees-and-terms-of-service"
             "faq faq"
             "hof hof"
+            "static-gallery static-gallery"
             "contact contact";
     }
 

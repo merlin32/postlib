@@ -1,0 +1,14 @@
+@media screen and (max-width: 700px) {
+  #gallery-grid {
+    display: block;
+  }
+  #gallery-grid figure:nth-child(3n+1) {
+    justify-self: center;
+  }
+  #gallery-grid figure:nth-child(3n+2) {
+    justify-self: center;
+  }
+  #gallery-grid figure:nth-child(3n) {
+    justify-self: center;
+  }
+}
