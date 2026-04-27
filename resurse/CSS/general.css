@@ -27,6 +27,47 @@ html header {
     gap: 10px;
 }
 
+.text-left {
+    transform: rotate(-13deg) skew(-13deg);
+}
+
+.text-right {
+    transform: rotate(13deg) scaleX(-1) skew(-13deg);
+}
+
+.flipped-text-container {
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    gap: 15px;
+    transition: color 0.3s linear;
+}
+
+.flipped-text-container:has(span:hover) {
+    color: var(--main-color);
+}
+
+.horiz-line{
+    border: none;
+    height: 4px;
+    margin-top: 0;
+    background: linear-gradient(-135deg, 
+        var(--paragraph-shadow-color) 0%, 
+        var(--paragraph-shadow-color) 15%,
+        transparent 15%, 
+        transparent 20%,
+        var(--paragraph-shadow-color) 20%, 
+        var(--paragraph-shadow-color) 80%,
+        transparent 80%, 
+        transparent 85%,
+        var(--paragraph-shadow-color) 85%, 
+        var(--paragraph-shadow-color) 100%
+    );
+    opacity: 0.8;
+    
+}
+
 .logo {
     margin-bottom: 50px;
 }

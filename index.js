@@ -6,6 +6,8 @@ const sharp=require("sharp");
 // const ejs=require('ejs');
 const pg = require("pg");
 
+const staticGalleryPages = ["despre"];
+
 app= express();
 app.set("view engine", "ejs")
 
@@ -318,8 +320,16 @@ app.get("/*pagina", function(req, res){
         afisareEroare(res, 400);
         return;
     }
+
+    let pageName = req.url.replace("/", "");
+    let renderData = {};
+
+    if(staticGalleryPages.includes(pageName)){
+        renderData.imagini = obGlobal.obImagini.imagini;
+    }
+
     try{
-        res.render("pagini"+req.url, function(err, rezRandare){
+        res.render("pagini"+req.url, renderData, function(err, rezRandare){
             if(err){
                 if(err.message.includes("Failed to lookup view")){
                     afisareEroare(res, 404, "Pagina nu a fost gasita!!!");

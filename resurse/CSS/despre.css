@@ -1,5 +1,4 @@
 .page-title {
-  -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
   text-align: center;
   font-size: 2.1em;
   border-top: 2px solid;
@@ -17,7 +16,7 @@
   margin-bottom: 20px;
   gap: var(--grid-gap);
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "presentation history" "motivation motivation";
+  grid-template-areas: "presentation history" "motivation motivation" "static-gallery static-gallery";
 }
 #about-grid > * {
   border: var(--grid-border);

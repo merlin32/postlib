@@ -1,7 +1,39 @@
+$paragraph-shadow-color: #ECBA83;
+
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
 (
-    $primary: #ECBA83,
+    $primary: $paragraph-shadow-color,
     $secondary: #8CB2C2,
+
+    $light: #F5ECD7,
+    $dark: #1C2B33,
+
+    $body-color: #2C3E50,
+    $headings-color: $paragraph-shadow-color,
+
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 820px,
+        lg: 1100px,
+        xl: 1400px,
+        xxl: 1600px
+    ),
+
+    $border-radius: 0.75rem,
+    $border-radius-lg: 1rem,
+    $border-radius-sm: 0.4rem,
+
+    $h1-font-size: 2.5rem,
+    $h2-font-size: 2rem,
+    $h3-font-size: 1.6rem,
+    $h4-font-size: 1.3rem,
+    $h5-font-size: 1.1rem,
+    $h6-font-size: 0.95rem,
+
+    $font-family-base: 'Georgia' serif,
+
+    $headings-font-weight: 700
 );
 
 h2{
