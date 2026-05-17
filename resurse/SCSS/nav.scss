@@ -2,7 +2,8 @@
 
 $nul: 0;
 @import 'nav_utils';
-$button-width: 250px;
+$button-width: 180px;
+$button-height: 50px;
 
 @mixin displayType($dispType, $pos){
     display: $dispType;
@@ -25,13 +26,14 @@ $button-width: 250px;
 }
 
 %listType{list-style-type: none;}
-%textColor{color: var(--main-color);}
+%textColor{color: var(--titles-color);}
 %textColorHover{color: var(--paragraph-color);}
 
 
 //=====================================================
 
 nav{
+    font-size: 1.1em;
     margin-bottom: 10px;
 }
 
@@ -41,6 +43,7 @@ nav{
 
 .icon-label, .menu-icon{
     @include displayType(inline-block, static);
+    margin-right: 5px;
 }
 
 ul.menu{
@@ -58,9 +61,12 @@ ul.menu{
     }
 
     li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
         @include styleAndTransition($button-width,
-                                    auto, 
+                                    $button-height, 
                                     var(--grid-border), 
                                     none, 
                                     all 0.3s linear, 
@@ -80,7 +86,9 @@ ul.menu{
                                         2,
                                         bold,
                                         center);
-            @include displayType(block, static);
+            @include displayType(flex, static);
+            justify-content: center;
+            align-items: center;
         }
 
         @extend %subOpAlign;
@@ -88,6 +96,7 @@ ul.menu{
         ul{
             border: var(--grid-border);
             li{
+                height: auto;
                 border-left: none;
                 border-top: none;
             }
@@ -102,6 +111,7 @@ ul.menu{
             @extend %textColorHover;
             ul{
                 @include displayType(block, absolute);
+                top: $button-height + 2px;
                 animation: submenu_animation 0.3s linear;
                 li:hover a{
                     @extend %textColorHover;
@@ -139,7 +149,7 @@ ul.menu{
                 }
 
                 &::after {
-                    top: 80%;
+                    top: 85%;
                     opacity: 1;
                 }
             }

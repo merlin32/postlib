@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>PostLib - Autentificare</title>
+    <meta name="keywords" content="PostLib, login, conectare, autentificare, creare cont">
+    <meta name="description" content="Intra in cont sau creaza-ti unul.">
+    <link rel="stylesheet" type="text/css" href="/resurse/CSS/auth_page.css">
+    <link rel="stylesheet" type="text/css" href="/resurse/CSS/general.css">
+    <link rel="stylesheet" type="text/css" href="/resurse/CSS/effects.css">
+    <%- include('../fragmente/head.ejs') %>
+</head>
+
+<body>
+    <div id="watermark">STATE<br>TUDOR-ALEXANDRU</div>
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="/resurse/video/background/DeepBlue.mp4" type="video/mp4">
+    </video>
+    <%- include('../fragmente/header.ejs') %>
+    <main>
+        <section id="login">
+            <h2>Conectare</h2>
+            <div class="fields">
+                <label for="email-login" class="italiana-regular">Email: </label>
+                <input type="text" id="email-login" name="email" placeholder="Introdu un email">
+                <label for="password-login">Parola:</label>
+                <input type="text" id="password-login" name="password" placeholder="Introdu parola">
+                <button class="btn btn-primary">
+                    Confirmare
+                </button>
+            </div>
+        </section>
+    </main>
+    <%- include('../fragmente/footer.ejs') %>
+</body>

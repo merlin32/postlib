@@ -2,16 +2,16 @@
 <html lang="ro">
 
 <head>
-    <title>PostLib - despre</title>
+    <title>PostLib - Despre</title>
     <meta name="keywords" content="PostLib, marketplace creativ, wallpapere 4k, fundaluri telefon, ringtone-uri personalizate, tonuri de apel trap, aviație wallpapers, fundaluri mașini, monetizare conținut digital, download ringtones, imagini fundal 2k">
     <meta name="description" content="Transformă-ți pasiunea în profit pe PostLib! Marketplace-ul tău pentru wallpapere 4K și ringtone-uri unice. Cumpără creații originale sau vinde-ți propriul conținut digital.">
     <link rel="stylesheet" type="text/css" href="/resurse/css/despre.css">
     <%- include('../fragmente/head.ejs') %>
-
 </head>
 
-<body class="cousine-regular">
+<body class="about-page-body">
     <div id="watermark">STATE<br>TUDOR-ALEXANDRU</div>
+    <div class="fixed-background"></div>
     <%- include('../fragmente/header.ejs') %>
     <main>
         <h2 class="page-title">Despre <i>PostLib</i></h2>
@@ -57,7 +57,51 @@
                     </video>
                 </div>
             </section>
+            <section id="founders">
+                <h2>Fondatorii <i><b>PostLib</b></i></h2>
+                <p>Descopera cine sta in spatele proiectului PostLib.</p>
+                <div class="founders-table-container">
+                    <table class="founders-table">
+                        <caption>Membrii echipei</caption>
+                        <thead>
+                            <tr>
+                                <th>Nume</th>
+                                <th>Rol</th>
+                                <th>Specializare</th>
+                                <th>Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>State Tudor-Alexandru</td>
+                                <td>CEO</td>
+                                <td>Management Strategic & Leadership</td>
+                                <td>tudor.state@postlib.ro</td>
+                            </tr>
+                            <tr>
+                                <td>Cristian Ionescu-Andrei</td>
+                                <td>CTO & Co-Fondator</td>
+                                <td>Arhitectură software & Backend</td>
+                                <td>andrei.cristian@postlib.ro</td>
+                            </tr>
+                            <tr>
+                                <td>Anghel Vasile-George</td>
+                                <td>Lead UI/UX & Co-Fondator</td>
+                                <td>Design de interfață & Estetică web</td>
+                                <td>george.anghel@postlib.ro</td>
+                            </tr>
+                            <tr class="last-elem">
+                                <td>Trandafir Ionut-Tudor</td>
+                                <td>CFO & Co-Fondator</td>
+                                <td>Securitate Financiară & Strategie de Prețuri</td>
+                                <td>ionut.trandafir@postlib.ro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
             <%- include('../fragmente/galerie_statica.ejs') %>
+            <%- include('../fragmente/galerie_animata.ejs') %>
         </div>
     </main>
     <%- include('../fragmente/footer.ejs') %>

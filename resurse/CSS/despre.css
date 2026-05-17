@@ -16,7 +16,7 @@
   margin-bottom: 20px;
   gap: var(--grid-gap);
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "presentation history" "motivation motivation" "static-gallery static-gallery";
+  grid-template-areas: "presentation history" "motivation motivation" "founders founders" "static-gallery static-gallery" "animated-gallery animated-gallery";
 }
 #about-grid > * {
   border: var(--grid-border);
@@ -89,6 +89,10 @@
   grid-area: motivation;
 }
 
+#founders {
+  grid-area: founders;
+}
+
 @media screen and (max-width: 1000px) {
   #about-grid {
     display: block;
@@ -108,5 +112,140 @@
   }
   .page-title {
     background: linear-gradient(to right, var(--main-color), var(--grid-background), var(--grid-background), var(--main-color));
+  }
+}
+.about-page-body {
+  background: none !important;
+}
+.about-page-body .fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--main-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: background-change 20s ease-in-out infinite;
+}
+
+@keyframes background-change {
+  0%, 25%, 100% {
+    background-image: url("/resurse/imagini/background_images/BlendedAbstractBlue.jpg");
+    filter: brightness(100%);
+  }
+  50%, 75% {
+    background-image: url("/resurse/imagini/background_images/CosmicAbstractBlue.jpg");
+    filter: brightness(70%);
+  }
+}
+.founders-table-container .founders-table th, .founders-table-container .founders-table td, .founders-table-container .founders-table {
+  border: 2px solid var(--paragraph-shadow-color);
+}
+
+.founders-table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.founders-table-container .founders-table {
+  width: 100%;
+  margin-top: 10px;
+  color: var(--text-color);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.founders-table-container .founders-table th, .founders-table-container .founders-table td {
+  padding: 10px;
+  text-align: center;
+}
+.founders-table-container .founders-table td {
+  background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.founders-table-container .founders-table thead tr th {
+  background: linear-gradient(to right, var(--box-shadow), var(--titles-color), var(--box-shadow));
+  filter: brightness(85%);
+  color: var(--text-color-paragraph);
+  text-shadow: 1px 2px 3px var(--box-shadow);
+  text-align: center;
+  vertical-align: center;
+  padding: 25px 10px;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 750px) {
+  .founders-table-container .founders-table {
+    border: none;
+  }
+  .founders-table-container .founders-table thead {
+    display: none;
+  }
+  .founders-table-container .founders-table td, .founders-table-container .founders-table tr {
+    display: block;
+  }
+  .founders-table-container .founders-table th, .founders-table-container .founders-table td {
+    border: none;
+  }
+  .founders-table-container .founders-table td {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: normal;
+    text-wrap: wrap;
+    background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
+    border-bottom: 1px solid var(--paragraph-shadow-color);
+    border-left: 3px solid var(--paragraph-shadow-color);
+    border-right: 3px solid var(--paragraph-shadow-color);
+  }
+  .founders-table-container .founders-table td:last-child {
+    border-bottom: 5px double var(--paragraph-shadow-color);
+  }
+  .founders-table-container .founders-table tr:first-child {
+    border-top: 3px solid var(--paragraph-shadow-color);
+  }
+  .founders-table-container .founders-table tr:last-child {
+    border-bottom: 3px solid var(--paragraph-shadow-color);
+  }
+  .founders-table-container .founders-table tr.last-elem td:last-child {
+    border-bottom: none;
+  }
+  .founders-table-container .founders-table tbody td {
+    font-size: 0.8em;
+    text-align: left;
+    text-align-last: center;
+  }
+  .founders-table-container .founders-table tbody td::before {
+    float: left;
+    width: 40%;
+    min-width: 180px;
+    background: linear-gradient(to right, var(--box-shadow), var(--titles-color), var(--box-shadow));
+    font-weight: bold;
+    margin-right: 0.5em;
+    padding: 0.1em;
+    line-height: 300%;
+  }
+  .founders-table-container .founders-table tbody td:nth-child(1)::before {
+    content: "Nume: ";
+    color: var(--text-color-paragraph);
+  }
+  .founders-table-container .founders-table tbody td:nth-child(2)::before {
+    content: "Rol: ";
+    color: var(--text-color-paragraph);
+  }
+  .founders-table-container .founders-table tbody td:nth-child(3)::before {
+    content: "Specializare: ";
+    color: var(--text-color-paragraph);
+  }
+  .founders-table-container .founders-table tbody td:nth-child(4)::before {
+    content: "Contact: ";
+    color: var(--text-color-paragraph);
   }
 }

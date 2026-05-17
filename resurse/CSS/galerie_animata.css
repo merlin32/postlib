@@ -1,0 +1,124 @@
+#animated-gallery {
+  grid-area: animated-gallery;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.gallery-card figure:hover picture img,
+.gallery-card figure:hover figcaption {
+  animation-play-state: paused !important;
+}
+.gallery-card figure {
+  border: 35px solid transparent;
+  border-image: url("/resurse/imagini/background_images/AbstractGold.jpg") 30 round;
+  position: relative;
+  width: 60%;
+  max-width: 400px;
+  aspect-ratio: 9/16;
+  clip-path: inset(0 round 30px);
+  margin: 0;
+  display: block;
+}
+.gallery-card figure picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 65px);
+  border: 3px solid var(--paragraph-color);
+  object-fit: cover;
+  border-bottom: none;
+}
+.gallery-card figure picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-card figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px;
+  border: 3px solid var(--paragraph-color);
+  border-top: none;
+  background: linear-gradient(to right, var(--box-shadow), var(--paragraph-shadow-color), var(--box-shadow));
+}
+.gallery-card figure figcaption strong {
+  color: var(--text-color-paragraph);
+  text-shadow: 1px 3px 15px var(--main-color);
+}
+.gallery-card figure picture:nth-of-type(1) img,
+.gallery-card figure figcaption:nth-of-type(1) {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+.gallery-card figure picture:nth-of-type(2) img,
+.gallery-card figure figcaption:nth-of-type(2) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 2;
+  animation: photo-transition-2 12s infinite;
+}
+.gallery-card figure picture:nth-of-type(3) img,
+.gallery-card figure figcaption:nth-of-type(3) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 3;
+  animation: photo-transition-3 12s infinite;
+}
+
+@keyframes photo-transition-2 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 2;
+  }
+  33.3333333333% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 4;
+    filter: contrast(20%);
+  }
+  56.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 4;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 4;
+  }
+}
+@keyframes photo-transition-3 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 3;
+  }
+  66.6666666667% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 4;
+    filter: contrast(20%);
+  }
+  90% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 4;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 4;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #animated-gallery {
+    display: none;
+  }
+}

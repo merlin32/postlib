@@ -28,7 +28,9 @@ $grad-border: linear-gradient(to right, var(--main-color),
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "presentation history"
                          "motivation motivation"
-                         "static-gallery static-gallery";
+                         "founders founders"
+                         "static-gallery static-gallery"
+                         "animated-gallery animated-gallery";
     &>*{
         border: var(--grid-border);
         box-shadow: var(--grid-box-shadow);
@@ -92,8 +94,6 @@ $grad-border: linear-gradient(to right, var(--main-color),
         display: block;
         margin-left: auto;
         margin-right: auto;
-        // padding-left: 10px;
-        // padding-right: 10px;
         width: 50%;
         height: auto;
         max-width: 800px;
@@ -122,6 +122,10 @@ $grad-border: linear-gradient(to right, var(--main-color),
 
 #motivation{
     grid-area: motivation;
+}
+
+#founders{
+    grid-area: founders;
 }
 
 @media screen and (max-width: 1000px){
@@ -157,4 +161,192 @@ $grad-border: linear-gradient(to right, var(--main-color),
                                               var(--grid-background), 
                                               var(--main-color));
     }
+}
+
+//Background Images
+
+.about-page-body{
+    background: none !important;  
+    .fixed-background{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background-color: var(--main-color);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        animation: background-change 20s ease-in-out infinite;
+    }
+}
+
+
+@keyframes background-change{
+    0%, 25%, 100%{
+        background-image: url("/resurse/imagini/background_images/BlendedAbstractBlue.jpg");
+        filter: brightness(100%);
+    }
+
+    50%, 75%{
+        background-image: url("/resurse/imagini/background_images/CosmicAbstractBlue.jpg");
+        filter: brightness(70%);
+    }
+}
+
+//Founders Table
+
+
+%border-var{
+    border: 2px solid var(--paragraph-shadow-color);
+}
+
+@mixin border-phone{
+    border-left: 3px solid var(--paragraph-shadow-color);
+    border-right: 3px solid var(--paragraph-shadow-color);
+}
+@mixin head-color{
+    color: var(--text-color-paragraph);
+}
+
+.founders-table-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    .founders-table{
+        width: 100%;
+        margin-top: 10px;
+        color: var(--text-color);
+        border-collapse: collapse;
+        border-spacing: 0;
+        @extend %border-var;
+
+        th, td{
+            @extend %border-var;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td{
+            background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        thead{
+            tr{
+                th{
+                    background: linear-gradient(to right, var(--box-shadow), 
+                                                              var(--titles-color),
+                                                              var(--box-shadow));
+                    filter: brightness(85%);
+                    color: var(--text-color-paragraph);
+                    text-shadow: 1px 2px 3px var(--box-shadow);
+                    text-align: center;
+                    vertical-align: center;
+                    padding: 25px 10px;
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 750px){
+    .founders-table-container{
+        .founders-table{
+            border: none;
+            thead{
+                display: none;
+            }
+
+            td, tr{
+                display: block;
+            }
+
+            th, td{
+                border: none;
+            }
+
+            td{
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                white-space: normal;
+                text-wrap: wrap;
+                background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
+                border-bottom: 1px solid var(--paragraph-shadow-color);
+                @include border-phone; 
+                &:last-child{
+                    border-bottom:5px double var(--paragraph-shadow-color);
+                }
+            }
+
+            tr{
+                &:first-child{
+                    border-top:3px solid var(--paragraph-shadow-color);
+                }
+
+                &:last-child{
+                    border-bottom:3px solid var(--paragraph-shadow-color);
+                }  
+
+                &.last-elem{
+                    td{
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+
+            tbody{
+                td{
+                    font-size: 0.8em;
+                    text-align: left;
+                    text-align-last: center;
+                    &::before{
+			            float:left;
+			            width:40%;
+                        min-width: 180px;
+			            background: linear-gradient(to right, var(--box-shadow), 
+                                                              var(--titles-color),
+                                                              var(--box-shadow));
+			            font-weight:bold;
+			            margin-right:0.5em;
+			            padding:0.1em;
+			            line-height:300%;
+		            }
+
+                    &:nth-child(1)::before{
+                        content: "Nume: ";
+                        @include head-color;
+                    }
+
+                    &:nth-child(2)::before{
+                        content: "Rol: ";
+                        @include head-color;
+                    }
+
+                    &:nth-child(3)::before{
+                        content: "Specializare: ";
+                        @include head-color;
+                    }
+
+                    &:nth-child(4)::before{
+                        content: "Contact: ";
+                        @include head-color;
+                    }
+                }
+            }
+        }
+    }   
 }

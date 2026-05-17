@@ -1,4 +1,4 @@
-$paragraph-shadow-color: #ECBA83;
+$paragraph-shadow-color: #c7843b;
 
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
 (
@@ -9,7 +9,6 @@ $paragraph-shadow-color: #ECBA83;
     $dark: #1C2B33,
 
     $body-color: #2C3E50,
-    $headings-color: $paragraph-shadow-color,
 
     $grid-breakpoints: (
         xs: 0,
@@ -64,4 +63,8 @@ ul.menu li {
 
 summary{
     font-weight: bold;
+}
+
+hgroup p{
+    font-weight: 700;
 }

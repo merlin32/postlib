@@ -17,6 +17,7 @@ ul.menu li:nth-child(4) ul {
 
 ul.menu li {
   width: 130px;
+  height: 40px;
 }
 ul.menu li .right-outer-button::after {
   width: var(--button-width)4;
@@ -32,4 +33,7 @@ ul.menu li ul li a {
 }
 ul.menu li.right-outer-button::after {
   width: 134px;
+}
+ul.menu li:hover ul {
+  top: 42px;
 }

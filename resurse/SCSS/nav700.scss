@@ -63,6 +63,8 @@ ul.menu{
     left: 0;
 
     li{
+        display: block;
+        height: auto;
         width: 100%;
         a{width: 100%;}
         border-right: var(--grid-border);

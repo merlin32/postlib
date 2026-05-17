@@ -2,13 +2,13 @@ ul.menu li:nth-child(1) ul {
   left: 0px;
 }
 ul.menu li:nth-child(2) ul {
-  left: 252px;
+  left: 182px;
 }
 ul.menu li:nth-child(3) ul {
-  left: 504px;
+  left: 364px;
 }
 ul.menu li:nth-child(4) ul {
-  left: 756px;
+  left: 546px;
 }
 
 ul.menu, ul.menu ul {
@@ -16,7 +16,7 @@ ul.menu, ul.menu ul {
 }
 
 ul.menu li a, ul.menu {
-  color: var(--main-color);
+  color: var(--titles-color);
 }
 
 ul.menu li.right-outer-button:hover a, ul.menu li:hover ul li:hover a, ul.menu li:hover {
@@ -24,6 +24,7 @@ ul.menu li.right-outer-button:hover a, ul.menu li:hover ul li:hover a, ul.menu l
 }
 
 nav {
+  font-size: 1.1em;
   margin-bottom: 10px;
 }
 
@@ -35,6 +36,7 @@ nav {
 .icon-label, .menu-icon {
   display: inline-block;
   position: static;
+  margin-right: 5px;
 }
 
 ul.menu, ul.menu ul {
@@ -51,9 +53,12 @@ ul.menu ul {
   z-index: 2;
 }
 ul.menu li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  width: 250px;
-  height: auto;
+  width: 180px;
+  height: 50px;
   border: var(--grid-border);
   text-decoration: none;
   transition: all 0.3s linear;
@@ -64,7 +69,7 @@ ul.menu li {
   border-right: none;
 }
 ul.menu li a {
-  width: 250px;
+  width: 180px;
   height: 100%;
   border: 0;
   text-decoration: none;
@@ -72,13 +77,16 @@ ul.menu li a {
   line-height: 2;
   font-weight: bold;
   text-align: center;
-  display: block;
+  display: flex;
   position: static;
+  justify-content: center;
+  align-items: center;
 }
 ul.menu li ul {
   border: var(--grid-border);
 }
 ul.menu li ul li {
+  height: auto;
   border-left: none;
   border-top: none;
 }
@@ -91,6 +99,7 @@ ul.menu li:hover {
 ul.menu li:hover ul {
   display: block;
   position: absolute;
+  top: 52px;
   animation: submenu_animation 0.3s linear;
 }
 ul.menu li.left-outer-button:hover {
@@ -100,7 +109,7 @@ ul.menu li.right-outer-button::after {
   content: "";
   background: linear-gradient(var(--main-color), var(--grid-background), var(--main-color));
   height: 10px;
-  width: 254px;
+  width: 184px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   right: 0;
@@ -118,7 +127,7 @@ ul.menu li.right-outer-button:hover a {
   background-color: var(--main-color);
 }
 ul.menu li.right-outer-button:hover::after {
-  top: 80%;
+  top: 85%;
   opacity: 1;
 }
 ul.menu .right-outer-button {

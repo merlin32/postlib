@@ -1,0 +1,26 @@
+
+<link rel="stylesheet" type="text/css" href="/resurse/CSS/galerie_animata.css">
+<link rel="stylesheet" type="text/css" href="/resurse/CSS/general.css">
+
+<section id="animated-gallery">
+    <hgroup>
+        <h2>Galerie animata</h2>
+        <p>Descopera o selectie de wallpapere create de catre veteranii comunitatii</p>
+    </hgroup>
+    <div class="gallery-card">
+        <%  if (locals.imagini_animata) { %>
+                <figure>
+                    <% for (let imag of imagini_animata) { %> 
+                        <picture>
+                            <source srcset="<%- imag.fisier_mic %>" media="screen and (max-width: 700px)">
+                            <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1000px)">
+                            <img src="<%- imag.cale_relativa %>" alt="<%- imag.nume %>" title="<%- imag.descriere %>">
+                        </picture>
+                        <figcaption>
+                            <strong><%- imag.nume %></strong>
+                        </figcaption>
+                    <% } %>
+                </figure>
+        <% } %>
+    </div>
+</section>

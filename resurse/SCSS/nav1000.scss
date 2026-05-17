@@ -2,13 +2,17 @@
     $button-width: 130px
 );
 
+$button-height: 40px;
+
 .icon-label{
     display: none;
 }
 
+
 ul.menu {
     li{
         width: $button-width;
+        height: $button-height;
         @extend %subOpAlign;
         .right-outer-button::after{
             width: var(--button-width) + 4;
@@ -27,6 +31,13 @@ ul.menu {
             &::after{
                 width: $button-width + 4; 
             }
+        }
+
+        &:hover{
+            ul{
+                top: $button-height + 2px;
+            }
+            
         }
     }
 }

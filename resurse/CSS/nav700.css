@@ -59,6 +59,8 @@ ul.menu {
   left: 0;
 }
 ul.menu li {
+  display: block;
+  height: auto;
   width: 100%;
 }
 ul.menu li a {

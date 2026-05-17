@@ -1,10 +1,16 @@
 body {
-    --main-color: #263A42;
-    --grid-background: #597580;
-    --box-shadow: #8CB2C2;
-    --paragraph-color: #978F86;
-    --paragraph-shadow-color: #ECBA83;
-    --anchor-color: #BD986D;
+    --main-color: #172531;
+    --background-margin-color: #101921;
+    --fade: #000101;
+    --grid-background: #2c4657;
+    --grid-fade: #182a3a;
+    --box-shadow: #c7843b;
+    --paragraph-color: #c9c1b1;
+    --paragraph-shadow-color: #ffc801;
+    --anchor-color: white;
+    --text-color: #d9e8e2;
+    --text-color-paragraph: #3d261c;
+    --titles-color: #f7b64d; 
     --margin-dimens: 100px;
     --grid-gap: 20px;
     --grid-border: 2px solid var(--box-shadow);
@@ -16,8 +22,45 @@ body {
     --textbox-radius: 10px;
     --photo-grid-height: 80%;
     --photo-grid-width: 80%;
-    background-color: var(--main-color);
+    background: linear-gradient(to right, var(--background-margin-color) 5%,
+                                          var(--main-color) 50%,
+                                          var(--background-margin-color) 95%);
     margin: 0px;
+}
+
+h1, h2, h3, h5, h6{
+    color: var(--titles-color); 
+    text-shadow: 2px 4px 10px var(--background-margin-color);
+}
+
+h2{
+    text-align: center;
+    font-size: 2em;
+}
+
+.welcome-title{
+    font-size: 3.7em;
+}
+
+.title{
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+    padding-top: 40px; 
+    margin-top: 60px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-image-source: linear-gradient(to right, transparent 10%, var(--grid-background) 50%, transparent 90%);
+    border-image-slice: 1;
+}
+
+.title-text{
+    margin-left: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 html header {
@@ -27,49 +70,10 @@ html header {
     gap: 10px;
 }
 
-.text-left {
-    transform: rotate(-13deg) skew(-13deg);
-}
-
-.text-right {
-    transform: rotate(13deg) scaleX(-1) skew(-13deg);
-}
-
-.flipped-text-container {
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    display: flex;
-    gap: 15px;
-    transition: color 0.3s linear;
-}
-
-.flipped-text-container:has(span:hover) {
-    color: var(--main-color);
-}
-
-.horiz-line{
-    border: none;
-    height: 4px;
-    margin-top: 0;
-    background: linear-gradient(-135deg, 
-        var(--paragraph-shadow-color) 0%, 
-        var(--paragraph-shadow-color) 15%,
-        transparent 15%, 
-        transparent 20%,
-        var(--paragraph-shadow-color) 20%, 
-        var(--paragraph-shadow-color) 80%,
-        transparent 80%, 
-        transparent 85%,
-        var(--paragraph-shadow-color) 85%, 
-        var(--paragraph-shadow-color) 100%
-    );
-    opacity: 0.8;
-    
-}
-
 .logo {
     margin-bottom: 50px;
+    width: 15%;
+    min-width: 200px;
 }
 
 html footer {
@@ -87,6 +91,8 @@ html footer {
 
 header q {
     color: var(--paragraph-color);
+    text-shadow: 1px 2px 12px var(--text-color);
+    font-size: 1.6em;
 }
 
 header hgroup {
@@ -94,7 +100,7 @@ header hgroup {
 }
 
 a[href^="http"]:visited{
-    color: var(--main-color);
+    color: var(--box-shadow);
 }
 
 a[href^="http"]::before {
@@ -125,23 +131,44 @@ main a[href^="http"]:hover{
 }
 
 main a:active {
-    outline: 2px solid var(--main-color);
+    outline: 2px solid var(--text-color);
     outline-offset: -2px; 
 }
 
 p,
-address {
-    display: block;
-    text-align: justify;
-    text-indent: 70px;
-    color: rgb(248, 248, 248);
-    background-color: var(--box-shadow);
+address, hgroup > p {
+    text-align: center;
+    filter: brightness(0.83);
+    color: var(--text-color-paragraph);
+    background: linear-gradient(to right, var(--box-shadow) 5%, var(--paragraph-shadow-color) 50%, var(--box-shadow) 95%);
     border: 2px solid var(--paragraph-shadow-color);
     box-shadow: var(--grid-box-shadow);
-    border-radius: 10px;
-    padding: 10px;
+    padding: 9px;
     margin-left: 2%;
     margin-right: 2%;
+    display: block;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 3px var(--paragraph-color);
+}
+
+hgroup{
+    text-align: center;
+}
+
+hgroup > p{
+    display:inline-block;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+h1{
+    font-size: 6.7em;
 }
 
 address{
@@ -172,132 +199,19 @@ main ul a {
     border: 1px solid var(--anchor-color);
 }
 
-.ultra-regular {
-    font-family: "Ultra", serif;
-    font-weight: 400;
-    font-style: normal;
+
+h1, h2, q, .italiana-regular {
+  font-family: "Italiana", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
-.cousine-regular {
-    font-family: "Cousine", monospace !important;
-    font-weight: 400;
-    font-style: normal;
+body, .syne-regular {
+  font-family: "Syne", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
-
-.cousine-bold {
-    font-family: "Cousine", monospace;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.cousine-regular-italic {
-    font-family: "Cousine", monospace;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.cousine-bold-italic {
-    font-family: "Cousine", monospace;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.chakra-petch-light {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.chakra-petch-regular {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.chakra-petch-medium {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.chakra-petch-semibold {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.chakra-petch-bold {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.chakra-petch-light-italic {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.chakra-petch-regular-italic {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.chakra-petch-medium-italic {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.chakra-petch-semibold-italic {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 600;
-    font-style: italic;
-}
-
-.chakra-petch-bold-italic {
-    font-family: "Chakra Petch", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.turret-road-extralight {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-}
-
-.turret-road-light {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.turret-road-regular {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.turret-road-medium {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.turret-road-bold {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.turret-road-extrabold {
-    font-family: "Turret Road", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-}
-
 
 main {
     margin-left: var(--margin-dimens);
@@ -325,7 +239,7 @@ footer>* {
     box-shadow: var(--grid-box-shadow);
     border-radius: var(--grid-border-radius);
     padding: var(--grid-padding);
-    background-color: var(--grid-background);
+    background: radial-gradient(circle, var(--grid-background) 0%, var(--grid-fade) 60%);
 }
 
 /*Home page sections*/
@@ -348,10 +262,13 @@ footer>* {
 
 #fees-and-terms-of-service {
     grid-area: fees-and-terms-of-service;
+    min-width: 0;
 }
 
 #fees-and-terms-of-service>* {
     padding: 10px;
+    min-width: 0;
+    max-width: 100%;
 }
 
 #fees-and-terms-of-service .fees,
@@ -360,10 +277,18 @@ footer>* {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .fees {
     grid-area: fees;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 .terms {
@@ -516,22 +441,24 @@ figure>img {
 }
 
 .iframe-tabs>a.tabs {
+    font-size: 75%;
     display: block;
     padding: 10px 20px;
     width: 140px;
     box-sizing: border-box;
     background-color: var(--background-color);
-    border: 5px double var(--paragraph-color);
+    border: 4px double var(--paragraph-color);
+    border-left: none;
     box-shadow: var(--paragraph-shadow);
     text-decoration: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: right;
-    transition: width 0.3s linear, background-color 0.3s, padding-left 0.3s;
+    transition: width 0.17s linear, background-color 0.3s, padding-left 0.3s;
 }
 
 .iframe-tabs>a.tabs:hover {
-    width: 160px;
+    width: 150px;
     padding-left: 40px;
     background-color: var(--grid-background);
     color: white;
@@ -548,46 +475,48 @@ figure>img {
 .iframe-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     width: 100%;
-    max-width: 100%;
     height: auto;
-    box-sizing: border-box;
-    min-width: 650px;
+    min-width: 300px;
     margin: 0 auto;
 }
 
 .iframe-container iframe {
-    display: block;
     width: 100%;
-    min-width: 0;
+    margin-left: 20px;
     aspect-ratio: 16 / 9;
-    max-width: 700px;
-    border: 2px solid var(--paragraph-color);
-    box-shadow: var(--paragraph-shadow);
+    max-width: 670px;
+    min-width: 160px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
 }
 
 #playlist {
     border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .table-container {
-    width: 100%;
+    overflow-x: auto;
+    min-width: 0;
     max-width: 100%;
-    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
 }
 
 .fees-table {
     box-shadow: var(--paragraph-shadow);
-    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     font-family: sans-serif;
-    font-size: 15px;
-    table-layout: fixed;
 }
 
 .fees-table th,
@@ -654,12 +583,13 @@ figure>img {
     align-items: center;
     justify-content: center;
     font-family: inherit;
-    font-size: 150%;
+    font-size: 1.3rem;
     color: var(--main-color);
     background-color: var(--box-shadow);
-    padding: 20px;
+    padding: 10px 15px;
     border-radius: 10px;
     box-shadow: var(--paragraph-shadow);
+    margin: 10px auto;
 }
 
 .fees-table math mi {
@@ -669,16 +599,16 @@ figure>img {
 }
 
 .fees-table math msub>mi:last-child {
-    color: var(--grid-background);
+    color: var(--anchor-color);
     font-style: normal;
-    font-size: 80%;
+    font-size: 0.75em;
     font-weight: normal;
 }
 
 .fees-table math mo {
     color: var(--main-color);
     font-weight: bold;
-    font-size: 80%;
+    font-size: 1.2em;
 }
 
 .terms>embed {
@@ -746,6 +676,22 @@ figure>img {
         --grid-border-radius: 15px;
     }
 
+    h1{
+        font-size: 5em;
+    }
+
+    header q{
+        font-size: 1.4em;
+    }
+
+    .logo{
+        min-width: 190px;
+    }
+
+    .title-text{
+        margin-left: 10px;
+    }
+
     #page-grid {
         /* grid pe 2 coloane */
         grid-template-columns: 1fr 1fr;
@@ -788,13 +734,41 @@ figure>img {
         --grid-gap: 4px;
     }
 
-    .fees-table{
-        font-size: 11px;
+    h1{
+        font-size: 4em;
     }
 
-    .fees-table math{
-        font-size: 130%;
+    header q{
+        font-size: 1.2em;
     }
+
+    .logo{
+        min-width: 160px;
+    }
+
+    .title{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .logo{
+        order: 2;
+    }
+
+    .welcome-title{
+        font-size: 3em;
+    }
+    
+    p,
+    address{
+        font-size: 1.3em;
+    }
+
+    hgroup > p{
+    font-size: 1.4em;
+}
 
     #page-grid {
         display: flex;

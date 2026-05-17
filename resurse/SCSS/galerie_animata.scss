@@ -1,0 +1,130 @@
+$photosNumber: 3;
+$screen-time: 4s;
+$total-time: $screen-time * $photosNumber;
+
+$slot: (1 / $photosNumber) * 100%;
+$open-speed: $slot * 0.7;
+
+#animated-gallery {
+    grid-area: animated-gallery;
+}
+
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    figure {
+
+        &:hover{
+            picture img,
+            figcaption {
+                animation-play-state: paused !important;
+            }
+        }
+        border: 35px solid transparent;
+        border-image: url("/resurse/imagini/background_images/AbstractGold.jpg") 30 round;
+        position: relative;
+        width: 60%;
+        max-width: 400px;
+        aspect-ratio: 9/16;
+        clip-path: inset(0 round 30px);
+        margin: 0;
+        display: block;
+
+        picture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 65px);
+            border: 3px solid var(--paragraph-color);
+            object-fit: cover;
+            border-bottom: none;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            border: 3px solid var(--paragraph-color);
+            border-top: none;
+            background: linear-gradient(
+                to right,
+                var(--box-shadow),
+                var(--paragraph-shadow-color),
+                var(--box-shadow)
+            );
+
+            strong {
+                color: var(--text-color-paragraph);
+                text-shadow: 1px 3px 15px var(--main-color);
+            }
+        }
+
+        @for $i from 1 through $photosNumber {
+            picture:nth-of-type(#{$i}) img,
+            figcaption:nth-of-type(#{$i}) {
+                @if $i == 1 {
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    z-index: 1;
+                } @else {
+                    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+                    z-index: $i;
+                    animation: photo-transition-#{$i} $total-time infinite;
+                }
+            }
+        }
+    }
+}
+
+@for $i from 2 through $photosNumber {
+    $start: ($i - 1) * $slot;
+    $end: $start + $open-speed;
+
+    @keyframes photo-transition-#{$i} {
+        0% {
+            clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+            z-index: $i;
+        }
+
+        #{$start} {
+            clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+            z-index: $photosNumber + 1;
+            filter: contrast(20%);
+        }
+
+        #{$end} {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: $photosNumber + 1;
+            filter: contrast(100%);
+        }
+
+        100% {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: $photosNumber + 1;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #animated-gallery {
+        display: none;
+    }
+}

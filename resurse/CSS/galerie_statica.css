@@ -1,10 +1,14 @@
-#gallery-grid figure img, #gallery-grid figure figcaption {
+#gallery-grid figure figcaption, #gallery-grid figure img {
   margin-left: auto;
   margin-right: auto;
 }
 
 #static-gallery {
   grid-area: static-gallery;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 #gallery-grid {
@@ -34,6 +38,47 @@
 #gallery-grid figure:nth-child(3n) {
   justify-self: start;
 }
+#gallery-grid figure picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  transition: z-index 0.5s step-end;
+}
+#gallery-grid figure picture::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  right: -25%;
+  bottom: -25%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+  transition: pointer-events 0.5s step-end;
+}
+#gallery-grid figure picture:hover {
+  z-index: 100;
+  transition: none;
+}
+#gallery-grid figure picture:hover::before {
+  pointer-events: auto;
+  transition: none;
+}
+#gallery-grid figure picture:hover img {
+  transform: rotate(360deg) scale(1.5);
+  border-radius: 20px;
+}
+#gallery-grid figure img {
+  border: 2px solid white;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+}
 #gallery-grid figure figcaption {
   display: block;
   padding: 10px;
@@ -51,19 +96,10 @@
   display: block;
   margin: 0;
 }
-#gallery-grid figure img {
-  border: 2px solid white;
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
-  pointer-events: none;
-}
-#gallery-grid figure:hover {
-  z-index: 100;
-}
-#gallery-grid figure:hover img {
-  transform: rotate(360deg) scale(1.5);
-  border-radius: 20px;
-  pointer-events: auto;
+
+@media screen and (max-width: 700px) {
+  #gallery-grid figure {
+    width: 70%;
+    font-size: 0.9em;
+  }
 }

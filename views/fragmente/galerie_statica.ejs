@@ -8,14 +8,8 @@
         <p>Imagini</p>
     </hgroup>
     <div id="gallery-grid">
-        <%  const currentHour = (new Date()).getHours();
-            let dayMoment = (currentHour >= 5 && currentHour < 12) ? "dimineata" : 
-                            (currentHour >= 12 && currentHour < 20) ? "zi" : "noapte";
-            let filteredImages = locals.imagini.filter((img) => img.timp === dayMoment);
-            let photosNumber = filteredImages.length - (filteredImages.length % 3);
-            for (let i = 0; i < photosNumber; i++) { 
-                let imag = filteredImages[i] %>
-
+        <%  if (locals.imagini) { %>
+            <% for (let imag of imagini) { %> 
                 <figure>
                     <picture>
                         <source srcset="<%- imag.fisier_mic %>" media="screen and (max-width: 700px)">
@@ -31,5 +25,6 @@
                     </figcaption>
                 </figure>
             <% } %>
+        <% } %>
     </div>  
 </section>

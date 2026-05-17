@@ -1,0 +1,46 @@
+$brd-rad: 12px;
+$margin: 10px;
+
+.duotone-img{
+    display: flex;
+    justify-self: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: $margin;
+    margin-right: $margin;
+    position: relative;
+    background-image: url("/resurse/imagini/duotone/EventsPhoto.png");
+    background-size: cover;
+    width: 60%;
+    min-width: 170px;
+    height: 500px;
+    border-radius: $brd-rad;
+    box-shadow: 0 0 30px var(--text-color);
+    border: 2px solid var(--paragraph-shadow-color);
+    filter:brightness(100%) grayscale(0);
+	transition:all 1s ease-out;
+
+    &:before, &:after{
+        content: "";
+        border-radius: $brd-rad;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &:after{
+        background-color:var(--text-color-paragraph);
+	    mix-blend-mode:lighten;
+    }
+
+    &:before{
+	    background-color:var(--titles-color);
+	    mix-blend-mode:darken;
+    }
+
+    &:hover{
+        filter: brightness(100%) grayscale(100%);
+    }
+}
