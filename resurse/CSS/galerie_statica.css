@@ -21,10 +21,10 @@ body {
 #gallery-grid figure {
   justify-self: center;
   text-align: center;
-  max-width: 400px;
+  max-width: 320px;
   width: 100%;
   margin: 0;
-  border: 20px solid black;
+  border: 20px solid var(--paragraph-color);
   display: flex;
   flex-direction: column;
   counter-increment: photo_index;
@@ -71,7 +71,7 @@ body {
   border-radius: 20px;
 }
 #gallery-grid figure img {
-  border: 2px solid white;
+  border: 2px solid var(--paragraph-shadow-color);
   width: 100%;
   height: auto;
   display: block;
@@ -82,6 +82,7 @@ body {
 #gallery-grid figure figcaption {
   display: block;
   padding: 10px;
+  color: var(--text-color);
 }
 #gallery-grid figure figcaption strong {
   display: block;
@@ -95,11 +96,4 @@ body {
   text-indent: 0;
   display: block;
   margin: 0;
-}
-
-@media screen and (max-width: 700px) {
-  #gallery-grid figure {
-    width: 70%;
-    font-size: 0.9em;
-  }
 }

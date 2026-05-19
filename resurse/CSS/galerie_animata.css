@@ -68,13 +68,49 @@
 .gallery-card figure figcaption:nth-of-type(2) {
   clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
   z-index: 2;
-  animation: photo-transition-2 12s infinite;
+  animation: photo-transition-2 36s infinite;
 }
 .gallery-card figure picture:nth-of-type(3) img,
 .gallery-card figure figcaption:nth-of-type(3) {
   clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
   z-index: 3;
-  animation: photo-transition-3 12s infinite;
+  animation: photo-transition-3 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(4) img,
+.gallery-card figure figcaption:nth-of-type(4) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 4;
+  animation: photo-transition-4 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(5) img,
+.gallery-card figure figcaption:nth-of-type(5) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 5;
+  animation: photo-transition-5 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(6) img,
+.gallery-card figure figcaption:nth-of-type(6) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 6;
+  animation: photo-transition-6 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(7) img,
+.gallery-card figure figcaption:nth-of-type(7) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 7;
+  animation: photo-transition-7 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(8) img,
+.gallery-card figure figcaption:nth-of-type(8) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 8;
+  animation: photo-transition-8 36s infinite;
+}
+.gallery-card figure picture:nth-of-type(9) img,
+.gallery-card figure figcaption:nth-of-type(9) {
+  clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  z-index: 9;
+  animation: photo-transition-9 36s infinite;
 }
 
 @keyframes photo-transition-2 {
@@ -82,19 +118,19 @@
     clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
     z-index: 2;
   }
-  33.3333333333% {
+  11.1111111111% {
     clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
-    z-index: 4;
+    z-index: 10;
     filter: contrast(20%);
   }
-  56.6666666667% {
+  18.8888888889% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    z-index: 4;
+    z-index: 10;
     filter: contrast(100%);
   }
   100% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    z-index: 4;
+    z-index: 10;
   }
 }
 @keyframes photo-transition-3 {
@@ -102,19 +138,139 @@
     clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
     z-index: 3;
   }
-  66.6666666667% {
+  22.2222222222% {
     clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
-    z-index: 4;
+    z-index: 10;
     filter: contrast(20%);
   }
-  90% {
+  30% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    z-index: 4;
+    z-index: 10;
     filter: contrast(100%);
   }
   100% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-4 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
     z-index: 4;
+  }
+  33.3333333333% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  41.1111111111% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-5 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 5;
+  }
+  44.4444444444% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  52.2222222222% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-6 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 6;
+  }
+  55.5555555556% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  63.3333333333% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-7 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 7;
+  }
+  66.6666666667% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  74.4444444444% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-8 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 8;
+  }
+  77.7777777778% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  85.5555555556% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+  }
+}
+@keyframes photo-transition-9 {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 9;
+  }
+  88.8888888889% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    z-index: 10;
+    filter: contrast(20%);
+  }
+  96.6666666667% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
+    filter: contrast(100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 10;
   }
 }
 @media screen and (max-width: 1000px) {

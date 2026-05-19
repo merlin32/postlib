@@ -2,6 +2,11 @@
   #gallery-grid {
     display: block;
   }
+  #gallery-grid figure {
+    width: 70%;
+    font-size: 0.9em;
+    max-width: 250px;
+  }
   #gallery-grid figure:nth-child(3n+1) {
     justify-self: center;
   }
@@ -10,5 +15,6 @@
   }
   #gallery-grid figure:nth-child(3n) {
     justify-self: center;
+    margin-bottom: 0;
   }
 }

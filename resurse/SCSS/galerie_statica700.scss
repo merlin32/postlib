@@ -3,6 +3,9 @@
         display: block;
 
         figure{
+            width: 70%;
+            font-size: 0.9em;
+            max-width: 250px;
             &:nth-child(3n+1) {
                 justify-self: center;
             }
@@ -11,6 +14,7 @@
             }
             &:nth-child(3n) {
                 justify-self: center;
+                margin-bottom: 0;
             }
         }
     }
