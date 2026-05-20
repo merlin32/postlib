@@ -1,4 +1,5 @@
-<header id="page-start">
+<script src="/resurse/js/tema.js"></script>
+<header class="c1 c2 c3" id="page-start">
     <nav id="nav-bar">
         <label id="hamburger" for="ch-menu">
             <span class="hamburger-icon">
@@ -10,10 +11,12 @@
         <input type="checkbox" id="ch-menu">
         <ul class="menu">
             <li class="left-outer-button">
-                <div class="menu-icon">
-                    <span><i class="fa-solid fa-house text-icon"></i></span>
-                </div>
-                <div class="icon-label">Acasa</div>
+                <a href="/">
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-house text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Acasa</div>
+                </a>
                 <ul>
                     <li><a href="/#welcome">Bine ati venit!</a></li>
                     <li><a href="/#announcements">Anunturi</a></li>
@@ -22,7 +25,8 @@
                     <li><a href="/#learn">Invata</a></li>
                     <li><a href="/#faq">Intrebari frecvente</a></li>
                     <li><a href="/#fees-and-terms-of-service">Comisioane si termeni de utilizare</a></li>
-                    <li class="bottom-element"><a href="/#hof">Hall of fame</a></li>
+                    <li><a href="/#hof">Hall of fame</a></li>
+                    <li class="bottom-element"><a href="/#static-gallery">Galerie statica</a></li>
                 </ul>
             </li>
             <li>
@@ -35,20 +39,25 @@
                     <li><a href="#explore-wallpapers">Exploreaza wallpapere</a></li>
                     <li class="bottom-element"><a href="#explore-ringtones">Exploreaza ringtone-uri</a></li> -->
                     <li><a href="/produse">Toate</a></li>
-                    <li><a href="/produse?tip=cofetarie">Prajituri</a></li>
-                    <li><a href="/produse?tip=gelaterie">Inghetate</a></li>
-                    <li><a href="/produse?tip=patiserie">Patiserie</a></li>
+                    <% for(let categ of locals.categorii) { %>
+                        <li><a href="/produse?tip=<%- categ.unnest %>"><%- categ.label %></a></li>
+                    <% } %>
+                    
+                    <!-- <li><a href="/produse?tip=gelaterie">Inghetate</a></li>
+                    <li><a href="/produse?tip=patiserie">Patiserie</a></li> -->
                 </ul>
             </li>
             <li>
-                <div class="menu-icon">
-                    <span><i class="fa-solid fa-right-to-bracket text-icon"></i></span>
-                </div>
-                <div class="icon-label">Autentificare</div>
+                <a href="/auth_page">
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-right-to-bracket text-icon"></i></span>
+                    </div>
+                    <div class="icon-label">Autentificare</div>
+                </a>
                 <ul>
                     <li><a href="/auth_page#login">Conectare</a></li>
-                    <li><a href="#sign-up">Inscriere</a></li>
-                    <li class="bottom-element"><a href="#reset-password">Resetare parola</a></li>
+                    <li><a href="/auth_page#sign-up">Inscriere</a></li>
+                    <li class="bottom-element"><a href="/auth_page#reset-password">Resetare parola</a></li>
                 </ul>
             </li>
             <!-- <li>
@@ -64,15 +73,19 @@
                 </ul>
             </li> -->
             <li>
-                <div class="menu-icon">
-                    <span><i class="fa-solid fa-circle-info"></i></span>
-                </div>
-                <div class="icon-label">Despre</div>
+                <a href="/despre">
+                    <div class="menu-icon">
+                        <span><i class="fa-solid fa-circle-info"></i></span>
+                    </div>
+                    <div class="icon-label">Despre</div>
+                </a>
                 <ul>
                     <li><a href="/despre#presentation">Prezentare</a></li>
                     <li><a href="/despre#history">Cum a aparut PostLib?</a></li>
                     <li><a href="/despre#motivation">Motivatia</a></li>
-                    <li class="bottom-element"><a href="/despre#founders">Fondatorii PostLib</a></li>
+                    <li><a href="/despre#founders">Fondatorii PostLib</a></li>
+                    <li><a href="/despre#static-gallery">Galerie statica</a></li>
+                    <li class="bottom-element"><a href="/despre#animated-gallery">Galerie animata</a></li>
                 </ul>
             </li>
             <li class="right-outer-button">

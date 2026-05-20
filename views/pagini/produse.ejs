@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
+        <meta name="description" content="PostLib - Pagina dedicata magazinului virtual pentru cumpararea de continut digital">
+        <meta name="keywords" content="fundaluri, tonuri de apel, wallpapers, ringtones, aviatie, arhitectura, dark, trap beat, phonk">
         <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
-        <title>Cofetăria Dulcelind - Produse</title>
+        <title>PostLib - Marketplace</title>
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
         <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
@@ -61,19 +61,30 @@
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <h3 class="nume">Titlu: <a href="/produs/<%-prod.id_asset %>" ><span class="val-nume"><%- prod.title%></span></a></h3>
                         <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="calorii">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
+                            <p class="username">Postat de: <span class="val-username"><%- prod.username%></span></p>
+                            <p class="pret">Pret: <span class="val-pret"><%- prod.price%> EUR</span></p>
+                            <p class="file-size">Dimensiune Fisier: <span class="val-file-size"><%- prod.file_size%> MB</span></p>
+                            <p class="license">Licenta: <span class="val-license"><%- prod.lic_type%></span></p>
+                            <% if(prod.available) { %>
+                                <p>Disponibil: <span class="available">Da</span></p>
+                            <% } else { %>
+                                <p>Disponibil: <span class="available">Nu</span></p>
+                            <% } %>
                         </div>
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <p class="categorie">Pentru:<span class="val-categorie"><%- prod.cont_categ%></span></p>
                         <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                            <a href="/produs/<%-prod.id_asset %>" ><img src="/resurse/imagini/produse/thumbnails/<%- prod.thumbnail %>" style="width:50%;height:auto;" alt="[imagine <%- prod.title %>]" /></a>
                         </figure>
+                        <% if(prod.audio_file) { %>
+                            <audio controls>
+                                <source src="/resurse/audio/ringtones/<%- prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                            </audio>
+                        <% } %>
                         <label class="selecteaza-cos">
                             Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                            <input type="checkbox" class="select-cos" value="<%-prod.id_asset %>" autocomplete="off">
                         </label>
                     </article>
                 <% }%>

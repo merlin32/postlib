@@ -2,3 +2,8 @@ Background image1: https://unsplash.com/photos/dark-blue-abstract-gradient-backg
 Background image2: https://unsplash.com/photos/blue-and-black-abstract-painting-prMn9KINLtI
 Background video: https://www.pexels.com/video/gold-slow-abstract-background-fractal-art-11017744/
 Border-image galerie animata: https://www.pexels.com/photo/ripples-on-the-dark-water-surface-8891103/
+Thumbnails: 
+https://www.pexels.com/photo/sunset-reflected-on-ocean-24778973/
+https://www.pexels.com/photo/night-sky-with-stars-and-milky-way-13344256/
+https://www.pexels.com/photo/people-dealing-with-illegal-trade-of-drugs-7230344/
+https://www.pexels.com/photo/headlight-of-black-subaru-impreza-wrx-17594679/

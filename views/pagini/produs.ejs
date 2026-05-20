@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse,<%- locals.prod.nume %>">
+        <meta name="description" content="PostLib - Pagina dedicata magazinului virtual pentru cumpararea de continut digital">
+        <meta name="keywords" content="<%- locals.prod.title %>, <%- locals.prod.username %>, <%- locals.prod.tags %>, <%- locals.prod.cont_type %>">
         
-        <title>Cofetăria Dulcelind - <%- locals.prod.nume %></title>
+        <title>PostLib - <%- locals.prod.title %></title>
         <%- include("../fragmente/head") %>     
         <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
     </head>
@@ -14,18 +14,29 @@
         <section>
             <h2>Pagină produs</h2>
                 <article id="art-produs">
-                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
-                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
-                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
-                    <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>
-                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <h3><span class="nume"><%- locals.prod.title %></span></h3>
+                    <p>Tip continut digital: <span class="cont_type"><%- locals.prod.cont_type %> </span></p>
+                    <p>Pret: <span class="pret"><%- locals.prod.price %> EUR</span></p>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.description %> </span></p>
+                    <p>Postat de: <span class="username"><%- locals.prod.username %> </span></p>
+                    <p>Etichete: <span class="tags"><%- locals.prod.tags %> </span></p>
+                    <p>Dimensiune Fisier: <span class="file-size"><%- locals.prod.file_size %> MB</span></p>
+                    <p>Categorie: <span class="categorie"><%- locals.prod.cont_categ %> </span></p>
+                    <% if(locals.prod.available) { %>
+                        <p>Disponibil: <span class="available">Da</span></p>
+                    <% } else { %>
+                        <p>Disponibil: <span class="available">Nu</span></p>
+                    <% } %>
+                    <p>Data postare: <span class="upload-date"><%- locals.prod.upload_date %> </span></p>
+                    <p>Licenta: <span class="license"><%- locals.prod.lic_type %> </span></p>
                     <figure class="imag-produs">
-                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
-                    </figure>    
+                        <img  src="/resurse/imagini/produse/thumbnails/<%- locals.prod.thumbnail %>" alt="[imagine <%- locals.prod.title %>]" />
+                    </figure>
+                    <% if(locals.prod.audio_file) { %>
+                        <audio controls>
+                            <source src="/resurse/audio/ringtones/<%- locals.prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                        </audio>
+                    <% } %>   
                 </article>
             
         </section>

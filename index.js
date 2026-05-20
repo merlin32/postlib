@@ -28,17 +28,15 @@ console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
 
-// client=new pg.Client({
-//     database:"postlib",
-//     user:"tudor",
-//     password:"tudor",
-//     host:"localhost",
-//     port:5432
-// })
+client=new pg.Client({
+    database:"postlib",
+    user:"tudor",
+    password:"tudor",
+    host:"localhost",
+    port:5432
+})
 
-// client.connect()
-
-
+client.connect()
 
 function jsonValidate(){
     // Cerinta A
@@ -251,6 +249,32 @@ app.get("/favicon.ico", function(req, res){
     res.sendFile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"))
 });
 
+//Categories extraction for menu
+
+app.use(function(req, res, next){
+    client.query("select * from unnest(enum_range(null::content_type))", function(err, rezOptiuni){
+        if(err){
+            afisareEroare(res, 2)
+            next()
+        }
+        else{
+            let displayText = []
+            for(let categ of rezOptiuni.rows){
+
+                if(categ.unnest.length == 1){
+                    categ.label = categ.unnest.trim().toUpperCase()
+                }
+                else{
+                    let modifiedText = categ.unnest.trim().toLowerCase()
+                    categ.label = modifiedText.charAt(0).toUpperCase() + modifiedText.slice(1)
+                }
+                
+            }
+            res.locals.categorii = rezOptiuni.rows
+            next()
+        }
+    })
+})
 
 app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {
@@ -260,47 +284,50 @@ app.get(["/", "/index", "/home"], function(req, res){
     });
 });
 
-// app.get("/produse", function(req, res){
-//     clauzaWhere="";
-//     if(req.query.tip){
-//         clauzaWhere=` where tip='${req.query.tip}'`
-//     }
-//     console.log(req.query)
-//     client.query(`select * from prajituri${clauzaWhere}`, function(err, rez){
-//         if (err){
-//             console.log("Eroare", err)
-//             afisareEroare(res, 2);
-//         }
-//         else{
-//             console.log(rez)
-//             res.render("pagini/produse", {
-//                 produse: rez.row,
-//                 optiuni: []
-//             })
-//         }
-//     })
-// })
+app.get("/produse", function(req, res){
+    let clauzaWhere=""
+    if(req.query.tip)
+        clauzaWhere=`where cont_type='${req.query.tip}'`
+    client.query(`select * from digital_assets ${clauzaWhere}`, function(err, rez){
+        if(err){
+            console.error("Eroare", err);
+            afisareEroare(res, 2)
+        }
+        else{
+            client.query("select * from unnest(enum_range(null::content_categ))", function(err, rezOptiuni){
+                if(err){
+                    afisareEroare(res, 2)
+                }
+                else{
+                    res.render("pagini/produse", {
+                        produse: rez.rows,
+                        optiuni: rezOptiuni.rows
+                    })
+                }
+            })
+        }
+    })
+})
 
-// app.get("/produs/:id", function(req, res){
-//     client.query(`select * from prajituri where id = ${req.params.id}`, function(err, rez){
-//         if (err){
-//             console.log("Eroare", err)
-//             afisareEroare(res, 2);
-//         }
-//         else{
-//             if(rez.rowCount == 0){
-//                 afisareEroare(res, 404, "Produsul nu a fost gasit!!!");
-//                 return;
-//             }
-//             else{
-//                 console.log(rez)
-//                 res.render("pagini/produs", {
-//                 produs: rez.rows[0]
-//             })
-//             }
-//         }
-//     })
-// })
+app.get("/produs/:id", function(req, res){
+    client.query(`select * from digital_assets where id_asset=${req.params.id}`, function(err, rez){
+        if(err){
+            console.error("Eroare", err);
+            afisareEroare(res, 2)
+        }
+        else{
+            if(rez.rowCount==0){
+                afisareEroare(res, 404, "Produs inexistent")
+            }
+            else{
+                res.render("pagini/produs", {
+                    prod: rez.rows[0],
+                })
+            }
+            
+        }
+    })
+})
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
