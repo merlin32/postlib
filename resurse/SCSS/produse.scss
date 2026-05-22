@@ -5,6 +5,17 @@
                          "produse produse"
 }
 
+.range-elements{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input{
+        margin-left: 6px;
+        margin-right: 10px;
+    }
+}
+
 #filters{
     grid-area: filters;
 }

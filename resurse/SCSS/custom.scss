@@ -35,7 +35,13 @@ $border-col: #3d261c;
 
     $font-family-base: 'Georgia' serif,
 
-    $headings-font-weight: 700
+    $headings-font-weight: 700,
+
+    $form-range-thumb-width: 1.5rem,
+    $form-range-thumb-height: 1.5rem,
+    $form-range-thumb-bg:#c7843b,
+    $form-range-thumb-active-bg:#3d261c,
+    $form-range-track-bg:#e0e0e0
 );
 
 h2{

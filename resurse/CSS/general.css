@@ -44,11 +44,23 @@ body.light{
     --titles-color: #ffc567; 
 }
 
-#theme-button .fa-sun { display: none; }
-#theme-button .fa-moon { display: inline; }
+.form-check-label .fa-sun { display: none; }
+.form-check-label .fa-moon { display: inline; }
 
-body.light #theme-button .fa-sun { display: inline; }
-body.light #theme-button .fa-moon { display: none; }
+body.light .form-check-label .fa-sun { display: inline; }
+body.light .form-check-label .fa-moon { display: none; }
+
+.form-check-label i{
+    position: absolute;
+    margin-top: -6px;
+    margin-left: 10px;
+}
+
+.theme-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 h1, h2, h3, h5, h6{
     color: var(--titles-color); 
@@ -639,7 +651,7 @@ figure>img {
     border-radius: 25px;
 }
 
-#link-top, #theme-button{
+#link-top{
     position: fixed;
     bottom: 3em;
     right: 0.5em;
@@ -658,7 +670,7 @@ figure>img {
     text-decoration: none;
 }
 
-#link-top:hover, #theme-button:hover {
+#link-top:hover{
     opacity: 1;
     box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 1);
     background: var(--main-color);
@@ -675,16 +687,9 @@ figure>img {
     transform: translateY(-5%);
 }
 
-#theme-button{
-    bottom: 6.5em;
-}
 
-#link-top:hover #triunghi, #theme-button:hover #theme-icon{
+#link-top:hover #triunghi{
     color: var(--paragraph-shadow-color);
-}
-
-#theme-button i{
-    position: absolute
 }
 
 #maps {

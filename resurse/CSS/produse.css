@@ -4,6 +4,16 @@
   grid-template-areas: "filters filters" "produse produse";
 }
 
+.range-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.range-elements input {
+  margin-left: 6px;
+  margin-right: 10px;
+}
+
 #filters {
   grid-area: filters;
 }
