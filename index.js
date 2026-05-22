@@ -299,10 +299,28 @@ app.get("/produse", function(req, res){
                     afisareEroare(res, 2)
                 }
                 else{
-                    res.render("pagini/produse", {
-                        produse: rez.rows,
-                        optiuni: rezOptiuni.rows
+                    client.query("select distinct username from digital_assets order by username limit 3", function(err, rezUsers){
+                        if(err){
+                            afisareEroare(res, 2)
+                        }
+                        else{
+                            client.query("select * from unnest(enum_range(null::license_type))", function(err, rezLicenses){
+                                if(err){
+                                    afisareEroare(res, 2)
+                                }
+                                else{
+                                    res.render("pagini/produse", {
+                                        produse: rez.rows,
+                                        optiuni: rezOptiuni.rows,
+                                        users: rezUsers.rows,
+                                        licente: rezLicenses.rows
+                                    })
+                                }
+                            })
+                            
+                        }
                     })
+                    
                 }
             })
         }

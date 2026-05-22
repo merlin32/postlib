@@ -1,8 +1,13 @@
 window.onload = function() {
 
-    document.getElementById("inp-pret").onchange = function(){
+    //original order array
+    let originalOrder = Array.from(document.getElementsByClassName("produs"))
+
+    //html value modifier
+
+    document.getElementById("inp-file-size").onchange = function(){
         let val = this.value.trim()
-        document.getElementById("infoRange").innerHTML = `(${val})`
+        document.getElementById("infoRange").innerHTML = `Selectat: (${val}) MB`
     }
 
     document.getElementById("filtrare").onclick = function() {
@@ -11,75 +16,160 @@ window.onload = function() {
 
         let grupRadio = document.getElementsByName("gr_rad")
 
-        let caloriiMin, caloriiMax, allChecked = false;
+        let isAvailable
+        let anyType = false;
         for(let rad of grupRadio){
             if(rad.checked){
-                if(rad.value!="toate"){
-                    [caloriiMin, caloriiMax] = rad.value.split(":")
-                    caloriiMin = parseInt(caloriiMin)
-                    caloriiMax = parseInt(caloriiMax)
+                if(rad.value!="Toate"){
+                    isAvailable = parseInt(rad.value.trim().toLowerCase())
+                    console.log(isAvailable)
                 } else {
-                    allChecked = true;
+                    anyType = true;
                 }
                 break
             }
         }
 
-        //price min extraction
+        //selected file_size value
+        let inpFileSize = parseFloat(document.getElementById("inp-file-size").value.trim())
 
-        let inpPretMin = parseFloat(document.getElementById("inp-pret").value.trim())
+        //tags value
+        let inpUsername = document.getElementById("inp-username").value.trim().toLowerCase()
 
         //category  extraction
-
         let inpCategorie = document.getElementById("inp-categorie").value.trim().toLowerCase()
+
+        //free content checked
+        let inpFree = document.getElementById("inp-free").checked
+
+        //tags extraction
+        let inpTags = document.getElementById("inp-tags").value.trim().toLowerCase().split(",")
+
+        //category extraction (desktop/phone)
+        let inpCateg = document.getElementById("inp-categorie").value.trim().toLowerCase()
+
+        //license extraction
+        let inpElements = document.getElementById("inp-license").selectedOptions
+        let inpOptions = []
+        let anySelected = false
+        for(let license of inpElements)
+            inpOptions.push(license.value.trim().toLowerCase())
+        if(inpOptions.includes("toate"))
+            anySelected = true
+
+        //text checks using regexp
         
-        //filter
-        
-        let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase()
+        let inpNumeElement = document.getElementById("inp-nume")
+        let inpUserElement = document.getElementById("inp-username")
+        let inpTagsElement = document.getElementById("inp-tags")
         let produse = document.getElementsByClassName("produs")
 
+        let inpNume = inpNumeElement.value.trim().toLowerCase()
+
+        let regexpNume = /^[a-zA-Z0-9 ]*$/
+        let regexpUsername = /^[a-zA-Z0-9]*$/
+        let regexpTags = /^[a-zA-Z, ]*$/
+
+        let valid = true
+        if(!regexpNume.test(inpNumeElement.value.trim())){
+            inpNumeElement.classList.add("is-invalid")
+            valid = false
+        }
+        else{
+            inpNumeElement.classList.remove("is-invalid")
+        }
+
+        if(!regexpUsername.test(inpUserElement.value.trim())){
+            inpUserElement.classList.add("is-invalid")
+            valid = false
+        } 
+        else {
+            inpUserElement.classList.remove("is-invalid")
+        }
+
+        if(!regexpTags.test(inpTagsElement.value.trim())){
+            inpTagsElement.classList.add("is-invalid")
+            valid = false
+        }
+        else{
+            inpTagsElement.classList.remove("is-invalid")
+        }
+
+        if(!valid) return
+
+         //filter
         for(let prod of produse){
             prod.style.display = "none"
 
             //name filter
-
             let nume = prod.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase()
             let cond1 = nume.includes(inpNume)
+            //file_size filter
 
-            //calorii filter
+            let fileSizeExtraction = prod.getElementsByClassName("val-file-size")[0].innerHTML.trim().split(" ")[0]
+            let fileSize= parseFloat(fileSizeExtraction)
+            let cond2 = fileSize > inpFileSize
 
-            let calorii = parseInt(prod.getElementsByClassName("val-calorii")[0].innerHTML.trim())
-            let cond2 = (calorii >= caloriiMin && calorii < caloriiMax) || allChecked
+            //username filter
 
-            //price filter
+            let usernameExtraction = prod.getElementsByClassName("val-username")[0].innerHTML.trim().toLowerCase()
+            let cond3 = usernameExtraction.includes(inpUsername) || inpUsername == ""
 
-            let pret = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim())
-            let cond3 = pret >= inpPretMin
+            //availability filter
+
+            let availability = prod.getElementsByClassName("val-available")[0].innerHTML.trim().toLowerCase() == "da" ? true : false
+            let cond4 = (isAvailable == availability) || anyType
+
+            //free content filter
+
+            let price = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase().split(" ")[0])
+            let cond5 = (price === 0) || !inpFree
+
+            //tags filter
+            let tags = prod.getElementsByClassName("val-tags")[0].innerHTML.trim().toLowerCase().split(",")
+            let cond6 = inpTags.some(inpTag => tags.some(tag => tag.includes(inpTag.trim())))  || inpTags[0] === ""
 
             //category filter
 
-            let cond4 = prod.getElementsByClassName("val-categorie")[0].innerHTML.trim().toLowerCase() == inpCategorie || inpCategorie == "toate"
+            let cond7 = prod.getElementsByClassName("val-categorie")[0].innerHTML.trim().toLowerCase() == inpCateg || inpCateg == "toate"
 
+            // //category filter
+            let license = prod.getElementsByClassName("val-license")[0].innerHTML.trim().toLowerCase()
+            let cond8 = inpOptions.includes(license) || anySelected
 
-            if(cond1 && cond2 && cond3 && cond4){
+            if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8){
                 prod.style.display = "block"
             }
         }
     }
 
     //filter reset
-
     document.getElementById("resetare").onclick = function() {
         if(confirm("Doresti sa resetezi filtrele?")){
             document.getElementById("inp-nume").value=""
-            document.getElementById("inp-pret").value="0"
-            document.getElementById("infoRange").innerHTML="(0)"
+            document.getElementById("inp-file-size").value="0.5"
+            document.getElementById("infoRange").innerHTML="Selectat: (0.5) MB"
+            document.getElementById("inp-username").value=""
+            document.getElementById("i_rad3").checked = true
+            document.getElementById("inp-free").checked = false
+            document.getElementById("inp-tags").value=""
             document.getElementById("inp-categorie").value="toate"
-            document.getElementById("i_rad4").checked = true
+            document.getElementById("inp-license").value="toate"
 
-            let produse = document.getElementsByClassName("produs")
-            for (let prod of produse){
-                prod.style.display = "block"
+            //input error reset
+            document.getElementById("inp-nume").classList.remove("is-invalid")
+            document.getElementById("inp-username").classList.remove("is-invalid")
+            document.getElementById("inp-tags").classList.remove("is-invalid")
+
+            let produse = document.getElementsByClassName("produs");
+            for(let prod of produse){
+                prod.style.display = "block"; 
+            }
+            
+
+            let container = originalOrder[0].parentElement
+            for(let prod of originalOrder){
+                container.appendChild(prod)
             }
         }
     }
@@ -90,14 +180,18 @@ window.onload = function() {
         let produse = document.getElementsByClassName("produs")
         let vProduse = Array.from(produse)
         vProduse.sort(function(a,b){
-            let pretA = parseFloat(a.getElementsByClassName("val-pret")[0].innerHTML.trim())
-            let pretB = parseFloat(b.getElementsByClassName("val-pret")[0].innerHTML.trim())
-            if(pretA == pretB){
-                let numeA = a.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase()
-                let numeB = b.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase()
-                return semn * numeA.localeCompare(numeB)
+            let fileSizeA = parseFloat(a.getElementsByClassName("val-file-size")[0].innerHTML.trim())
+            let fileSizeB = parseFloat(b.getElementsByClassName("val-file-size")[0].innerHTML.trim())
+            let priceA = parseFloat(a.getElementsByClassName("val-pret")[0].innerHTML.trim())
+            let priceB = parseFloat(b.getElementsByClassName("val-pret")[0].innerHTML.trim())
+            let ratioA = priceA === 0 ? Infinity : fileSizeA / priceA
+            let ratioB = priceB === 0 ? Infinity : fileSizeB / priceB
+            if(ratioA == ratioB){
+                let categA = a.getElementsByClassName("val-categorie")[0].innerHTML.trim().toLowerCase()
+                let categB = b.getElementsByClassName("val-categorie")[0].innerHTML.trim().toLowerCase()
+                return semn * categA.localeCompare(categB)
             }
-            return semn * (pretA - pretB)
+            return semn * (ratioA - ratioB)
         })
 
         for (let prod of vProduse){
@@ -107,8 +201,8 @@ window.onload = function() {
 
     //sorting buttons
 
-    document.getElementById("sortCrescNume").onclick = function(){sorteaza(1)}
-    document.getElementById("sortDescrescNume").onclick = function(){sorteaza(-1)}
+    document.getElementById("sortCrescRaport").onclick = function(){sorteaza(1)}
+    document.getElementById("sortDescrescRaport").onclick = function(){sorteaza(-1)}
 
     window.onkeydown = function(e) {
         if(e.key == "c" && e.altKey){
@@ -136,4 +230,40 @@ window.onload = function() {
             
         }
     }
+
+    function selectedProdSum(){
+        let produse = document.getElementsByClassName("produs")
+        let sum = 0
+        for(let prod of produse){
+            let inCart = prod.getElementsByClassName("select-cos")[0].checked
+            if(inCart && prod.style.display != "none")
+                sum += parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim())
+        }
+        let p = this.document.getElementById("infoSuma")
+        if(!p){
+            p = this.document.createElement("p")
+            p.innerHTML = sum + " EUR"
+            p.id="infoSuma"
+            let sectiuneProduse = this.document.getElementById("produse")
+            sectiuneProduse.parentElement.insertBefore(p, sectiuneProduse)
+            this.setTimeout(function(){
+                let p1 = this.document.getElementById("infoSuma")
+                p1.remove()
+            }, 2000)
+        }
+        else{
+            p.innerHTML = sum + " EUR"
+        }
+    }
+
+    document.getElementById("pretTotalSelectie").onclick = function(){
+        selectedProdSum()
+    }
+
+    window.onkeydown = function(e) {
+        if(e.key == "c" && e.altKey){
+            selectedProdSum()
+        }
+    }
+
 }

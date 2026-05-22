@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
         <title>PostLib - Marketplace</title>
         <%- include("../fragmente/head") %>     
-        <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src="/resurse/js/produse.js"></script>
         <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
 
     </head>
@@ -16,80 +16,235 @@
     <%- include("../fragmente/header") %>
 
     <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Calorii:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Dietetic (calorii &lt; 350)
-                <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
-            </label></p>
-            <p><label>Mediu (350 &le; calorii &lt; 700)
-                <input id="i_rad2"  name="gr_rad" value="350:700" type="radio"/>
-            </label>
-            <p><label>Ridicat caloric (700 &le; calorii)
-                <input id="i_rad3" name="gr_rad" value="700:1000000000" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
-        </div>
+        <div id="products-layout">
+            <section id="filters" class="container">
 
+            
+             <div class="row g-3 mb-3">
+                <!-- Filtru text -->
+                <div class="form-floating col-12 col-md-6">
+                    <input type="text" class="form-control" id="inp-nume" placeholder="">
+                    <label for="inp-nume">Titlu</label>
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
-            <select id="inp-categorie">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
-            </select>
-        </label>
+                    <div id="err-title" class="invalid-feedback column">
+                        Titlul poate contine doar litere, cifre si spatii!
+                    </div>
+                </div>
 
-        <p>
-        <button class="c1 c2 c3" id="filtrare">Filtreaza</button> 
+                <!-- Filtru datalist pentru useri -->
+                <div class="user-selection col-12 col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="inp-username" list="username-list" placeholder="">
+                        <label for="inp-username"> Postat de:</label>
+                        <div id="err-username" class="invalid-feedback">
+                            Username-ul poate contine doar litere si cifre, fara spatii!
+                        </div>
+                    </div>
+                    <datalist id="username-list">
+                        <% for (let user of locals.users) { %>
+                            <option value="<%- user.username %>"><%- user.username %></option>
+                        <% } %>
+                    </datalist>
+                </div>
+            </div>
 
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
-        
-        </p>
-      
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+            <div class="row g-3 mb-3">
+
+                 <!-- Filtru range pentru file_size -->
+                <label class="range-filter col-12 col-md-6"> Dimensiune fisier:
+                    <div class="range-elements">
+                        <span>Min: (0.5) MB</span>
+                        <input type="range" id="inp-file-size" value="0.5" min="0.5"  max="10.5" step="2">
+                        <span>Max: (10.5) MB</span>
+                        <span id="infoRange"> Selectat: (0.5) MB</span>
+                    </div>
+                </label>
+
+                <!-- Grup de inputuri radio -->
+                <div class="mb-3 col-12 col-md-6"> 
+                    <label class="d-block mb-2 font-weight-bold">Disponibilitate:</label>
+                        <div>
+                            <input id="i_rad1" class="btn-check" name="gr_rad" value="1" type="radio"/>
+                            <label class="btn btn-outline-primary" for="i_rad1">Da</label>
+
+                            <input id="i_rad2" class="btn-check" name="gr_rad" value="0" type="radio"/>
+                            <label class="btn btn-outline-primary" for="i_rad2">Nu</label>
+
+                            <input id="i_rad3" class="btn-check" name="gr_rad" value="Toate" checked type="radio"/>
+                            <label class="btn btn-outline-primary" for="i_rad3">Toate</label>
+                        </div>  
+                    </label>
+                </div>
+            </div>
+           
+            <!-- Input de tip checkbox -->
+             <div class="row g-3 mb-3">
+                <div class="mb-3 col">
+                    <input id="inp-free" class="btn-check" type="checkbox" autocomplete="off">
+                    <label class="btn btn-outline-primary w-100 selecting-free" for="inp-free">Continut gratis?</label> 
+                </div>
+             </div>
+            
+            <div class="row g-3 mb-3">
+                <!-- Select simplu -->
+                <label class="col-12 col-md-6">Tip de dispozitiv:
+                    <select id="inp-categorie">
+                        <option id="sel-toate-categoriile" selected value="toate">toate</option>
+                        <% for (let opt of locals.optiuni) { %>
+                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% } %>
+                    </select>
+                </label>
+
+                <!-- Select multiplu -->
+                <label class="col-12 col-md-6">Tip de licenta:
+                    <select id="inp-license" multiple size="4">
+                        <option id="sel-toate-licentele" selected value="toate">toate</option>
+                        <% for (let opt of locals.licente) { %>
+                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% } %>
+                    </select>
+                </label>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <!-- Textarea -->
+                <div class="form-floating col">
+                    <textarea id="inp-tags" class="form-control" placeholder=""></textarea>
+                    <label for="inp-tags">Taguri: </label>
+
+                    <div id="err-tags" class="invalid-feedback">
+                        Tagurile pot contine doar litere, virgule si spatii!
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2 mb-3">
+                <button id="filtrare" class="btn btn-primary btn-lg col-3 col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+
+                    <span class="button-text">Filtreaza</span>
+                </button> 
+                <button id="resetare" class="btn btn-primary btn-lg col-2 col-md-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                    </svg>
+
+                    <span class="button-text">Reseteaza</span>
+                </button>
+                <button id="sortCrescRaport" class="btn btn-primary btn-sm col-2 col-md-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                        <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                    </svg>
+
+                    <span class="button-text">Sorteaza crescator dupa dimens_fisier / pret si tip dispozitiv</span>
+                </button>
+                <button id="sortDescrescRaport" class="btn btn-primary btn-sm col-2 col-md-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
+                        <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                    </svg>
+
+                    <span class="button-text">Sorteaza descrescator dupa dimens_fisier / pret si tip dispozitiv</span>
+                </button>
+                <button id="pretTotalSelectie" class="btn btn-primary btn-lg col-3 col-md-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                        <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+
+                    <span class="button-text">Calculare pret total pentru produsele selectate</span>
+                </button>
+            </div>
+            <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        </section>
   
         <section id="produse">
 
             <h2>Produse</h2>
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
+                    <article class="produs <%- prod.cont_type.replace(/\s+/g, '-') %>" id="elem_<%- prod.id_asset %>">
                         <h3 class="nume">Titlu: <a href="/produs/<%-prod.id_asset %>" ><span class="val-nume"><%- prod.title%></span></a></h3>
                         <div class="info-prod">
-                            <p class="username">Postat de: <span class="val-username"><%- prod.username%></span></p>
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.price%> EUR</span></p>
-                            <p class="file-size">Dimensiune Fisier: <span class="val-file-size"><%- prod.file_size%> MB</span></p>
-                            <p class="license">Licenta: <span class="val-license"><%- prod.lic_type%></span></p>
-                            <% if(prod.available) { %>
-                                <p>Disponibil: <span class="available">Da</span></p>
-                            <% } else { %>
-                                <p>Disponibil: <span class="available">Nu</span></p>
-                            <% } %>
+                            <div class="table-layout">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Pret</td>
+                                            <td class="val-pret"><%- prod.price %> EUR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Licenta</td>
+                                            <td class="val-license"><%- prod.lic_type %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Etichete</td>
+                                            <td class="val-tags"><%- prod.tags %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data postare</td>
+                                            <td class="upload-date">
+                                                <%
+                                                    const months = ["Ianuarie", "Februarie", 
+                                                                    "Martie", "Aprilie", "Mai", 
+                                                                    "Iunie", "Iulie", "August", 
+                                                                    "Septembrie", "Octombrie", "Noiembrie",
+                                                                    "Decembrie"]
+                                                    const weekDays = ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata"]
+                                                    const date = new Date(prod.upload_date)
+                                                    const formatedDate = date.getDate() + " " + 
+                                                                        months[date.getMonth()] + " " + 
+                                                                        date.getFullYear() + " (" +
+                                                                        weekDays[date.getDay()] +")"
+                                                    %>
+                                                <time datetime="<%- date.toISOString().split(' T')[0] %>"><%- formatedDate %></time>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Disponibil</td>
+                                            <td class="val-available">
+                                                <% if(prod.available) { %>
+                                                    Da
+                                                <% } else { %>
+                                                    Nu
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="description">Descriere: <span><%- prod.description %> </span></p>
+                                <p class="cont-categ">Categorie: <span class="val-categorie"><%- prod.cont_categ %> </span></p>
+                            </div>
+
+                            <!-- Elemente necesare pentru filtre, dar care nu trebuie sa se afiseze -->
+                            <span class="val-file-size" style="display: none"><%- prod.file_size %> MB</span>
+                            <span class="val-username" style="display: none"><%- prod.username %> </span>
+
+                            <div class="content">
+                                <figure>
+                                    <a href="/produs/<%-prod.id_asset %>" ><img src="/resurse/imagini/produse/thumbnails/<%- prod.thumbnail %>" style="width:50%;height:auto;" alt="[imagine <%- prod.title %>]" /></a>
+                                </figure>
+                                <% if(prod.audio_file) { %>
+                                    <audio controls>
+                                        <source src="/resurse/audio/ringtones/<%- prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                                    </audio>
+                                <% } %>
+                            </div>
+                            
                         </div>
-                        <p class="categorie">Pentru:<span class="val-categorie"><%- prod.cont_categ%></span></p>
-                        <figure>
-                            <a href="/produs/<%-prod.id_asset %>" ><img src="/resurse/imagini/produse/thumbnails/<%- prod.thumbnail %>" style="width:50%;height:auto;" alt="[imagine <%- prod.title %>]" /></a>
-                        </figure>
-                        <% if(prod.audio_file) { %>
-                            <audio controls>
-                                <source src="/resurse/audio/ringtones/<%- prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                            </audio>
-                        <% } %>
+                        
                         <label class="selecteaza-cos">
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id_asset %>" autocomplete="off">
                         </label>
                     </article>
-                <% }%>
+                <% } %>
             </div>
         </section>
+        </div>
+        
     </main>
 
     <%- include("../fragmente/footer") %>

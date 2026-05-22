@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS digital_assets (
 	cont_type content_type DEFAULT 'fundaluri',
 	cont_categ content_categ DEFAULT 'calculator',
 	price NUMERIC(6, 2) NOT NULL CHECK (price >= 0),
-	file_size NUMERIC(8, 2) NOT NULL CHECK (file_size > 0),
+	file_size NUMERIC(8, 2) NOT NULL CHECK (file_size > 0.5 AND file_size <= 10.5),
 	upload_date TIMESTAMP DEFAULT current_timestamp,
 	lic_type license_type DEFAULT 'uz personal',
 	tags VARCHAR [],
@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS digital_assets (
 );
 
 INSERT INTO digital_assets(title, username, description, thumbnail, audio_file, cont_type, cont_categ, price, file_size, upload_date, lic_type, tags, available) VALUES
-('Aterizare Qatar Airways', 'merlin32', 'Boeing 787 al Qatar Airways vazut de jos.', 'QatarAirwaysLanding.jpg', NULL, 'fundaluri', 'telefon', 10.00, 311, '2026-05-01', 'uz personal', ARRAY['aviation', 'sky', 'Boeing'], true),
-('Turkish Airlines A330', 'merlin32', 'Airbus A330 al Turkish Airlines in lumina spectaculoasa a soarelui de aprilie.', 'TurkishAirlinesUnderbelly.jpg', NULL, 'fundaluri', 'telefon', 12.00, 956, '2026-04-23', 'uz personal', ARRAY['aviation', 'airbus', 'sky', 'undebelly'], true),
-('Romanian Geisha', 'merlin32', 'O prezenta mistica si plina de gratie, surprinsa intr-o ipostaza dramatica.', 'RomanianGeisha.jpg', NULL, 'fundaluri', 'telefon', 20.00, 270, '2025-09-12', 'comercial', '{}', true),
+('Aterizare Qatar Airways', 'merlin32', 'Boeing 787 al Qatar Airways vazut de jos.', 'QatarAirwaysLanding.jpg', NULL, 'fundaluri', 'telefon', 10.00, 0.51, '2026-05-01', 'uz personal', ARRAY['aviation', 'sky', 'Boeing'], true),
+('Turkish Airlines A330', 'merlin32', 'Airbus A330 al Turkish Airlines in lumina spectaculoasa a soarelui de aprilie.', 'TurkishAirlinesUnderbelly.jpg', NULL, 'fundaluri', 'telefon', 12.00, 0.92, '2026-04-23', 'uz personal', ARRAY['aviation', 'airbus', 'sky', 'undebelly'], true),
+('Romanian Geisha', 'merlin32', 'O prezenta mistica si plina de gratie, surprinsa intr-o ipostaza dramatica.', 'RomanianGeisha.jpg', NULL, 'fundaluri', 'telefon', 20.00, 0.51, '2025-09-12', 'comercial', '{}', true),
 ('Aparitie pe timp de furtuna', 'johnPhotography', NULL, 'StormyAppearance.jpg', NULL, 'fundaluri', 'calculator', 21.00, 5.73, '2026-03-12', 'uz personal', ARRAY['stormy', 'car', 'landing', 'planes', 'underground'], true),
 ('Space Trap Beat', 'bestBeatsOnly', 'Ton de apel spatial din zona trap 140bpm', '140bpmThumbnail.jpg', '140bpmRootNoteF6SpaceTrapBeat.mp3', 'tonuri de apel', 'telefon', 0.00, 7.61, '2026-01-01', 'uz liber', ARRAY['trapbeat', 'space'], true),
 ('Galaxy Beat', 'bestBeatsOnly', 'Simte-te purtat intr-o alta galaxie cu acest ton de apel', 'galaxyTypeBeat.jpg', 'GalaxyTypeBeat.mp3', 'tonuri de apel', 'telefon', 4.00, 5.33, '2025-12-29', 'uz personal', '{}', false),
@@ -52,5 +52,3 @@ INSERT INTO digital_assets(title, username, description, thumbnail, audio_file, 
 ('Apusul asupra Pisei', 'merlin32', NULL, 'ApusPisa.jpg', NULL, 'fundaluri', 'calculator', 0.00, 1.98, '2025-09-23', 'uz liber', '{}', true),
 ('Monti Pisani', 'merlin32', NULL, 'MontiPisani.jpg', NULL, 'fundaluri', 'calculator', 0.00, 5.35, '2025-09-23', 'uz liber', '{}', true),
 ('Motociclistul singuratic', 'merlin32', NULL, 'LoneRider.jpg', NULL, 'fundaluri', 'calculator', 40.00, 2.97, '2026-03-01', 'uz personal', ARRAY['dark', 'rider', 'lone'], true);
-
-

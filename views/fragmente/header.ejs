@@ -1,5 +1,4 @@
-<script src="/resurse/js/tema.js"></script>
-<header class="c1 c2 c3" id="page-start">
+<header id="page-start">
     <nav id="nav-bar">
         <label id="hamburger" for="ch-menu">
             <span class="hamburger-icon">
@@ -35,16 +34,10 @@
                 </div>
                 <div class="icon-label">Marketplace</div>
                 <ul>
-                    <!-- <li><a href="#search">Cauta</a></li>
-                    <li><a href="#explore-wallpapers">Exploreaza wallpapere</a></li>
-                    <li class="bottom-element"><a href="#explore-ringtones">Exploreaza ringtone-uri</a></li> -->
                     <li><a href="/produse">Toate</a></li>
                     <% for(let categ of locals.categorii) { %>
                         <li><a href="/produse?tip=<%- categ.unnest %>"><%- categ.label %></a></li>
                     <% } %>
-                    
-                    <!-- <li><a href="/produse?tip=gelaterie">Inghetate</a></li>
-                    <li><a href="/produse?tip=patiserie">Patiserie</a></li> -->
                 </ul>
             </li>
             <li>

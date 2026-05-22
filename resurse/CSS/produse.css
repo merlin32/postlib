@@ -1,0 +1,39 @@
+#products-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "filters filters" "produse produse";
+}
+
+#filters {
+  grid-area: filters;
+}
+
+#produse {
+  grid-area: produse;
+}
+#produse .info-prod {
+  display: flex;
+  border: 2px solid purple;
+}
+#produse .info-prod figure {
+  border: 2px solid green;
+  width: 100%;
+  height: 100%;
+}
+#produse .info-prod figure img {
+  width: 100%;
+  height: 100%;
+}
+#produse .info-prod .table-layout {
+  width: 80%;
+  border: 2px solid black;
+}
+#produse .info-prod .table-layout td, #produse .info-prod .table-layout tr {
+  border: 2px solid black;
+}
+
+@media screen and (max-width: 700px) {
+  .button-text {
+    display: none;
+  }
+}

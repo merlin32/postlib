@@ -1,5 +1,5 @@
 $paragraph-shadow-color: #c7843b;
-
+$border-col: #3d261c;
 
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
 (
@@ -9,12 +9,12 @@ $paragraph-shadow-color: #c7843b;
     $light: #F5ECD7,
     $dark: #1C2B33,
 
-    $body-color: #2C3E50,
+    $body-color: #f7b64d,
 
     $grid-breakpoints: (
         xs: 0,
         sm: 576px,
-        md: 820px,
+        md: 700px,
         lg: 1100px,
         xl: 1400px,
         xxl: 1600px
@@ -23,6 +23,8 @@ $paragraph-shadow-color: #c7843b;
     $border-radius: 0.75rem,
     $border-radius-lg: 1rem,
     $border-radius-sm: 0.4rem,
+
+    $border-width: 2px,
 
     $h1-font-size: 2.5rem,
     $h2-font-size: 2rem,
@@ -68,4 +70,12 @@ summary{
 
 hgroup p{
     font-weight: 700;
+}
+
+.btn-primary {
+    border-color: $border-col;
+
+    &:hover, &:active, &:focus {
+        border-color: $border-col;
+    }
 }

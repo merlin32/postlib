@@ -1,12 +1,12 @@
 window.addEventListener("DOMContentLoaded", function(){
-document.getElementById("schimba_tema").onclick= function(){
-    if(document.body.classList.contains("dark")){
-        document.body.classList.remove("dark")
+document.getElementById("theme-button").onclick= function(){
+    if(document.body.classList.contains("light")){
+        document.body.classList.remove("light")
         localStorage.removeItem("tema");
     }
     else{
-        document.body.classList.add("dark")
-        localStorage.setItem("tema","dark");
+        document.body.classList.add("light")
+        localStorage.setItem("tema","light");
     }
 }
 });
