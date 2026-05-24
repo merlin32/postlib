@@ -27,7 +27,11 @@
                     <% } else { %>
                         <p>Disponibil: <span class="available">Nu</span></p>
                     <% } %>
-                    <p>Data postare: <span class="upload-date"><%- locals.prod.upload_date %> </span></p>
+                    <p>Data postare: 
+                        <span class="upload-date">
+                            <time datetime="<%- new Date(locals.prod.upload_date).toISOString().split('T')[0] %>"></time>
+                        </span>
+                    </p>
                     <p>Licenta: <span class="license"><%- locals.prod.lic_type %> </span></p>
                     <figure class="imag-produs">
                         <img  src="/resurse/imagini/produse/thumbnails/<%- locals.prod.thumbnail %>" alt="[imagine <%- locals.prod.title %>]" />
@@ -43,5 +47,6 @@
     </main>
 
     <%- include("../fragmente/footer") %>
+    <script src="/resurse/js/date_conversion.js"></script>
     </body>
 </html>

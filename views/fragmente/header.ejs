@@ -63,18 +63,6 @@
                     <li class="bottom-element"><a href="/auth_page#reset-password">Resetare parola</a></li>
                 </ul>
             </li>
-            <!-- <li>
-                <div class="menu-icon">
-                    <span><i class="fa-solid fa-user text-icon"></i></span>
-                </div>
-                <div class="icon-label">Administrare cont</div>
-                <ul>
-                    <li><a href="#dashboard">Panou de control</a></li>
-                    <li><a href="#manage-content">Administrare continut</a></li>
-                    <li><a href="#purchase-history">Istoric de achizitii</a></li>
-                    <li class="bottom-element"><a href="#balance">Balanta</a></li>
-                </ul>
-            </li> -->
             <li>
                 <a href="/despre">
                     <div class="menu-icon">
@@ -104,6 +92,14 @@
     <div class="moving-text">
         <div class="moving-text-content">Fundaluri, tonuri de apel si o comunitate incredibila</div>
         <div class="moving-text-content">Alatura-te acum</div>
+    </div>
+    <div class="offer">
+        <span>Oferta la categoria "<%- locals.oferte.categorie %>" de <%- locals.oferte.reducere %>%</span>
+        <span id="remaining-time"></span>
+            <script>
+                const extractedDate = new Date("<%- locals.oferte.data_finalizare %>")
+            </script>
+            <script src="/resurse/js/offerTimer.js"></script>
     </div>
     <div class="title">
         <img class="logo" src="/resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192">

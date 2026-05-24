@@ -3,14 +3,18 @@ window.onload = function() {
     //original order array
     let originalOrder = Array.from(document.getElementsByClassName("produs"))
 
-    //html value modifier
-
-    document.getElementById("inp-file-size").onchange = function(){
-        let val = this.value.trim()
-        document.getElementById("infoRange").innerHTML = `Selectat: (${val}) MB`
+    //disabling all the checkbox for all the unavailable products
+    function updateCheckboxes(){
+        let produse = document.getElementsByClassName("produs")
+        for(let prod of produse){
+            let canBeSelected = prod.getElementsByClassName("val-available")[0].innerHTML.trim().toLowerCase() == "da"
+            prod.getElementsByClassName("select-cos")[0].disabled = !canBeSelected
+        }
     }
 
-    document.getElementById("filtrare").onclick = function() {
+    updateCheckboxes()
+
+    function applyFilters () {
 
         //radio group filter
 
@@ -143,6 +147,25 @@ window.onload = function() {
         }
     }
 
+    document.getElementById("filtrare").onclick = applyFilters
+    document.getElementById("inp-nume").oninput = applyFilters
+
+    //html value modifier
+    document.getElementById("inp-file-size").oninput = function(){
+        let val = this.value.trim()
+        document.getElementById("infoRange").innerHTML = `Selectat: (${val}) MB`
+        applyFilters()
+    }
+
+    document.getElementById("inp-username").oninput = applyFilters
+    document.getElementById("i_rad1").onchange = applyFilters
+    document.getElementById("i_rad2").onchange = applyFilters
+    document.getElementById("i_rad3").onchange = applyFilters
+    document.getElementById("inp-free").onchange = applyFilters
+    document.getElementById("inp-tags").oninput = applyFilters
+    document.getElementById("inp-categorie").onchange = applyFilters
+    document.getElementById("inp-license").onchange = applyFilters
+
     //filter reset
     document.getElementById("resetare").onclick = function() {
         if(confirm("Doresti sa resetezi filtrele?")){
@@ -182,8 +205,10 @@ window.onload = function() {
         vProduse.sort(function(a,b){
             let fileSizeA = parseFloat(a.getElementsByClassName("val-file-size")[0].innerHTML.trim())
             let fileSizeB = parseFloat(b.getElementsByClassName("val-file-size")[0].innerHTML.trim())
-            let priceA = parseFloat(a.getElementsByClassName("val-pret")[0].innerHTML.trim())
-            let priceB = parseFloat(b.getElementsByClassName("val-pret")[0].innerHTML.trim())
+            let textA = a.getElementsByClassName("val-pret")[0].innerText.trim().split(" ")
+            let priceA = parseFloat(textA[textA.length - 2])
+            let textB = b.getElementsByClassName("val-pret")[0].innerText.trim().split(" ")
+            let priceB = parseFloat(textB[textB.length - 2])
             let ratioA = priceA === 0 ? Infinity : fileSizeA / priceA
             let ratioB = priceB === 0 ? Infinity : fileSizeB / priceB
             if(ratioA == ratioB){
@@ -204,40 +229,15 @@ window.onload = function() {
     document.getElementById("sortCrescRaport").onclick = function(){sorteaza(1)}
     document.getElementById("sortDescrescRaport").onclick = function(){sorteaza(-1)}
 
-    window.onkeydown = function(e) {
-        if(e.key == "c" && e.altKey){
-            let produse = document.getElementsByClassName("produs")
-            let sum = 0
-            for(let prod of produse){
-                if(prod.style.display != "none")
-                    sum += parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim())
-            }
-            let p = this.document.getElementById("infoSuma")
-            if(!p){
-                p = this.document.createElement("p")
-                p.innerHTML = sum + " EUR"
-                p.id="infoSuma"
-                let sectiuneProduse = this.document.getElementById("produse")
-                sectiuneProduse.parentElement.insertBefore(p, sectiuneProduse)
-                this.setTimeout(function(){
-                    let p1 = this.document.getElementById("infoSuma")
-                    p1.remove()
-                }, 2000)
-            }
-            else{
-                p.innerHTML = sum
-            }
-            
-        }
-    }
-
     function selectedProdSum(){
         let produse = document.getElementsByClassName("produs")
         let sum = 0
         for(let prod of produse){
             let inCart = prod.getElementsByClassName("select-cos")[0].checked
-            if(inCart && prod.style.display != "none")
-                sum += parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim())
+            if(inCart && prod.style.display != "none"){
+                let text = prod.getElementsByClassName("val-pret")[0].innerText.trim().split(" ")
+                sum += parseFloat(text[text.length - 2])
+            }       
         }
         let p = this.document.getElementById("infoSuma")
         if(!p){

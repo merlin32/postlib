@@ -8,13 +8,11 @@
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src="/resurse/js/produse.js"></script>
         <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
-
     </head>
     <body>
 
 
     <%- include("../fragmente/header") %>
-
     <main>
         <div id="products-layout">
             <section id="filters" class="container">
@@ -163,7 +161,7 @@
         <section id="produse">
 
             <h2>Produse</h2>
-            <div class="grid-produse">
+            <div id="grid-produse">
                 <% for( let prod of locals.produse) { %>
                     <article class="produs <%- prod.cont_type.replace(/\s+/g, '-') %>" id="elem_<%- prod.id_asset %>">
                         <h3 class="nume">Titlu: <a href="/produs/<%-prod.id_asset %>" ><span class="val-nume"><%- prod.title%></span></a></h3>
@@ -173,7 +171,14 @@
                                     <tbody>
                                         <tr>
                                             <td>Pret</td>
-                                            <td class="val-pret"><%- prod.price %> EUR</td>
+                                            <td class="val-pret">
+                                                <% if(locals.oferte && prod.cont_categ === locals.oferte.categorie && prod.price > 0 && prod.available) { %>
+                                                    <s><%- prod.price %> EUR</s>
+                                                    <%- (prod.price * (1 - locals.oferte.reducere / 100)).toFixed(2) %> EUR
+                                                <% } else { %>
+                                                    <%- prod.price %> EUR
+                                                <% } %>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Licenta</td>
@@ -186,20 +191,7 @@
                                         <tr>
                                             <td>Data postare</td>
                                             <td class="upload-date">
-                                                <%
-                                                    const months = ["Ianuarie", "Februarie", 
-                                                                    "Martie", "Aprilie", "Mai", 
-                                                                    "Iunie", "Iulie", "August", 
-                                                                    "Septembrie", "Octombrie", "Noiembrie",
-                                                                    "Decembrie"]
-                                                    const weekDays = ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata"]
-                                                    const date = new Date(prod.upload_date)
-                                                    const formatedDate = date.getDate() + " " + 
-                                                                        months[date.getMonth()] + " " + 
-                                                                        date.getFullYear() + " (" +
-                                                                        weekDays[date.getDay()] +")"
-                                                    %>
-                                                <time datetime="<%- date.toISOString().split(' T')[0] %>"><%- formatedDate %></time>
+                                                <time datetime="<%- new Date(prod.upload_date).toISOString().split('T')[0] %>"></time>
                                             </td>
                                         </tr>
                                         <tr>
@@ -216,6 +208,10 @@
                                 </table>
                                 <p class="description">Descriere: <span><%- prod.description %> </span></p>
                                 <p class="cont-categ">Categorie: <span class="val-categorie"><%- prod.cont_categ %> </span></p>
+                                <label class="selecteaza-cos">
+                                    Selectează:<br/>
+                                    <input type="checkbox" class="select-cos" value="<%-prod.id_asset %>" autocomplete="off">
+                                </label>
                             </div>
 
                             <!-- Elemente necesare pentru filtre, dar care nu trebuie sa se afiseze -->
@@ -224,7 +220,7 @@
 
                             <div class="content">
                                 <figure>
-                                    <a href="/produs/<%-prod.id_asset %>" ><img src="/resurse/imagini/produse/thumbnails/<%- prod.thumbnail %>" style="width:50%;height:auto;" alt="[imagine <%- prod.title %>]" /></a>
+                                    <a href="/produs/<%-prod.id_asset %>" ><img src="/resurse/imagini/produse/thumbnails/<%- prod.thumbnail %>" alt="[imagine <%- prod.title %>]" /></a>
                                 </figure>
                                 <% if(prod.audio_file) { %>
                                     <audio controls>
@@ -232,13 +228,7 @@
                                     </audio>
                                 <% } %>
                             </div>
-                            
                         </div>
-                        
-                        <label class="selecteaza-cos">
-                            Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id_asset %>" autocomplete="off">
-                        </label>
                     </article>
                 <% } %>
             </div>
@@ -248,5 +238,6 @@
     </main>
 
     <%- include("../fragmente/footer") %>
+    <script src="/resurse/js/date_conversion.js"></script>
     </body>
 </html>

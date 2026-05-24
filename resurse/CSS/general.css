@@ -50,6 +50,25 @@ body.light{
 body.light .form-check-label .fa-sun { display: inline; }
 body.light .form-check-label .fa-moon { display: none; }
 
+.offer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    width: 100%;
+    height: 80px;
+    font-style: italic;
+    background: linear-gradient(to right, transparent, var(--box-shadow), var(--paragraph-shadow-color), var(--paragraph-shadow-color), var(--box-shadow), transparent);
+    color: var(--text-color-paragraph);
+    text-shadow: 1px 1px 15px var(--main-color);
+}
+
+.timer-urgent{
+    color: red;
+}
+
 .form-check-label i{
     position: absolute;
     margin-top: -6px;
@@ -847,5 +866,9 @@ figure>img {
 
     .iframe-tabs>a:hover {
         width: 95px;
+    }
+
+    .offer{
+        margin-bottom: 10px;
     }
 }

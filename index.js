@@ -17,12 +17,18 @@ app.set("view engine", "ejs")
 obGlobal={
     obErori:null,
     obImagini:null,
+    obOferte:null,
     folderScss: path.join(__dirname,"resurse/SCSS"),
     folderCss: path.join(__dirname,"resurse/CSS"),
     folderBackup: path.join(__dirname,"backup"),
     fisierScssGalAnim: path.join(__dirname, "resurse/SCSS/galerie_animata.scss"),
     fisierCssGalAnim: path.join(__dirname, "resurse/CSS/galerie_animata.css")
 }
+
+const INTERVAL_OFERTA_MS = 2 * 60 * 1000;
+const TIMP_STERGERE_OFERTA = 1 * 60 * 1000;
+const FISIER_OFERTE = path.join(__dirname, "resurse/json/oferte.json");
+const REDUCERI_POSIBILE = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
 
 console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
@@ -234,6 +240,70 @@ function filteredImagesAnim() {
    return allImages.slice(offset, offset + photosNumber);
 }
 
+function initOferte() {
+    let continut = fs.readFileSync(FISIER_OFERTE).toString("utf-8");
+    obGlobal.obOferte = JSON.parse(continut);
+
+    client.query("SELECT * FROM unnest(enum_range(null::content_categ))", function(err, rez) {
+        if (err) {
+            afisareEroare(res, 2)
+        }
+        else {
+            let categorii = [];
+            for (let categ of rez.rows)
+                categorii.push(categ.unnest);
+
+            const oferte = obGlobal.obOferte.oferte;
+            const timpRamas = oferte.length > 0 ? new Date(oferte[0].data_finalizare) - new Date() : 0;
+
+            if (timpRamas <= 0)
+                generareOferta(categorii);
+
+            setTimeout(function() {
+                generareOferta(categorii);
+                setInterval(() => generareOferta(categorii), INTERVAL_OFERTA_MS);
+            }, timpRamas > 0 ? timpRamas : INTERVAL_OFERTA_MS);
+
+            stergeOferte()
+            setInterval(stergeOferte, TIMP_STERGERE_OFERTA);
+        }
+    });
+}
+
+function stergeOferte(){
+    const acum = new Date();
+    obGlobal.obOferte.oferte = obGlobal.obOferte.oferte.filter(oferta => 
+        acum - new Date(oferta.data_finalizare) < TIMP_STERGERE_OFERTA
+    );
+    fs.writeFileSync(FISIER_OFERTE, JSON.stringify(obGlobal.obOferte, null, 2));
+}
+
+function generareOferta(categorii){
+    const oferte = obGlobal.obOferte.oferte
+    const numarOferte = oferte.length
+    const ultimaCategorie = oferte.length > 0 ? oferte[0].categorie : null;
+
+    const categoriiDisponibile = categorii.length > 1 ? categorii.filter(categ => categ !== ultimaCategorie) : categorii;
+
+    const categorieNoua = categoriiDisponibile[Math.floor(Math.random() * categoriiDisponibile.length)];
+    const reducereNoua = REDUCERI_POSIBILE[Math.floor(Math.random() * REDUCERI_POSIBILE.length)];
+
+    const acum = new Date();
+    const sfarsit = new Date(acum.getTime() + INTERVAL_OFERTA_MS);
+
+    const ofertaNoua = {
+        categorie: categorieNoua,
+        data_incepere: acum.toISOString(),
+        data_finalizare: sfarsit.toISOString(),
+        reducere: reducereNoua
+    };
+
+    obGlobal.obOferte.oferte.unshift(ofertaNoua);
+    fs.writeFileSync(FISIER_OFERTE, JSON.stringify(obGlobal.obOferte, null, 2));
+}
+
+initOferte()
+
 let vect_foldere=["temp", "logs", "backup", "fisiere_uploadate"]
 for(let folder of vect_foldere){
     let caleFolder=path.join(__dirname, folder);
@@ -280,7 +350,8 @@ app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {
         ip: req.ip,
         imagini: filteredImages(),
-        imagini_animata: filteredImagesAnim()
+        imagini_animata: filteredImagesAnim(),
+        oferte: obGlobal.obOferte.oferte[0]
     });
 });
 
@@ -313,7 +384,8 @@ app.get("/produse", function(req, res){
                                         produse: rez.rows,
                                         optiuni: rezOptiuni.rows,
                                         users: rezUsers.rows,
-                                        licente: rezLicenses.rows
+                                        licente: rezLicenses.rows,
+                                        oferte: obGlobal.obOferte.oferte[0]
                                     })
                                 }
                             })
@@ -340,6 +412,7 @@ app.get("/produs/:id", function(req, res){
             else{
                 res.render("pagini/produs", {
                     prod: rez.rows[0],
+                    oferte: obGlobal.obOferte.oferte[0]
                 })
             }
             
