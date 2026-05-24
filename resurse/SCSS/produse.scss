@@ -95,10 +95,16 @@
         .produse{
             .info-produs{
                 .content{
-                    width: 90%;
+                    width: 95%;
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    #grid-produse{
+        display: block;
     }
 }
 
@@ -107,7 +113,10 @@
         display: none;
     }
 
-    #grid-produse{
+    .produs{
         display: block;
+        .info-prod{
+            display: block;
+        }
     }
 }

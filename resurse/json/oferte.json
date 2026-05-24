@@ -1,15 +1,15 @@
 {
   "oferte": [
     {
-      "categorie": "calculator",
-      "data_incepere": "2026-05-24T15:56:20.564Z",
-      "data_finalizare": "2026-05-24T15:58:20.564Z",
-      "reducere": 40
+      "categorie": "telefon",
+      "data_incepere": "2026-05-24T16:12:30.981Z",
+      "data_finalizare": "2026-05-24T16:14:30.981Z",
+      "reducere": 30
     },
     {
-      "categorie": "telefon",
-      "data_incepere": "2026-05-24T15:54:20.553Z",
-      "data_finalizare": "2026-05-24T15:56:20.553Z",
+      "categorie": "calculator",
+      "data_incepere": "2026-05-24T16:10:30.964Z",
+      "data_finalizare": "2026-05-24T16:12:30.964Z",
       "reducere": 30
     }
   ]
