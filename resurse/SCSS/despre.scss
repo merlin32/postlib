@@ -1,7 +1,7 @@
 
-$grad-main-bckg: linear-gradient(to right, var(--main-color), 
-                                           var(--grid-background), 
-                                           var(--main-color));
+$grad-main-bckg: linear-gradient(to right, transparent, 
+                                           var(--main-color), 
+                                           transparent);
 $grad-border: linear-gradient(to right, var(--main-color), 
                                         var(--anchor-color), 
                                         var(--paragraph-shadow-color), 
@@ -18,7 +18,7 @@ $grad-border: linear-gradient(to right, var(--main-color),
     background: $grad-main-bckg;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: var(--paragraph-shadow-color);
+    color: var(--titles-color);
 }
 
 #about-grid{
@@ -38,42 +38,6 @@ $grad-border: linear-gradient(to right, var(--main-color),
         padding: var(--grid-padding);
         background-color: var(--grid-background);
     }
-
-    h2{
-        color: var(--paragraph-shadow-color);
-        border-bottom: 2px solid;
-        border-width: 50%;
-        font-size: 1.6em;
-        border-image-source: linear-gradient(to right, var(--paragraph-shadow-color), 
-                                                       var(--paragraph-shadow-color), 
-                                                       var(--grid-background), 
-                                                       var(--grid-background));
-        border-image-slice: 1;
-    }
-
-    p{
-        font-size: 1.2em;
-    }
-
-    hgroup{
-        p{
-            margin-left: 0;
-            margin-top: 0;
-            color: var(--paragraph-shadow-color);
-            box-shadow: none;
-            border: none;
-            text-indent: 0;
-            background: linear-gradient(to right, var(--anchor-color), 
-                                                  var(--anchor-color), 
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--grid-background));
-            font-size: 1.4em;
-            transform: translateY(-20%);
-        }
-    }
 }
 
 .video-container{
@@ -82,14 +46,14 @@ $grad-border: linear-gradient(to right, var(--main-color),
     padding-bottom: 40px;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    border-image-source: linear-gradient(to right, var(--grid-background), 
+    border-image-source: linear-gradient(to right, transparent, 
                                                    var(--paragraph-shadow-color), 
                                                    var(--paragraph-shadow-color),
-                                                   var(--grid-background));
+                                                   transparent);
     border-image-slice: 1;
-    background: linear-gradient(to right, var(--grid-background),
-                                          var(--paragraph-color),
-                                          var(--grid-background));
+    background: linear-gradient(to right, transparent,
+                                          var(--background-margin-color),
+                                          transparent);
     video{
         display: block;
         margin-left: auto;
@@ -134,25 +98,6 @@ $grad-border: linear-gradient(to right, var(--main-color),
         &>*{
             margin-bottom: 20px;
         }
-
-        p{
-            font-size: 1em;
-        }
-
-        hgroup p{
-            text-align: left;
-            white-space: pre-wrap;
-            font-size: 1.1em;
-            text-wrap: word-wrap;
-            background: linear-gradient(to right, var(--anchor-color), 
-                                                  var(--anchor-color), 
-                                                  var(--anchor-color), 
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--anchor-color),
-                                                  var(--grid-background));
-        }
     }
 
     .page-title{
@@ -194,159 +139,4 @@ $grad-border: linear-gradient(to right, var(--main-color),
         background-image: url("/resurse/imagini/background_images/CosmicAbstractBlue.jpg");
         filter: brightness(70%);
     }
-}
-
-//Founders Table
-
-
-%border-var{
-    border: 2px solid var(--paragraph-shadow-color);
-}
-
-@mixin border-phone{
-    border-left: 3px solid var(--paragraph-shadow-color);
-    border-right: 3px solid var(--paragraph-shadow-color);
-}
-@mixin head-color{
-    color: var(--text-color-paragraph);
-}
-
-.founders-table-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 40px;
-    margin-right: 40px;
-
-    .founders-table{
-        width: 100%;
-        margin-top: 10px;
-        color: var(--text-color);
-        border-collapse: collapse;
-        border-spacing: 0;
-        @extend %border-var;
-
-        th, td{
-            @extend %border-var;
-            padding: 10px;
-            text-align: center;
-        }
-
-        td{
-            background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-
-        thead{
-            tr{
-                th{
-                    background: linear-gradient(to right, var(--box-shadow), 
-                                                              var(--titles-color),
-                                                              var(--box-shadow));
-                    filter: brightness(85%);
-                    color: var(--text-color-paragraph);
-                    text-shadow: 1px 2px 3px var(--box-shadow);
-                    text-align: center;
-                    vertical-align: center;
-                    padding: 25px 10px;
-                    font-size: 1.2em;
-                }
-            }
-        }
-
-    }
-}
-
-@media screen and (max-width: 750px){
-    .founders-table-container{
-        .founders-table{
-            border: none;
-            thead{
-                display: none;
-            }
-
-            td, tr{
-                display: block;
-            }
-
-            th, td{
-                border: none;
-            }
-
-            td{
-                box-sizing: border-box;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                white-space: normal;
-                text-wrap: wrap;
-                background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
-                border-bottom: 1px solid var(--paragraph-shadow-color);
-                @include border-phone; 
-                &:last-child{
-                    border-bottom:5px double var(--paragraph-shadow-color);
-                }
-            }
-
-            tr{
-                &:first-child{
-                    border-top:3px solid var(--paragraph-shadow-color);
-                }
-
-                &:last-child{
-                    border-bottom:3px solid var(--paragraph-shadow-color);
-                }  
-
-                &.last-elem{
-                    td{
-                        &:last-child {
-                            border-bottom: none;
-                        }
-                    }
-                }
-            }
-
-            tbody{
-                td{
-                    font-size: 0.8em;
-                    text-align: left;
-                    text-align-last: center;
-                    &::before{
-			            float:left;
-			            width:40%;
-                        min-width: 180px;
-			            background: linear-gradient(to right, var(--box-shadow), 
-                                                              var(--titles-color),
-                                                              var(--box-shadow));
-			            font-weight:bold;
-			            margin-right:0.5em;
-			            padding:0.1em;
-			            line-height:300%;
-		            }
-
-                    &:nth-child(1)::before{
-                        content: "Nume: ";
-                        @include head-color;
-                    }
-
-                    &:nth-child(2)::before{
-                        content: "Rol: ";
-                        @include head-color;
-                    }
-
-                    &:nth-child(3)::before{
-                        content: "Specializare: ";
-                        @include head-color;
-                    }
-
-                    &:nth-child(4)::before{
-                        content: "Contact: ";
-                        @include head-color;
-                    }
-                }
-            }
-        }
-    }   
 }

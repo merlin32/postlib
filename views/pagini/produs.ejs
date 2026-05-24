@@ -3,44 +3,90 @@
     <head>
         <meta name="description" content="PostLib - Pagina dedicata magazinului virtual pentru cumpararea de continut digital">
         <meta name="keywords" content="<%- locals.prod.title %>, <%- locals.prod.username %>, <%- locals.prod.tags %>, <%- locals.prod.cont_type %>">
-        
+        <link rel="stylesheet" type="text/css" href="/resurse/css/responsive_table.css">
+        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+
         <title>PostLib - <%- locals.prod.title %></title>
         <%- include("../fragmente/head") %>     
-        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
     </head>
 
         <%- include("../fragmente/header") %>
     <main>
-        <section>
-            <h2>Pagină produs</h2>
+        <section id="product-grid">
+            <h2 id="product-page-title">Pagină produs</h2>
                 <article id="art-produs">
-                    <h3><span class="nume"><%- locals.prod.title %></span></h3>
-                    <p>Tip continut digital: <span class="cont_type"><%- locals.prod.cont_type %> </span></p>
-                    <p>Pret: <span class="pret"><%- locals.prod.price %> EUR</span></p>
-                    <p>Descriere: <span class="descriere"><%- locals.prod.description %> </span></p>
-                    <p>Postat de: <span class="username"><%- locals.prod.username %> </span></p>
-                    <p>Etichete: <span class="tags"><%- locals.prod.tags %> </span></p>
-                    <p>Dimensiune Fisier: <span class="file-size"><%- locals.prod.file_size %> MB</span></p>
-                    <p>Categorie: <span class="categorie"><%- locals.prod.cont_categ %> </span></p>
-                    <% if(locals.prod.available) { %>
-                        <p>Disponibil: <span class="available">Da</span></p>
-                    <% } else { %>
-                        <p>Disponibil: <span class="available">Nu</span></p>
-                    <% } %>
-                    <p>Data postare: 
-                        <span class="upload-date">
-                            <time datetime="<%- new Date(locals.prod.upload_date).toISOString().split('T')[0] %>"></time>
-                        </span>
-                    </p>
-                    <p>Licenta: <span class="license"><%- locals.prod.lic_type %> </span></p>
-                    <figure class="imag-produs">
-                        <img  src="/resurse/imagini/produse/thumbnails/<%- locals.prod.thumbnail %>" alt="[imagine <%- locals.prod.title %>]" />
-                    </figure>
-                    <% if(locals.prod.audio_file) { %>
-                        <audio controls>
-                            <source src="/resurse/audio/ringtones/<%- locals.prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
-                        </audio>
-                    <% } %>   
+                    <h3><span class="nume">Titlu: <%- locals.prod.title %></span></h3>
+                    <div class="product-info">
+                        <figure class="imag-produs">
+                            <img  src="/resurse/imagini/produse/thumbnails/<%- locals.prod.thumbnail %>" alt="[imagine <%- locals.prod.title %>]" />
+                        </figure>
+                        <% if(locals.prod.audio_file) { %>
+                            <audio controls>
+                                <source src="/resurse/audio/ringtones/<%- locals.prod.audio_file %>" type="audio/mpeg"> Browserul tău nu suportă elementul audio.
+                            </audio>
+                        <% } %>
+                        <div class="product-info-table">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Tip continut digital</td>
+                                    <td><%- locals.prod.cont_type %></td>
+                                </tr>
+                                <tr>
+                                    <td>Pret</td>
+                                    <td class="val-pret">
+                                        <% if(locals.oferte && prod.cont_categ === locals.oferte.categorie && prod.price > 0 && prod.available) { %>
+                                            <s><%- prod.price %> EUR</s>
+                                            <%- (prod.price * (1 - locals.oferte.reducere / 100)).toFixed(2) %> EUR
+                                        <% } else { %>
+                                            <%- prod.price %> EUR
+                                        <% } %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <% if(locals.prod.description) { %>
+                                        <td>Descriere</td>
+                                        <td><%- locals.prod.description %></td>
+                                    <% } %>
+                                </tr>
+                                <tr>
+                                    <td>Postat de</td>
+                                    <td><%- locals.prod.username %></td>
+                                </tr>
+                                <tr>
+                                    <td>Etichete</td>
+                                    <td><%- locals.prod.tags %></td>
+                                </tr>
+                                <tr>
+                                    <td>Dimensiune Fisier</td>
+                                    <td><%- locals.prod.file_size %> MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Categorie</td>
+                                    <td><%- locals.prod.cont_categ %></td>
+                                </tr>
+                                <tr>
+                                    <td>Disponibil</td>
+                                    <% if(locals.prod.available) { %>
+                                        <td>Da</td>
+                                    <% } else { %>
+                                        <td>Nu</td>
+                                    <% } %>
+                                </tr>
+                                <tr>
+                                    <td>Data postare</td>
+                                    <td class="upload-date">
+                                        <time datetime="<%- new Date(locals.prod.upload_date).toISOString().split('T')[0] %>"></time>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Licenta</td>
+                                    <td class="val-license"><%- locals.prod.lic_type %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div> 
                 </article>
             
         </section>

@@ -71,14 +71,15 @@ body.light .form-check-label .fa-moon { display: none; }
 
 .form-check-label i{
     position: absolute;
-    margin-top: -6px;
-    margin-left: 10px;
+    margin-top: -13px;
+    margin-left: -2px;
 }
 
 .theme-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 10;
+    position: fixed;
+    top: 1em;
+    right: 1.4em;
 }
 
 h1, h2, h3, h5, h6{
@@ -287,7 +288,8 @@ main {
 }
 
 #page-grid>*,
-footer>*, #products-layout>* {
+footer>*, #products-layout>*, #product-grid>*,
+#about-grid>* {
     border: var(--grid-border);
     box-shadow: var(--grid-box-shadow);
     border-radius: var(--grid-border-radius);
@@ -720,6 +722,14 @@ figure>img {
     background-color: var(--paragraph-color);
     box-shadow: var(--paragraph-shadow);
     border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px){
+    .theme-button{
+        top: auto;
+        bottom: 6.5em;
+        right: 1em;
+    }
 }
 
 @media screen and (max-width: 1000px) {

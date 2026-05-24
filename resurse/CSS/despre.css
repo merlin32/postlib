@@ -5,10 +5,10 @@
   border-bottom: 2px solid;
   border-image-source: linear-gradient(to right, var(--main-color), var(--anchor-color), var(--paragraph-shadow-color), var(--anchor-color), var(--main-color));
   border-image-slice: 1;
-  background: linear-gradient(to right, var(--main-color), var(--grid-background), var(--main-color));
+  background: linear-gradient(to right, transparent, var(--main-color), transparent);
   padding-top: 10px;
   padding-bottom: 10px;
-  color: var(--paragraph-shadow-color);
+  color: var(--titles-color);
 }
 
 #about-grid {
@@ -25,28 +25,6 @@
   padding: var(--grid-padding);
   background-color: var(--grid-background);
 }
-#about-grid h2 {
-  color: var(--paragraph-shadow-color);
-  border-bottom: 2px solid;
-  border-width: 50%;
-  font-size: 1.6em;
-  border-image-source: linear-gradient(to right, var(--paragraph-shadow-color), var(--paragraph-shadow-color), var(--grid-background), var(--grid-background));
-  border-image-slice: 1;
-}
-#about-grid p {
-  font-size: 1.2em;
-}
-#about-grid hgroup p {
-  margin-left: 0;
-  margin-top: 0;
-  color: var(--paragraph-shadow-color);
-  box-shadow: none;
-  border: none;
-  text-indent: 0;
-  background: linear-gradient(to right, var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--grid-background));
-  font-size: 1.4em;
-  transform: translateY(-20%);
-}
 
 .video-container {
   width: 100%;
@@ -54,9 +32,9 @@
   padding-bottom: 40px;
   border-top: 2px solid;
   border-bottom: 2px solid;
-  border-image-source: linear-gradient(to right, var(--grid-background), var(--paragraph-shadow-color), var(--paragraph-shadow-color), var(--grid-background));
+  border-image-source: linear-gradient(to right, transparent, var(--paragraph-shadow-color), var(--paragraph-shadow-color), transparent);
   border-image-slice: 1;
-  background: linear-gradient(to right, var(--grid-background), var(--paragraph-color), var(--grid-background));
+  background: linear-gradient(to right, transparent, var(--background-margin-color), transparent);
 }
 .video-container video {
   display: block;
@@ -100,16 +78,6 @@
   #about-grid > * {
     margin-bottom: 20px;
   }
-  #about-grid p {
-    font-size: 1em;
-  }
-  #about-grid hgroup p {
-    text-align: left;
-    white-space: pre-wrap;
-    font-size: 1.1em;
-    text-wrap: word-wrap;
-    background: linear-gradient(to right, var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--anchor-color), var(--grid-background));
-  }
   .page-title {
     background: linear-gradient(to right, var(--main-color), var(--grid-background), var(--grid-background), var(--main-color));
   }
@@ -139,113 +107,5 @@
   50%, 75% {
     background-image: url("/resurse/imagini/background_images/CosmicAbstractBlue.jpg");
     filter: brightness(70%);
-  }
-}
-.founders-table-container .founders-table th, .founders-table-container .founders-table td, .founders-table-container .founders-table {
-  border: 2px solid var(--paragraph-shadow-color);
-}
-
-.founders-table-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 40px;
-  margin-right: 40px;
-}
-.founders-table-container .founders-table {
-  width: 100%;
-  margin-top: 10px;
-  color: var(--text-color);
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.founders-table-container .founders-table th, .founders-table-container .founders-table td {
-  padding: 10px;
-  text-align: center;
-}
-.founders-table-container .founders-table td {
-  background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-.founders-table-container .founders-table thead tr th {
-  background: linear-gradient(to right, var(--box-shadow), var(--titles-color), var(--box-shadow));
-  filter: brightness(85%);
-  color: var(--text-color-paragraph);
-  text-shadow: 1px 2px 3px var(--box-shadow);
-  text-align: center;
-  vertical-align: center;
-  padding: 25px 10px;
-  font-size: 1.2em;
-}
-
-@media screen and (max-width: 750px) {
-  .founders-table-container .founders-table {
-    border: none;
-  }
-  .founders-table-container .founders-table thead {
-    display: none;
-  }
-  .founders-table-container .founders-table td, .founders-table-container .founders-table tr {
-    display: block;
-  }
-  .founders-table-container .founders-table th, .founders-table-container .founders-table td {
-    border: none;
-  }
-  .founders-table-container .founders-table td {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    white-space: normal;
-    text-wrap: wrap;
-    background: linear-gradient(to right, var(--main-color), var(--grid-fade), var(--main-color));
-    border-bottom: 1px solid var(--paragraph-shadow-color);
-    border-left: 3px solid var(--paragraph-shadow-color);
-    border-right: 3px solid var(--paragraph-shadow-color);
-  }
-  .founders-table-container .founders-table td:last-child {
-    border-bottom: 5px double var(--paragraph-shadow-color);
-  }
-  .founders-table-container .founders-table tr:first-child {
-    border-top: 3px solid var(--paragraph-shadow-color);
-  }
-  .founders-table-container .founders-table tr:last-child {
-    border-bottom: 3px solid var(--paragraph-shadow-color);
-  }
-  .founders-table-container .founders-table tr.last-elem td:last-child {
-    border-bottom: none;
-  }
-  .founders-table-container .founders-table tbody td {
-    font-size: 0.8em;
-    text-align: left;
-    text-align-last: center;
-  }
-  .founders-table-container .founders-table tbody td::before {
-    float: left;
-    width: 40%;
-    min-width: 180px;
-    background: linear-gradient(to right, var(--box-shadow), var(--titles-color), var(--box-shadow));
-    font-weight: bold;
-    margin-right: 0.5em;
-    padding: 0.1em;
-    line-height: 300%;
-  }
-  .founders-table-container .founders-table tbody td:nth-child(1)::before {
-    content: "Nume: ";
-    color: var(--text-color-paragraph);
-  }
-  .founders-table-container .founders-table tbody td:nth-child(2)::before {
-    content: "Rol: ";
-    color: var(--text-color-paragraph);
-  }
-  .founders-table-container .founders-table tbody td:nth-child(3)::before {
-    content: "Specializare: ";
-    color: var(--text-color-paragraph);
-  }
-  .founders-table-container .founders-table tbody td:nth-child(4)::before {
-    content: "Contact: ";
-    color: var(--text-color-paragraph);
   }
 }

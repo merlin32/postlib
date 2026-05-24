@@ -93,14 +93,16 @@
         <div class="moving-text-content">Fundaluri, tonuri de apel si o comunitate incredibila</div>
         <div class="moving-text-content">Alatura-te acum</div>
     </div>
-    <div class="offer">
-        <span>Oferta la categoria "<%- locals.oferte.categorie %>" de <%- locals.oferte.reducere %>%</span>
-        <span id="remaining-time"></span>
+    <% if(locals.oferte) { %>
+        <div class="offer">
+            <span>Oferta la categoria "<%- locals.oferte.categorie %>" de <%- locals.oferte.reducere %>%</span>
+            <span id="remaining-time"></span>
             <script>
                 const extractedDate = new Date("<%- locals.oferte.data_finalizare %>")
             </script>
             <script src="/resurse/js/offerTimer.js"></script>
-    </div>
+        </div>
+    <% } %>
     <div class="title">
         <img class="logo" src="/resurse/imagini/logo/PostLibLogo.png" alt="PostLibLogo" width="192">
         <div class="title-text">

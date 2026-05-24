@@ -1,0 +1,92 @@
+#product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "product-page-title product-page-title" "art-produs art-produs";
+}
+
+#product-page-title {
+  grid-area: product-page-title;
+}
+
+#art-produs {
+  grid-area: art-produs;
+}
+#art-produs h3 {
+  text-align: center;
+  font-size: 1.6em;
+}
+#art-produs .product-info {
+  padding: 20px;
+  margin: 50px;
+  gap: 10px;
+  border: 10px solid var(--paragraph-color);
+  background: linear-gradient(to right, var(--fade), var(--grid-background), var(--fade));
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#art-produs .product-info .imag-produs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 700px;
+  margin: 0;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, var(--main-color), var(--text-color), var(--main-color));
+  border: var(--grid-border);
+  border-radius: 20px;
+}
+#art-produs .product-info .imag-produs img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 18px;
+}
+#art-produs .product-info .product-info-table {
+  overflow-x: auto;
+  scrollbar-color: var(--box-shadow) transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#art-produs .product-info .product-info-table table {
+  font-size: 1.2em;
+  color: var(--titles-color);
+  border-collapse: collapse;
+  width: 70%;
+  margin-bottom: 30px;
+}
+#art-produs .product-info .product-info-table table td {
+  padding: 15px;
+  width: 50%;
+  border: 2px solid var(--box-shadow);
+  text-align: center;
+  vertical-align: middle;
+  background: linear-gradient(to right, var(--fade), var(--main-color), var(--fade));
+}
+
+@media screen and (max-width: 1000px) {
+  #art-produs .product-info .product-info-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  #art-produs .product-info .product-info-table table {
+    margin: 0 auto;
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 700px) {
+  #art-produs {
+    margin: 0;
+    gap: 0;
+  }
+  #art-produs .product-info {
+    padding: 0;
+    margin: 0;
+  }
+}

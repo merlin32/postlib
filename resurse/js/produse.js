@@ -14,61 +14,10 @@ window.onload = function() {
 
     updateCheckboxes()
 
-    function applyFilters () {
-
-        //radio group filter
-
-        let grupRadio = document.getElementsByName("gr_rad")
-
-        let isAvailable
-        let anyType = false;
-        for(let rad of grupRadio){
-            if(rad.checked){
-                if(rad.value!="Toate"){
-                    isAvailable = parseInt(rad.value.trim().toLowerCase())
-                    console.log(isAvailable)
-                } else {
-                    anyType = true;
-                }
-                break
-            }
-        }
-
-        //selected file_size value
-        let inpFileSize = parseFloat(document.getElementById("inp-file-size").value.trim())
-
-        //tags value
-        let inpUsername = document.getElementById("inp-username").value.trim().toLowerCase()
-
-        //category  extraction
-        let inpCategorie = document.getElementById("inp-categorie").value.trim().toLowerCase()
-
-        //free content checked
-        let inpFree = document.getElementById("inp-free").checked
-
-        //tags extraction
-        let inpTags = document.getElementById("inp-tags").value.trim().toLowerCase().split(",")
-
-        //category extraction (desktop/phone)
-        let inpCateg = document.getElementById("inp-categorie").value.trim().toLowerCase()
-
-        //license extraction
-        let inpElements = document.getElementById("inp-license").selectedOptions
-        let inpOptions = []
-        let anySelected = false
-        for(let license of inpElements)
-            inpOptions.push(license.value.trim().toLowerCase())
-        if(inpOptions.includes("toate"))
-            anySelected = true
-
-        //text checks using regexp
-        
+    function inputCheck(){
         let inpNumeElement = document.getElementById("inp-nume")
         let inpUserElement = document.getElementById("inp-username")
         let inpTagsElement = document.getElementById("inp-tags")
-        let produse = document.getElementsByClassName("produs")
-
-        let inpNume = inpNumeElement.value.trim().toLowerCase()
 
         let regexpNume = /^[a-zA-Z0-9 ]*$/
         let regexpUsername = /^[a-zA-Z0-9]*$/
@@ -99,7 +48,51 @@ window.onload = function() {
             inpTagsElement.classList.remove("is-invalid")
         }
 
-        if(!valid) return
+        if(!valid) return false
+        else return true
+    }
+
+    function applyFilters () {
+
+        //radio group filter
+
+        let grupRadio = document.getElementsByName("gr_rad")
+
+        let isAvailable
+        let anyType = false;
+        for(let rad of grupRadio){
+            if(rad.checked){
+                if(rad.value!="Toate"){
+                    isAvailable = parseInt(rad.value.trim().toLowerCase())
+                    console.log(isAvailable)
+                } else {
+                    anyType = true;
+                }
+                break
+            }
+        }
+
+        let inpFileSize = parseFloat(document.getElementById("inp-file-size").value.trim())
+        let inpUsername = document.getElementById("inp-username").value.trim().toLowerCase()
+        let inpCategorie = document.getElementById("inp-categorie").value.trim().toLowerCase()
+        let inpFree = document.getElementById("inp-free").checked
+        let inpTags = document.getElementById("inp-tags").value.trim().toLowerCase().split(",")
+        let inpCateg = document.getElementById("inp-categorie").value.trim().toLowerCase()
+        let inpElements = document.getElementById("inp-license").selectedOptions
+        
+        let produse = document.getElementsByClassName("produs")
+        let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase()
+
+        let inpOptions = []
+        let anySelected = false
+
+        for(let license of inpElements)
+            inpOptions.push(license.value.trim().toLowerCase())
+        if(inpOptions.includes("toate"))
+            anySelected = true
+
+        if(!inputCheck()) return
+
 
          //filter
         for(let prod of produse){
@@ -226,8 +219,14 @@ window.onload = function() {
 
     //sorting buttons
 
-    document.getElementById("sortCrescRaport").onclick = function(){sorteaza(1)}
-    document.getElementById("sortDescrescRaport").onclick = function(){sorteaza(-1)}
+    document.getElementById("sortCrescRaport").onclick = function(){
+        inputCheck()
+        sorteaza(1)
+    }
+    document.getElementById("sortDescrescRaport").onclick = function(){
+        inputCheck()
+        sorteaza(-1)
+    }
 
     function selectedProdSum(){
         let produse = document.getElementsByClassName("produs")

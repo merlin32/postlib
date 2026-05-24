@@ -206,7 +206,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p class="description">Descriere: <span><%- prod.description %> </span></p>
+                                <% if(prod.description) { %>
+                                    <p class="description">Descriere: <span><%- prod.description %> </span></p>
+                                <% } %>
                                 <p class="cont-categ">Categorie: <span class="val-categorie"><%- prod.cont_categ %> </span></p>
                                 <label class="selecteaza-cos">
                                     Selectează:<br/>
